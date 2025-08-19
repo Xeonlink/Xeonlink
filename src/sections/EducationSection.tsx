@@ -49,7 +49,7 @@ export function EducationSection() {
               인문계열 <span className="text-red-400">이과</span>
             </span>
             <br />
-            March 2020 - February 2026 <br />
+            March 2017 - February 2020 <br />
             <span>졸업</span>
           </p>
         </div>

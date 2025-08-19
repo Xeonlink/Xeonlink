@@ -24,7 +24,8 @@ export function CertificationSection() {
           <p className="mt-1">
             <span className="text-xl">한국산업인력공단</span>
             <br />
-            February 2026
+            {/* TODO: 날짜 확인 */}
+            February 2025
           </p>
         </div>
         <img src={정보처리기사자격증Image} alt="정보처리기사자격증" className="size-32 rounded-3xl object-cover" />
@@ -46,6 +47,7 @@ export function CertificationSection() {
           <p className="mt-1">
             <span className="text-xl">한국데이터산업진흥원</span>
             <br />
+            {/* TODO: 날짜 변경 */}
             February 2026
           </p>
         </div>
