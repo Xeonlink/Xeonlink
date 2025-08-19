@@ -50,12 +50,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-#root {
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
-}
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -134,5 +128,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  #root {
+    @apply absolute inset-0;
+  }
+}
+
+@layer utilities {
+  .border-underline {
+    @apply border-b border-transparent hover:border-white;
   }
 }
