@@ -1,11 +1,10 @@
-import { GithubIcon } from "@/components/icon/GithubIcon";
-import { buttonVariants } from "@/components/ui/button";
-import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import profileImage from "@/assets/selfie0_crop2.jpeg";
-import { Section } from "../components/section";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { GithubIcon } from "@/components/icon/GithubIcon";
 import { Link } from "@/components/link";
+import { Button } from "@/components/ui/button";
+import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
+import { motion } from "motion/react";
+import { Section } from "../components/section";
 
 export function AboutSection() {
   return (
@@ -20,15 +19,15 @@ export function AboutSection() {
         />
       </div>
       <h2 className="text-7xl font-bold">
-        오지민, <strong className="text-red-400">OH</strong> JIMIN
+        오지민, <strong className="text-accent">OH</strong> JIMIN
       </h2>
       <p className="flex flex-wrap text-4xl">
         <span>
-          TEL. <strong className="font-normal text-red-400">010-6767-4151</strong>
+          TEL. <strong className="font-normal text-accent">010-6767-4151</strong>
         </span>
         &nbsp;|&nbsp;
         <span>
-          E-MAIL. <strong className="font-normal text-red-400">jimin7020@gmail.com</strong>
+          E-MAIL. <strong className="font-normal text-accent">jimin7020@gmail.com</strong>
         </span>
       </p>
       <p className="text-xl">
@@ -37,25 +36,25 @@ export function AboutSection() {
       </p>
       <ul className="flex gap-4">
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
-          <Link
-            href="https://github.com/Xeonlink"
-            className={cn(buttonVariants({ variant: "outline" }), "size-14 rounded-full")}
-          >
-            <GithubIcon className="size-full scale-125" />
-          </Link>
+          <Button variant="outline" className="size-14 rounded-full" asChild>
+            <Link href="https://github.com/Xeonlink">
+              <GithubIcon className="size-full scale-125" />
+            </Link>
+          </Button>
         </motion.li>
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
-          <Link href="tel:01067674151" className={cn(buttonVariants({ variant: "outline" }), "size-14 rounded-full")}>
-            <PhoneOutgoingIcon className="size-full -translate-x-0.5 translate-y-0.5" />
-          </Link>
+          <Button variant="outline" className="size-14 rounded-full" asChild>
+            <Link href="tel:01067674151">
+              <PhoneOutgoingIcon className="size-full -translate-x-0.5 translate-y-0.5" />
+            </Link>
+          </Button>
         </motion.li>
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
-          <Link
-            href="mailto:jimin7020@gmail.com"
-            className={cn(buttonVariants({ variant: "outline" }), "size-14 rounded-full")}
-          >
-            <MailIcon className="size-full" />
-          </Link>
+          <Button variant="outline" className="size-14 rounded-full" asChild>
+            <Link href="mailto:jimin7020@gmail.com">
+              <MailIcon className="size-full" />
+            </Link>
+          </Button>
         </motion.li>
       </ul>
     </Section>

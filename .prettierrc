@@ -3,10 +3,12 @@
   "semi": true,
   "printWidth": 120,
   "trailingComma": "all",
-  "plugins": ["prettier-plugin-tailwindcss"],
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
 
   "tailwindStylesheet": "src/index.css",
   "tailwindFunctions": ["clsx", "cva"],
   "tailwindPreserveWhitespace": false,
-  "tailwindPreserveDuplicates": false
+  "tailwindPreserveDuplicates": false,
+
+  "organizeImportsSkipDestructiveCodeActions": true
 }

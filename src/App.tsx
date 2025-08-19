@@ -85,9 +85,12 @@ export function App() {
   return (
     <div className="flex h-screen w-screen">
       <nav
-        className={cn("flex w-72 flex-col overflow-y-scroll bg-red-400 transition-all duration-1000 max-md:w-0", {
-          "w-17": !navbar.isOpen,
-        })}
+        className={cn(
+          "flex w-72 flex-col overflow-y-scroll bg-sidebar-primary transition-all duration-1000 max-md:w-0",
+          {
+            "w-17": !navbar.isOpen,
+          },
+        )}
         style={{
           transitionDelay: !navbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
         }}
@@ -161,6 +164,7 @@ export function App() {
           </li>
         </ul>
       </nav>
+
       <ScrollArea className="flex-1">
         <AboutSection />
         <EducationSection />
@@ -169,9 +173,16 @@ export function App() {
         <ProjectsSection />
         <ExtraSection />
       </ScrollArea>
-      <Button variant="outline" className="absolute right-8 bottom-8 size-10" onClick={() => scrollToById("about")}>
-        <ArrowUpToLineIcon className="size-6" />
-      </Button>
+
+      <div className="group absolute right-0 bottom-0">
+        <Button
+          variant="outline"
+          className="mr-8 mb-8 size-10 duration-500 group-hover:size-20"
+          onClick={() => scrollToById("about")}
+        >
+          <ArrowUpToLineIcon className="size-6 transition-all duration-300 group-hover:size-10" />
+        </Button>
+      </div>
     </div>
   );
 }

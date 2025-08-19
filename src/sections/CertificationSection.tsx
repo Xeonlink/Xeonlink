@@ -15,8 +15,8 @@ export function CertificationSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className="inline border-b border-transparent hover:border-white">
-              정보 처리 <span className="text-red-400">기사</span>
+            <h2 className="border-underline inline">
+              정보 처리 <span className="text-accent">기사</span>
             </h2>
             &nbsp;
             <LinkIcon className="inline size-5" />
@@ -38,8 +38,8 @@ export function CertificationSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className="inline border-b border-transparent hover:border-white">
-              SQL <span className="text-red-400">개발자</span> (SQLD)
+            <h2 className="border-underline inline">
+              SQL <span className="text-accent">개발자</span> (SQLD)
             </h2>
             &nbsp;
             <LinkIcon className="inline size-5" />

@@ -18,7 +18,7 @@ export function ExperienceSection() {
         <ArticleHeader>
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
-            큐브릭 <span className="text-red-400">클라우드 사인</span> 고도화
+            큐브릭 <span className="text-accent">클라우드 사인</span> 고도화
           </ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge
@@ -69,7 +69,7 @@ export function ExperienceSection() {
         <ArticleHeader>
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
-            큐브릭 <span className="text-red-400">사인</span> DX 개선
+            큐브릭 <span className="text-accent">사인</span> DX 개선
           </ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge
@@ -79,6 +79,7 @@ export function ExperienceSection() {
             <ArticleBadge
               src="https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white"
               alt="electron badge"
+              href="https://www.electronjs.org/"
             />
             <ArticleBadge
               src="https://img.shields.io/badge/Redux%20Toolkit-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white"
@@ -87,6 +88,7 @@ export function ExperienceSection() {
             <ArticleBadge
               src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101"
               alt="socket.io badge"
+              href="https://github.com/socketio/socket.io"
             />
             <ArticleBadge
               src="https://img.shields.io/badge/nedb-%23213939.svg?style=for-the-badge&logo=nedb&logoColor=white"

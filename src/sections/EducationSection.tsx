@@ -9,15 +9,15 @@ export function EducationSection() {
       <article className="flex flex-wrap justify-between gap-4">
         <div>
           <a href="https://cse.ssu.ac.kr/" className="text-4xl">
-            <h2 className="inline border-b border-transparent transition-all duration-200 hover:border-white">
-              SOONGSIL <span className="text-red-400">UNIV</span>ERSITY
+            <h2 className="border-underline inline">
+              SOONGSIL <span className="text-accent">UNIV</span>ERSITY
             </h2>
             &nbsp;
             <LinkIcon className="inline size-5" />
           </a>
           <p className="mt-1">
             <span className="text-2xl">
-              <span className="text-red-400">컴퓨터</span>학부 학사
+              <span className="text-accent">컴퓨터</span>학부 학사
             </span>
             <br />
             March 2020 - February 2026 <br />
@@ -38,15 +38,15 @@ export function EducationSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className="inline border-b border-transparent hover:border-white">
-              NAMJU <span className="text-red-400">HIGH</span>&nbsp;SCHOOL
+            <h2 className="border-underline inline">
+              NAMJU <span className="text-accent">HIGH</span>&nbsp;SCHOOL
             </h2>
             &nbsp;
             <LinkIcon className="inline size-5" />
           </a>
           <p className="mt-1">
             <span className="text-2xl">
-              인문계열 <span className="text-red-400">이과</span>
+              인문계열 <span className="text-accent">이과</span>
             </span>
             <br />
             March 2017 - February 2020 <br />
