@@ -7,10 +7,11 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 14px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: var(--background); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,7 +30,7 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: #ff6467;
+  --accent: #f95154;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -42,7 +43,7 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #fc7e80;
+  --sidebar-primary: #ff6467;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -127,7 +128,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply h-screen w-screen bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
   #root {
     @apply absolute inset-0;

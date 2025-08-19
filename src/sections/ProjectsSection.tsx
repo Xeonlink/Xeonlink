@@ -77,13 +77,22 @@ export function ProjectsSection() {
                 className="w-96 rounded-xl"
               />
             </div>
-            <p>
-              - 업데이트할 때, <span className="text-accent">DB를 유연하게 변경</span> 필요 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- db schema 변경보다 프로그램 버전 변경이 더 빠름 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 매번 버전에 맞는 조건문 필요&nbsp;
-              <ArrowRightIcon className="inline size-4" /> <span className="text-accent">schema 변경</span>에만 집중
-              가능
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">
+                업데이트할 때, <span className="text-accent">DB를 유연하게 변경</span> 필요
+              </li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">db schema 변경보다 프로그램 버전 변경이 더 빠름</li>
+                  <li className="list-disc">
+                    매번 버전에 맞는 조건문 필요&nbsp;
+                    <ArrowRightIcon className="inline size-4" /> <span className="text-accent">schema 변경</span>에만
+                    집중 가능
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
             <div className="group relative flex w-fit flex-wrap items-center">
               <img
                 src={createApiSelectorImage}
@@ -97,18 +106,24 @@ export function ProjectsSection() {
                 className="absolute h-36 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
-
-            <p>
-              - ipc 통신을 더 쉽고, 실수없이 정의하고 싶음 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 채널 이름을 기억하기 어려움&nbsp;
-              <ArrowRightIcon className="inline size-4" /> 채널이름을 key로 하여&nbsp;
-              <span className="text-accent">typescript를 통해 추론</span> <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- handle함수에 맞는&nbsp;
-              <span className="text-accent">invoke 함수</span>를 자동 생성&nbsp; <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- main의 에러가 renderer로 전달 안됨&nbsp;
-              <ArrowRightIcon className="inline size-4" /> <span className="text-accent">Error 직렬화/역직렬화</span>로
-              전달&nbsp;
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">ipc 통신을 더 쉽고, 실수없이 정의하고 싶음</li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    채널 이름을 기억하기 어려움 <ArrowRightIcon className="inline size-4" /> 채널이름을 key로 하여{" "}
+                    <span className="text-accent">typescript를 통해 추론</span>
+                  </li>
+                  <li className="list-disc">
+                    handle함수에 맞는 <span className="text-accent">invoke 함수</span>를 자동 생성
+                  </li>
+                  <li className="list-disc">
+                    main의 에러가 renderer로 전달 안됨 <ArrowRightIcon className="inline size-4" />{" "}
+                    <span className="text-accent">Error 직렬화/역직렬화</span>로 전달
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </ArticleContent>
         </ArticleMain>
       </Article>
@@ -143,6 +158,7 @@ export function ProjectsSection() {
               alt="browser extension api badge"
             />
           </ArticleBadgeList>
+
           <p>
             한국에서 사용되는 모바일 본인인증, 휴대폰 인증, 민간인증서 인증 등을 사용할 때 <br />
             필요한 정보를 자동으로 채워주는 브라우저 확장프로그램 입니다. <br />
@@ -161,34 +177,45 @@ export function ProjectsSection() {
               <img
                 src={prePageLocatorImage}
                 alt="document.querySelector로 요소를 찾고, 요소가 있는지 없는지 if문으로 확인하고 로직을 실행하는 블럭이 2개 있음"
-                className="h-56 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
+                className="w-120 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
               />
               {/* <ArrowRightIcon className="inline size-8" /> */}
               <img
                 src={afterPageLocatorImage}
                 alt="page input visibie fill 함수가 체이닝되어 있고, await를 사용하고 있는 구문이 여럿 있음"
-                className="absolute h-36 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
+                className="absolute w-96 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
-            <p>
-              - 확장프로그램이 너무 빨라서 DOM에서 <span className="text-accent">요소를 못찾음</span> <br />
-              -&nbsp;
-              <span className="text-accent">hydration</span>
-              이 끝나기 전에 버튼을 클릭하는 경우 발생 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- playwright에서 영감을 얻어&nbsp;
-              <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Page.ts">
-                <span className="font-bold text-accent">Page</span>
-              </Link>
-              와&nbsp;
-              <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Locator.ts">
-                <span className="font-bold text-accent">Locator</span>
-              </Link>
-              구현 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span className="text-accent">retry</span>와&nbsp;
-              <span className="text-accent">sleep</span>을 통해 더 안정적으로 채워넣기 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 인터넷 느리면 채우기 실패&nbsp;
-              <ArrowRightIcon className="inline size-4" /> 안정적 채우기 가능
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">
+                확장프로그램이 너무 빨라서 DOM에서 <span className="text-accent">요소를 못찾음</span>
+              </li>
+              <li className="list-disc">
+                <span className="text-accent">hydration</span>이 끝나기 전에 버튼을 클릭하는 경우 발생
+              </li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    playwright에서 영감을 얻어{" "}
+                    <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Page.ts">
+                      <span className="font-bold text-accent">Page</span>
+                    </Link>
+                    와&nbsp;
+                    <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Locator.ts">
+                      <span className="font-bold text-accent">Locator</span>
+                    </Link>
+                    구현
+                  </li>
+                  <li className="list-disc">
+                    <span className="text-accent">retry</span>와 <span className="text-accent">sleep</span>을 통해 더
+                    안정적으로 채워넣기
+                  </li>
+                  <li className="list-disc">
+                    인터넷 느리면 채우기 실패 <ArrowRightIcon className="inline size-4" /> 안정적 채우기 가능
+                  </li>
+                </ul>
+              </li>
+            </ul>
             <div className="group relative flex w-96 flex-wrap items-center">
               <img
                 src={allcaseImage3}
@@ -199,22 +226,27 @@ export function ProjectsSection() {
               <img
                 src={allcaseImage}
                 alt="테스트 커버리지에 맞는 타입이 정의되어있고, allcase2 함수에 타입을 제네릭으로 넣어주고 있음"
-                className="absolute h-42 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
+                className="absolute w-96 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
-            <p>
-              - e2e 테스트 차원을 늘릴 때마다 test.describe와 test가 중복 <ArrowRightIcon className="inline size-4" />
-              &nbsp; 규격화 곤란 <br />
-              -&nbsp;
-              <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/tests/utils/testcase.ts">
-                <span className="font-bold text-accent">allcase</span>
-              </Link>
-              &nbsp;함수 정의 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- regist함수에서 파라미터 추가만으로 테스트 커버리지
-              확장&nbsp;
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- test.describe 자동 등록, variables의 통한 타입 추론
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">
+                e2e 테스트 차원을 늘릴 때마다 test.describe와 test가 중복 <ArrowRightIcon className="inline size-4" />{" "}
+                규격화 곤란
+              </li>
+              <li className="list-disc">
+                <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/tests/utils/testcase.ts">
+                  <span className="font-bold text-accent">allcase</span>
+                </Link>{" "}
+                함수 정의
+              </li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">regist함수에서 파라미터 추가만으로 테스트 커버리지 확장</li>
+                  <li className="list-disc">test.describe 자동 등록, variables의 통한 타입 추론</li>
+                </ul>
+              </li>
+            </ul>
           </ArticleContent>
         </ArticleMain>
       </Article>

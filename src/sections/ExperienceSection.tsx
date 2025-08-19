@@ -1,14 +1,14 @@
-import { ArrowRight } from "lucide-react";
-import { Section, SubSectionTitle } from "../components/section";
 import {
   Article,
-  ArticleHeader,
-  ArticleTitle,
-  ArticleBadgeList,
   ArticleBadge,
-  ArticleMain,
+  ArticleBadgeList,
   ArticleContentTitle,
+  ArticleHeader,
+  ArticleMain,
+  ArticleTitle,
 } from "@/components/article";
+import { ArrowRight } from "lucide-react";
+import { Section, SubSectionTitle } from "../components/section";
 
 export function ExperienceSection() {
   return (
@@ -43,25 +43,38 @@ export function ExperienceSection() {
         <ArticleMain>
           <div>
             <ArticleContentTitle>수행 업무</ArticleContentTitle>
-            <p>
-              - 디자인 캔버스 기능 재설계 (fabric.js) <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 절차지향 <ArrowRight className="inline size-4" /> 선언적
-              OOP <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- undo redo 스냅샷 기능 개발 <br />
-              - 디자인 관련 api 연동 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 기존 관리도구에서 사용되던 디자인 CRUD api 연동 <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 디자인 프레젠테이션 api 연동 <br />
-              - 기존 UI에 시맨틱 태그 및 flex, grid 기반 반응형 디자인 적용 <br />
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">디자인 캔버스 기능 재설계 (fabric.js)</li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    절차지향 <ArrowRight className="inline size-4" /> 선언적
+                  </li>
+                  <li className="list-disc">undo redo 스냅샷 기능 개발</li>
+                </ul>
+              </li>
+              <li className="list-disc">디자인 관련 api 연동</li>
+              <li>
+                <ul className="ml-8">
+                  <li className="list-disc">기존 관리도구에서 사용되던 디자인 CRUD api 연동</li>
+                  <li className="list-disc">디자인 프레젠테이션 api 연동</li>
+                </ul>
+              </li>
+              <li className="list-disc">기존 UI에 시맨틱 태그 및 flex, grid 기반 반응형 디자인 적용</li>
+            </ul>
           </div>
           <div>
             <ArticleContentTitle>주요 성과</ArticleContentTitle>
-            <p>
-              - 캔버스에서 undo redo할 때, 컴포넌트에 관계없이 serdes 가능 <br />
-              - WeekMap을 통해 image 컴포넌트 캐싱 <ArrowRight className="inline size-4" /> undo redo 속도 향상 <br />
-              - api 호출 함수와 react-query hook을 다른 레이어로 분리 <ArrowRight className="inline size-4" /> api
-              변경에 유연하게 대처가능
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">캔버스에서 undo redo할 때, 컴포넌트에 관계없이 serdes 가능</li>
+              <li className="list-disc">
+                WeekMap을 통해 image 컴포넌트 캐싱 <ArrowRight className="inline size-4" /> undo redo 속도 향상
+              </li>
+              <li className="list-disc">
+                api 호출 함수와 react-query hook을 다른 레이어로 분리 <ArrowRight className="inline size-4" /> api
+                변경에 유연하게 대처가능
+              </li>
+            </ul>
           </div>
         </ArticleMain>
       </Article>
@@ -100,20 +113,26 @@ export function ExperienceSection() {
         <ArticleMain>
           <div>
             <ArticleContentTitle>수행 업무</ArticleContentTitle>
-            <p>
-              - 빌드 시나리오 문서화 <br />
-              - React 컴포넌트 마이그레이션 (class <ArrowRight className="inline size-4" /> func) <br />
-              - 통합 모달처리 react hook(useModal) 개발 및 적용 <br />
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">빌드 시나리오 문서화</li>
+              <li className="list-disc">
+                React 컴포넌트 마이그레이션 (class <ArrowRight className="inline size-4" /> func)
+              </li>
+              <li className="list-disc">통합 모달처리 react hook(useModal) 개발 및 적용</li>
+            </ul>
           </div>
           <div>
             <ArticleContentTitle>주요 성과</ArticleContentTitle>
-            <p>
-              - os 및 버전별 빌드 시나리오를 readme에 정리, 빌드실패로 인한 소통비용 감소 <br />
-              - 300개 이상의 컴포넌트를 함수 컴포넌트로 다시 작성 <ArrowRight className="inline size-4" /> 기존 컴포넌트
-              확장성 재고 및 통폐합 <br />
-              - hook을 통한 모달처리 일관성 제공 <ArrowRight className="inline size-4" /> css z-index 의존도 감소
-            </p>
+            <ul className="ml-8">
+              <li className="list-disc">os 및 버전별 빌드 시나리오를 readme에 정리, 빌드실패로 인한 소통비용 감소</li>
+              <li className="list-disc">
+                300개 이상의 컴포넌트를 함수 컴포넌트로 다시 작성 <ArrowRight className="inline size-4" /> 기존 컴포넌트
+                확장성 재고 및 통폐합
+              </li>
+              <li className="list-disc">
+                hook을 통한 모달처리 일관성 제공 <ArrowRight className="inline size-4" /> css z-index 의존도 감소
+              </li>
+            </ul>
           </div>
         </ArticleMain>
       </Article>
