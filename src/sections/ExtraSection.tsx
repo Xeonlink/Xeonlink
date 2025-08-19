@@ -7,7 +7,7 @@ export function ExtraSection() {
       <h1 className="text-5xl font-bold">기타</h1>
       <article className="flex flex-wrap justify-between gap-4">
         <div>
-          <a href="TODO: Kaptch 깃허브 레포지토리로 링크" className="text-4xl">
+          <a href="https://github.com/Xeonlink/kaptch" className="text-4xl">
             <h2 className="inline border-b border-transparent hover:border-white">Kaptch</h2>
             &nbsp;
             <LinkIcon className="inline size-5" />
@@ -21,13 +21,13 @@ export function ExtraSection() {
       </article>
       <article className="flex flex-wrap justify-between gap-4">
         <div>
-          <a href="TODO: LoanService 깃허브 레포지토리로 링크" className="text-4xl">
+          <a href="https://github.com/Xeonlink/LoanService" className="text-4xl">
             <h2 className="inline border-b border-transparent hover:border-white">LoanService</h2>
             &nbsp;
             <LinkIcon className="inline size-5" />
           </a>
           <p className="mt-1">
-            LoanService는 인터넷이 되지 않는 환경에서도 작동하는{" "}
+            LoanService는 인터넷이 되지 않는 환경에서도 작동하는&nbsp;
             <span className="text-red-400">도서 관리 프로그램</span> 입니다. <br />
             일반적으로 사용되는 도서 대출·반납 시스템의 기능들을 사용할 수 있습니다.
           </p>
