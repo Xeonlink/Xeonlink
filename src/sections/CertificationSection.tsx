@@ -11,8 +11,7 @@ export function CertificationSection() {
         <ArticleHeader
           image={<ArticleImage src={정보처리기사자격증Image} alt="정보처리기사자격증" className="object-cover" />}
         >
-          <div>June 2025</div>
-          <ArticleTitle href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
+          <ArticleTitle label="June 2025" href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
             정보 처리 <Strong>기사</Strong>
           </ArticleTitle>
           <p>
@@ -23,8 +22,7 @@ export function CertificationSection() {
       <Article>
         <ArticleHeader image={<ArticleImage src={tempImage} alt="SQLD 자격증" className="object-cover" />}>
           {/* TODO: 날짜 변경 */}
-          <div>soon 2025</div>
-          <ArticleTitle href="https://www.dataq.or.kr/www/sub/a_04.do">
+          <ArticleTitle label="soon 2025" href="https://www.dataq.or.kr/www/sub/a_04.do">
             SQL <Strong>개발자</Strong> (SQLD)
           </ArticleTitle>
           <p>

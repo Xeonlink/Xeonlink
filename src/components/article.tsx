@@ -1,3 +1,4 @@
+import { getStaticBadgeUrl, type StaticBadgeOptions } from "@/lib/shields.io";
 import { cn } from "@/lib/utils";
 import { LinkIcon } from "lucide-react";
 import type { ComponentProps, PropsWithChildren } from "react";
@@ -39,29 +40,38 @@ export function ArticleHeader(props: ArticleHeaderProps) {
   const { children, className, image, ...rest } = props;
   return (
     <div className={cn("flex flex-wrap-reverse gap-1 items-end justify-between", className)} {...rest}>
-      <div>{children}</div>
+      <div className="space-y-1">{children}</div>
       {image}
     </div>
   );
 }
 
 type ArticleTitleProps = PropsWithChildren<{
+  label?: string;
   href?: string;
 }>;
 
 export function ArticleTitle(props: ArticleTitleProps) {
-  const { children, href } = props;
+  const { children, label, href } = props;
 
   if (href) {
     return (
-      <a target="_blank" rel="noopener noreferrer" href={href}>
-        <h3 className="border-underline inline text-3xl">{children}</h3>{" "}
-        <LinkIcon className="inline size-5 align-baseline" />
-      </a>
+      <div>
+        {label ? <div>{label}</div> : null}
+        <a target="_blank" rel="noopener noreferrer" href={href}>
+          <h3 className="border-underline inline-block text-3xl">{children}</h3>{" "}
+          <LinkIcon className="inline-block size-5 align-baseline" />
+        </a>
+      </div>
     );
   }
 
-  return <h3 className="border-underline text-3xl">{children}</h3>;
+  return (
+    <div>
+      {label ? <div>{label}</div> : null}
+      <h3 className="border-underline text-3xl">{children}</h3>
+    </div>
+  );
 }
 
 type ArticleBadgeListProps = ComponentProps<"ul">;
@@ -69,27 +79,26 @@ type ArticleBadgeListProps = ComponentProps<"ul">;
 export function ArticleBadgeList(props: ArticleBadgeListProps) {
   const { children, className, ...rest } = props;
   return (
-    <ul className={cn("my-1 flex flex-wrap", className)} {...rest}>
+    <ul className={cn("flex flex-wrap", className)} {...rest}>
       {children}
     </ul>
   );
 }
 
-type ArticleBadgeProps = {
-  src: string;
-  alt: string;
+type ArticleBadgeProps = StaticBadgeOptions & {
+  message: string;
   href?: string;
   className?: string;
 };
 
 export function ArticleBadge(props: ArticleBadgeProps) {
-  const { src, alt, href, className, ...rest } = props;
+  const { href, className, message, ...rest } = props;
 
   if (href) {
     return (
       <li>
         <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-          <img className="h-8" src={src} alt={alt} {...rest} />
+          <img className="h-8" src={getStaticBadgeUrl(message, rest)} alt={`${message} badge`} />
         </a>
       </li>
     );
@@ -97,7 +106,7 @@ export function ArticleBadge(props: ArticleBadgeProps) {
 
   return (
     <li>
-      <img className="h-8" src={src} alt={alt} {...rest} />
+      <img className="h-8" src={getStaticBadgeUrl(message, rest)} alt={`${message} badge`} />
     </li>
   );
 }
