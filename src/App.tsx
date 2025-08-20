@@ -2,6 +2,7 @@ import {
   ArrowLeftToLineIcon,
   ArrowRightIcon,
   ArrowUpToLineIcon,
+  ChevronDownIcon,
   FilePlusIcon,
   GraduationCapIcon,
   IdCardIcon,
@@ -12,6 +13,7 @@ import {
   SunIcon,
   SunMoonIcon,
 } from "lucide-react";
+import { motion } from "motion/react";
 import type { Theme } from "./components/theme-provider";
 import { Button } from "./components/ui/button";
 import { useTheme } from "./hooks/use-theme";
@@ -68,6 +70,7 @@ const nextThemeMapper: Record<Theme, Theme> = {
 
 export function App() {
   const navbar = useToggle(true, "isOpen");
+  const topNavbar = useToggle(false, "isOpen");
   const { theme, setTheme } = useTheme();
 
   const changeTheme = () => {
@@ -85,12 +88,9 @@ export function App() {
     <>
       <div className="flex h-screen w-screen">
         <nav
-          className={cn(
-            "flex w-72 flex-col overflow-y-scroll bg-sidebar-primary transition-all duration-1000 max-md:w-0",
-            {
-              "w-17": !navbar.isOpen,
-            },
-          )}
+          className={cn("flex md:w-72 flex-col overflow-y-scroll bg-sidebar-primary transition-all duration-1000 w-0", {
+            "md:w-17": !navbar.isOpen,
+          })}
           style={{
             transitionDelay: !navbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
           }}
@@ -166,6 +166,97 @@ export function App() {
         </nav>
 
         <div className="flex-1 overflow-y-scroll">
+          <nav
+            className={cn(
+              "sticky top-0 md:h-0 bg-sidebar-primary transition-all duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
+              {
+                "max-md:h-10": !topNavbar.isOpen,
+              },
+            )}
+            style={{
+              transitionDelay: !topNavbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
+            }}
+          >
+            {/* 네비게이션 메뉴 */}
+            <ul className="w-full p-2">
+              {navItems.map((item, index) => (
+                <li key={item.name}>
+                  <Button
+                    variant="ghost"
+                    className="h-12 w-full justify-start text-2xl"
+                    onClick={() => {
+                      scrollToById(item.name.toLowerCase());
+                      topNavbar.setFalse();
+                    }}
+                  >
+                    <div className="flex items-center">
+                      {item.icon}
+                      <span
+                        className={cn("ml-4 transition-all duration-700", {
+                          "ml-20 opacity-0": !topNavbar.isOpen,
+                        })}
+                        style={{
+                          transitionDelay: `${index * 100}ms`,
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
+                  </Button>
+                </li>
+              ))}
+            </ul>
+            {/* 각종 조작버튼 */}
+            <ul className="p-2">
+              <li>
+                <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
+                  <div className="flex items-center">
+                    {theme === "light" ? <SunIcon className="size-5" /> : null}
+                    {theme === "dark" ? <MoonIcon className="size-5" /> : null}
+                    {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                    <span
+                      className={cn("ml-3 transition-all duration-700", {
+                        "ml-20 opacity-0": !navbar.isOpen,
+                      })}
+                    >
+                      {theme.toUpperCase()}
+                      &nbsp;
+                      <ArrowRightIcon className="inline size-4" />
+                      &nbsp;
+                      {nextThemeMapper[theme].toUpperCase()}
+                    </span>
+                  </div>
+                </Button>
+              </li>
+            </ul>
+
+            <Button
+              variant="ghost"
+              className="absolute bottom-0 left-0 right-0 h-10 rounded-none"
+              onClick={() => topNavbar.toggle()}
+            >
+              <motion.div
+                animate={{
+                  y: 10,
+                }}
+                transition={{
+                  duration: 1,
+                  repeatType: "reverse",
+                  repeat: Infinity,
+                }}
+              >
+                <ChevronDownIcon
+                  className={cn("size-10 transition-all duration-700", {
+                    "rotate-180": topNavbar.isOpen,
+                  })}
+                  style={{
+                    transitionDelay: !topNavbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
+                  }}
+                />
+              </motion.div>
+            </Button>
+          </nav>
+
           <AboutSection />
           <EducationSection />
           <CertificationSection />

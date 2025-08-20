@@ -9,7 +9,6 @@ import { Section } from "../components/section";
 export function AboutSection() {
   return (
     <Section id="about">
-      {/* <h1 className="mt-8 py-2 text-6xl font-bold">소개</h1> */}
       <div className="group relative flex w-fit items-center">
         <img src={profileImage} alt="profile" className="z-10 h-80 rounded-4xl object-cover object-top" />
         <img
@@ -21,14 +20,10 @@ export function AboutSection() {
       <h2 className="text-7xl font-bold">
         오지민, <strong className="text-accent">OH</strong> JIMIN
       </h2>
-      <p className="flex flex-wrap text-4xl">
-        <span>
-          TEL. <strong className="font-normal text-accent">010-6767-4151</strong>
-        </span>
-        &nbsp;|&nbsp;
-        <span>
-          E-MAIL. <strong className="font-normal text-accent">jimin7020@gmail.com</strong>
-        </span>
+      <p className="text-4xl">
+        TEL. <span className="text-accent">010-6767-4151</span>
+        {" | "}
+        E-MAIL. <span className="text-accent">jimin7020@gmail.com</span>
       </p>
       <p className="text-xl">
         지루한 반복작업을 줄이고, 더 가치있는 일에 집중하도록 하는 도구를 만듭니다. <br />

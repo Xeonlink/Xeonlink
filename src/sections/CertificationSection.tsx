@@ -1,58 +1,36 @@
-import { Section } from "../components/section";
-import { LinkIcon } from "lucide-react";
 import tempImage from "@/assets/selfie0_crop2.jpeg";
 import 정보처리기사자격증Image from "@/assets/정보처리기사자격증.jpeg";
+import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
+import { Section } from "../components/section";
 
 export function CertificationSection() {
   return (
-    <Section id="certification">
-      <h1 className="text-5xl font-bold">기술 자격증</h1>
-      <article className="flex flex-wrap justify-between gap-4">
-        <div>
-          <a
-            href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320"
-            className="text-4xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className="border-underline inline">
-              정보 처리 <span className="text-accent">기사</span>
-            </h2>
-            &nbsp;
-            <LinkIcon className="inline size-5" />
-          </a>
-          <p className="mt-1">
+    <Section id="certification" title="기술 자격증">
+      <Article>
+        <ArticleHeader
+          image={<ArticleImage src={정보처리기사자격증Image} alt="정보처리기사자격증" className="object-cover" />}
+        >
+          <div>June 2025</div>
+          <ArticleTitle href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
+            정보 처리 <span className="text-accent">기사</span>
+          </ArticleTitle>
+          <p>
             <span className="text-xl">한국산업인력공단</span>
-            <br />
-            {/* TODO: 날짜 확인 */}
-            February 2025
           </p>
-        </div>
-        <img src={정보처리기사자격증Image} alt="정보처리기사자격증" className="size-32 rounded-3xl object-cover" />
-      </article>
-      <article className="flex flex-wrap justify-between gap-4">
-        <div>
-          <a
-            href="https://www.dataq.or.kr/www/sub/a_04.do"
-            className="text-4xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className="border-underline inline">
-              SQL <span className="text-accent">개발자</span> (SQLD)
-            </h2>
-            &nbsp;
-            <LinkIcon className="inline size-5" />
-          </a>
-          <p className="mt-1">
+        </ArticleHeader>
+      </Article>
+      <Article>
+        <ArticleHeader image={<ArticleImage src={tempImage} alt="SQLD 자격증" className="object-cover" />}>
+          {/* TODO: 날짜 변경 */}
+          <div>soon 2025</div>
+          <ArticleTitle href="https://www.dataq.or.kr/www/sub/a_04.do">
+            SQL <span className="text-accent">개발자</span> (SQLD)
+          </ArticleTitle>
+          <p>
             <span className="text-xl">한국데이터산업진흥원</span>
-            <br />
-            {/* TODO: 날짜 변경 */}
-            February 2026
           </p>
-        </div>
-        <img src={tempImage} alt="SQLD 자격증" className="size-32 rounded-3xl object-cover" />
-      </article>
+        </ArticleHeader>
+      </Article>
     </Section>
   );
 }

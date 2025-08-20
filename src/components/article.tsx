@@ -3,37 +3,44 @@ import { LinkIcon } from "lucide-react";
 import type { ComponentProps, PropsWithChildren } from "react";
 import { InView } from "react-intersection-observer";
 
-type ArticleProps = ComponentProps<"article"> & {
-  imageSrc?: string;
-  imageAlt?: string;
-};
+type ArticleProps = ComponentProps<"article">;
 
 export function Article(props: ArticleProps) {
-  const { children, className, imageSrc, imageAlt, ...rest } = props;
+  const { children, className, ...rest } = props;
   return (
     <InView>
       {({ ref, inView }) => (
         <article
           ref={ref}
-          className={cn("flex flex-wrap-reverse items-end justify-between transition-all duration-500", className)}
+          className={cn("transition-all duration-500 relative", className)}
           {...rest}
           style={{ opacity: inView ? 1 : 0 }}
         >
-          <div>{children}</div>
-          {imageSrc && <img className="size-32 rounded-3xl object-contain" src={imageSrc} alt={imageAlt} />}
+          {children}
         </article>
       )}
     </InView>
   );
 }
 
-type ArticleHeaderProps = ComponentProps<"div">;
+type ArticleImageProps = ComponentProps<"img">;
+
+export function ArticleImage(props: ArticleImageProps) {
+  const { className, ...rest } = props;
+
+  return <img className={cn("size-32 rounded-3xl object-contain", className)} {...rest} />;
+}
+
+type ArticleHeaderProps = ComponentProps<"div"> & {
+  image?: React.ReactNode;
+};
 
 export function ArticleHeader(props: ArticleHeaderProps) {
-  const { children, className, ...rest } = props;
+  const { children, className, image, ...rest } = props;
   return (
-    <div className={cn("", className)} {...rest}>
-      {children}
+    <div className={cn("flex flex-wrap-reverse gap-1 items-end justify-between", className)} {...rest}>
+      <div>{children}</div>
+      {image}
     </div>
   );
 }

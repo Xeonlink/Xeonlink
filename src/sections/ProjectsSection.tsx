@@ -14,6 +14,7 @@ import {
   ArticleContent,
   ArticleContentTitle,
   ArticleHeader,
+  ArticleImage,
   ArticleMain,
   ArticleTitle,
 } from "@/components/article";
@@ -25,13 +26,16 @@ export function ProjectsSection() {
   return (
     <Section id="projects" className="space-y-10" title="PROJECTS">
       {/* ReFolder */}
-      <Article
-        imageSrc={refolderImage}
-        imageAlt="파란색 배경에 흰색의 두꺼운 선으로 폴더 아이콘 우상단에 기어 아이콘이 있는 형상"
-      >
-        <ArticleHeader>
-          {/* TODO: 날짜 변경 */}
-          <div>2022.12 - 2023.04</div>
+      <Article>
+        <ArticleHeader
+          image={
+            <ArticleImage
+              src={refolderImage}
+              alt="파란색 배경에 흰색의 두꺼운 선으로 폴더 아이콘 우상단에 기어 아이콘이 있는 형상"
+            />
+          }
+        >
+          <div>2024.10.18 - 2025.01.22</div>
           <ArticleTitle href="https://github.com/Xeonlink/re-folder">ReFolder</ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge
@@ -74,7 +78,7 @@ export function ProjectsSection() {
               <img
                 src={versionRangeMapImage}
                 alt="key로 버전의 범위를 받고, value로 db schema를 받는 VersionRangeMap클래스의 인스턴스를 생성"
-                className="w-96 rounded-xl"
+                className="w-120 rounded-xl"
               />
             </div>
             <ul className="ml-8">
@@ -97,13 +101,12 @@ export function ProjectsSection() {
               <img
                 src={createApiSelectorImage}
                 alt="ipc정의타입을 받아서, renderer에 노출할 ipc를 true/false로 선택"
-                className="h-36 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
+                className="w-120 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
               />
-              {/* <ArrowRightIcon className="inline size-8" /> */}
               <img
                 src={createApiSelectorImage2}
                 alt="ipc정의타입을 받아서, renderer에 노출할 ipc를 true/false로 선택. 어떤 ipc가 있는지 타입추론되는 이미지"
-                className="absolute h-36 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
+                className="absolute w-120 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
             <ul className="ml-8">
@@ -128,10 +131,9 @@ export function ProjectsSection() {
         </ArticleMain>
       </Article>
       {/* 한국인증채우기 */}
-      <Article imageSrc={koreaAuthFillerImage} imageAlt="원형 태극무늬 형상">
-        <ArticleHeader>
-          {/* TODO: 날짜 변경 */}
-          <div>2022.12 - 2023.04</div>
+      <Article>
+        <ArticleHeader image={<ArticleImage src={koreaAuthFillerImage} alt="원형 태극무늬 형상" />}>
+          <div>2025.01.13 - 2025.03.06</div>
           <ArticleTitle href="https://github.com/Xeonlink/korea-auth-filler">한국인증채우기</ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge
@@ -179,11 +181,10 @@ export function ProjectsSection() {
                 alt="document.querySelector로 요소를 찾고, 요소가 있는지 없는지 if문으로 확인하고 로직을 실행하는 블럭이 2개 있음"
                 className="w-120 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
               />
-              {/* <ArrowRightIcon className="inline size-8" /> */}
               <img
                 src={afterPageLocatorImage}
                 alt="page input visibie fill 함수가 체이닝되어 있고, await를 사용하고 있는 구문이 여럿 있음"
-                className="absolute w-96 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
+                className="absolute w-120 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
             <ul className="ml-8">
@@ -216,17 +217,16 @@ export function ProjectsSection() {
                 </ul>
               </li>
             </ul>
-            <div className="group relative flex w-96 flex-wrap items-center">
+            <div className="group relative flex w-fit flex-wrap items-center">
               <img
                 src={allcaseImage3}
                 alt="allcase2 함수에서 나온 testcase변수에 regist함수를 호출하여 테스트를 등록하는 코드. 정의한 타입이 자동으로 추론됨"
-                className="w-72 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
+                className="w-120 rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md"
               />
-              {/* <ArrowRightIcon className="inline size-8" /> */}
               <img
                 src={allcaseImage}
                 alt="테스트 커버리지에 맞는 타입이 정의되어있고, allcase2 함수에 타입을 제네릭으로 넣어주고 있음"
-                className="absolute w-96 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
+                className="absolute w-120 rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none"
               />
             </div>
             <ul className="ml-8">

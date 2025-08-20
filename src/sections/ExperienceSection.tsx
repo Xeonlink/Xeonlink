@@ -4,6 +4,7 @@ import {
   ArticleBadgeList,
   ArticleContentTitle,
   ArticleHeader,
+  ArticleImage,
   ArticleMain,
   ArticleTitle,
 } from "@/components/article";
@@ -14,8 +15,12 @@ export function ExperienceSection() {
   return (
     <Section id="experience" className="space-y-10" title="경력사항">
       <SubSectionTitle href="https://www.cublick.com/">큐브릭 디지털</SubSectionTitle>
-      <Article imageSrc="https://www.cublick.com/wp-content/uploads/2021/04/cloud_logo.png" imageAlt="큐브릭 로고">
-        <ArticleHeader>
+      <Article>
+        <ArticleHeader
+          image={
+            <ArticleImage src="https://www.cublick.com/wp-content/uploads/2021/04/cloud_logo.png" alt="큐브릭 로고" />
+          }
+        >
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
             큐브릭 <span className="text-accent">클라우드 사인</span> 고도화
@@ -48,7 +53,7 @@ export function ExperienceSection() {
               <li>
                 <ul className="ml-8">
                   <li className="list-disc">
-                    절차지향 <ArrowRight className="inline size-4" /> 선언적
+                    절차지향 <ArrowRight className="inline size-4" /> 선언적 OOP
                   </li>
                   <li className="list-disc">undo redo 스냅샷 기능 개발</li>
                 </ul>
@@ -78,8 +83,15 @@ export function ExperienceSection() {
           </div>
         </ArticleMain>
       </Article>
-      <Article imageSrc="https://www.cublick.com/wp-content/uploads/2021/04/standalone_logo.png" imageAlt="큐브릭 로고">
-        <ArticleHeader>
+      <Article>
+        <ArticleHeader
+          image={
+            <ArticleImage
+              src="https://www.cublick.com/wp-content/uploads/2021/04/standalone_logo.png"
+              alt="큐브릭 로고"
+            />
+          }
+        >
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
             큐브릭 <span className="text-accent">사인</span> DX 개선
