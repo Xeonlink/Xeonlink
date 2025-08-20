@@ -1,6 +1,7 @@
 import ssuImage from "@/assets/ssu.jpg";
 import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
-import { Section } from "../components/section";
+import { Section } from "@/components/section";
+import { Strong } from "@/components/strong";
 
 export function EducationSection() {
   return (
@@ -17,14 +18,14 @@ export function EducationSection() {
         >
           <div>March 2020 - February 2026</div>
           <ArticleTitle href="https://cse.ssu.ac.kr/">
-            SOONGSIL <span className="text-accent">UNIV</span>ERSITY
+            SOONGSIL <Strong>UNIV</Strong>ERSITY
           </ArticleTitle>
           <p>
             <span className="text-2xl">
-              <span className="text-accent">컴퓨터</span>학부 학사
+              <Strong>컴퓨터</Strong>학부 학사
             </span>
             <br />
-            <span>졸업 예정</span>
+            졸업 예정
           </p>
         </ArticleHeader>
       </Article>
@@ -40,14 +41,14 @@ export function EducationSection() {
         >
           <div>March 2017 - February 2020</div>
           <ArticleTitle href="https://school.jje.go.kr/namju-h/main.do">
-            NAMJU <span className="text-accent">HIGH</span>&nbsp;SCHOOL
+            NAMJU <Strong>HIGH</Strong> SCHOOL
           </ArticleTitle>
           <p>
             <span className="text-2xl">
-              인문계열 <span className="text-accent">이과</span>
+              인문계열 <Strong>이과</Strong>
             </span>
             <br />
-            <span>졸업</span>
+            졸업
           </p>
         </ArticleHeader>
       </Article>

@@ -19,8 +19,9 @@ import {
   ArticleTitle,
 } from "@/components/article";
 import { Link } from "@/components/link";
+import { Section } from "@/components/section";
+import { Strong } from "@/components/strong";
 import { ArrowRightIcon } from "lucide-react";
-import { Section } from "../components/section";
 
 export function ProjectsSection() {
   return (
@@ -63,9 +64,9 @@ export function ProjectsSection() {
           <p>
             ReFolder는 사용자가 설정한 규칙에 따라서 정리되지 않은 폴더의 파일을 정리해주는 프로그램입니다. <br />
             다운로드 폴더에 항상 파일이 쌓이는 분, 바탕화면이 지저분한 것을 참지 못하는 분들을 위해 만들었습니다. <br />
-            자세한 기능은&nbsp;
+            자세한 기능은{" "}
             <Link href="https://github.com/Xeonlink/re-folder">
-              <span className="font-bold text-accent">여기</span>
+              <Strong variant="bold">여기</Strong>
             </Link>
             를 참고바랍니다.
           </p>
@@ -83,15 +84,14 @@ export function ProjectsSection() {
             </div>
             <ul className="ml-8">
               <li className="list-disc">
-                업데이트할 때, <span className="text-accent">DB를 유연하게 변경</span> 필요
+                업데이트할 때, <Strong>DB를 유연하게 변경</Strong> 필요
               </li>
               <li>
                 <ul className="ml-8">
                   <li className="list-disc">db schema 변경보다 프로그램 버전 변경이 더 빠름</li>
                   <li className="list-disc">
-                    매번 버전에 맞는 조건문 필요&nbsp;
-                    <ArrowRightIcon className="inline size-4" /> <span className="text-accent">schema 변경</span>에만
-                    집중 가능
+                    매번 버전에 맞는 조건문 필요 <ArrowRightIcon className="inline size-4" />{" "}
+                    <Strong>schema 변경</Strong>에만 집중 가능
                   </li>
                 </ul>
               </li>
@@ -115,14 +115,14 @@ export function ProjectsSection() {
                 <ul className="ml-8">
                   <li className="list-disc">
                     채널 이름을 기억하기 어려움 <ArrowRightIcon className="inline size-4" /> 채널이름을 key로 하여{" "}
-                    <span className="text-accent">typescript를 통해 추론</span>
+                    <Strong>typescript를 통해 추론</Strong>
                   </li>
                   <li className="list-disc">
-                    handle함수에 맞는 <span className="text-accent">invoke 함수</span>를 자동 생성
+                    handle함수에 맞는 <Strong>invoke 함수</Strong>를 자동 생성
                   </li>
                   <li className="list-disc">
                     main의 에러가 renderer로 전달 안됨 <ArrowRightIcon className="inline size-4" />{" "}
-                    <span className="text-accent">Error 직렬화/역직렬화</span>로 전달
+                    <Strong>Error 직렬화/역직렬화</Strong>로 전달
                   </li>
                 </ul>
               </li>
@@ -164,10 +164,9 @@ export function ProjectsSection() {
           <p>
             한국에서 사용되는 모바일 본인인증, 휴대폰 인증, 민간인증서 인증 등을 사용할 때 <br />
             필요한 정보를 자동으로 채워주는 브라우저 확장프로그램 입니다. <br />
-            간단한 캡챠이미지는 <span className="text-accent">비전 AI</span>를 통해 자동으로 채워넣습니다. 자세한
-            기능은&nbsp;
+            간단한 캡챠이미지는 <Strong>비전 AI</Strong>를 통해 자동으로 채워넣습니다. 자세한 기능은{" "}
             <Link href="https://github.com/Xeonlink/korea-auth-filler">
-              <span className="font-bold text-accent">여기</span>
+              <Strong variant="bold">여기</Strong>
             </Link>
             를 참고바랍니다.
           </p>
@@ -189,27 +188,26 @@ export function ProjectsSection() {
             </div>
             <ul className="ml-8">
               <li className="list-disc">
-                확장프로그램이 너무 빨라서 DOM에서 <span className="text-accent">요소를 못찾음</span>
+                확장프로그램이 너무 빨라서 DOM에서 <Strong>요소를 못찾음</Strong>
               </li>
               <li className="list-disc">
-                <span className="text-accent">hydration</span>이 끝나기 전에 버튼을 클릭하는 경우 발생
+                <Strong>hydration</Strong>이 끝나기 전에 버튼을 클릭하는 경우 발생
               </li>
               <li>
                 <ul className="ml-8">
                   <li className="list-disc">
                     playwright에서 영감을 얻어{" "}
                     <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Page.ts">
-                      <span className="font-bold text-accent">Page</span>
+                      <Strong variant="bold">Page</Strong>
                     </Link>
-                    와&nbsp;
+                    와{" "}
                     <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Locator.ts">
-                      <span className="font-bold text-accent">Locator</span>
+                      <Strong variant="bold">Locator</Strong>
                     </Link>
                     구현
                   </li>
                   <li className="list-disc">
-                    <span className="text-accent">retry</span>와 <span className="text-accent">sleep</span>을 통해 더
-                    안정적으로 채워넣기
+                    <Strong>retry</Strong>와 <Strong>sleep</Strong>을 통해 더 안정적으로 채워넣기
                   </li>
                   <li className="list-disc">
                     인터넷 느리면 채우기 실패 <ArrowRightIcon className="inline size-4" /> 안정적 채우기 가능
@@ -236,7 +234,7 @@ export function ProjectsSection() {
               </li>
               <li className="list-disc">
                 <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/tests/utils/testcase.ts">
-                  <span className="font-bold text-accent">allcase</span>
+                  <Strong variant="bold">allcase</Strong>
                 </Link>{" "}
                 함수 정의
               </li>

@@ -1,10 +1,12 @@
 import profileImage from "@/assets/selfie0_crop2.jpeg";
 import { GithubIcon } from "@/components/icon/GithubIcon";
 import { Link } from "@/components/link";
+import { Section } from "@/components/section";
+import { Strong } from "@/components/strong";
 import { Button } from "@/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";
-import { Section } from "../components/section";
+import dockerAlignImage from "../../public/docker-align.png";
 
 export function AboutSection() {
   return (
@@ -12,18 +14,18 @@ export function AboutSection() {
       <div className="group relative flex w-fit items-center">
         <img src={profileImage} alt="profile" className="z-10 h-80 rounded-4xl object-cover object-top" />
         <img
-          src="/docker-align.png"
-          alt="profile"
+          src={dockerAlignImage}
+          alt="고래 등에 컨테이너가 실려있는 모습"
           className="absolute right-0 h-40 rounded-4xl object-cover object-top transition-all duration-2000 ease-linear group-hover:-right-4 group-hover:translate-x-full"
         />
       </div>
       <h2 className="text-7xl font-bold">
-        오지민, <strong className="text-accent">OH</strong> JIMIN
+        오지민, <Strong variant="bold">OH</Strong> JIMIN
       </h2>
       <p className="text-4xl">
-        TEL. <span className="text-accent">010-6767-4151</span>
+        TEL. <Strong>010-6767-4151</Strong>
         {" | "}
-        E-MAIL. <span className="text-accent">jimin7020@gmail.com</span>
+        E-MAIL. <Strong>jimin7020@gmail.com</Strong>
       </p>
       <p className="text-xl">
         지루한 반복작업을 줄이고, 더 가치있는 일에 집중하도록 하는 도구를 만듭니다. <br />

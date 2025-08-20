@@ -55,8 +55,7 @@ export function ArticleTitle(props: ArticleTitleProps) {
   if (href) {
     return (
       <a target="_blank" rel="noopener noreferrer" href={href}>
-        <h3 className="border-underline inline text-3xl">{children}</h3>
-        &nbsp;
+        <h3 className="border-underline inline text-3xl">{children}</h3>{" "}
         <LinkIcon className="inline size-5 align-baseline" />
       </a>
     );
@@ -135,9 +134,7 @@ export function ArticleContentTitle(props: ArticleContentTitleProps) {
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
-        <h4 className="border-underline inline text-xl font-bold">{children}</h4>
-        &nbsp;
-        <LinkIcon className="inline size-4" />
+        <h4 className="border-underline inline text-xl font-bold">{children}</h4> <LinkIcon className="inline size-4" />
       </a>
     );
   }

@@ -1,7 +1,8 @@
 import tempImage from "@/assets/selfie0_crop2.jpeg";
 import 정보처리기사자격증Image from "@/assets/정보처리기사자격증.jpeg";
 import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
-import { Section } from "../components/section";
+import { Section } from "@/components/section";
+import { Strong } from "@/components/strong";
 
 export function CertificationSection() {
   return (
@@ -12,7 +13,7 @@ export function CertificationSection() {
         >
           <div>June 2025</div>
           <ArticleTitle href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
-            정보 처리 <span className="text-accent">기사</span>
+            정보 처리 <Strong>기사</Strong>
           </ArticleTitle>
           <p>
             <span className="text-xl">한국산업인력공단</span>
@@ -24,7 +25,7 @@ export function CertificationSection() {
           {/* TODO: 날짜 변경 */}
           <div>soon 2025</div>
           <ArticleTitle href="https://www.dataq.or.kr/www/sub/a_04.do">
-            SQL <span className="text-accent">개발자</span> (SQLD)
+            SQL <Strong>개발자</Strong> (SQLD)
           </ArticleTitle>
           <p>
             <span className="text-xl">한국데이터산업진흥원</span>

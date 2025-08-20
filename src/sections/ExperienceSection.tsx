@@ -8,8 +8,9 @@ import {
   ArticleMain,
   ArticleTitle,
 } from "@/components/article";
+import { Section, SubSectionTitle } from "@/components/section";
+import { Strong } from "@/components/strong";
 import { ArrowRight } from "lucide-react";
-import { Section, SubSectionTitle } from "../components/section";
 
 export function ExperienceSection() {
   return (
@@ -23,7 +24,7 @@ export function ExperienceSection() {
         >
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
-            큐브릭 <span className="text-accent">클라우드 사인</span> 고도화
+            큐브릭 <Strong>클라우드 사인</Strong> 고도화
           </ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge
@@ -94,7 +95,7 @@ export function ExperienceSection() {
         >
           <div>2022.03 - 2022.04</div>
           <ArticleTitle href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/">
-            큐브릭 <span className="text-accent">사인</span> DX 개선
+            큐브릭 <Strong>사인</Strong> DX 개선
           </ArticleTitle>
           <ArticleBadgeList>
             <ArticleBadge

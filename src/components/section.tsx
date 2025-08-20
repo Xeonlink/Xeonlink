@@ -42,11 +42,9 @@ export function SubSectionTitle(props: SubSectionTitleProps) {
     return (
       <div>
         <a href={href} className="text-4xl" target="_blank" rel="noopener noreferrer">
-          <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>
-          &nbsp;
+          <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>{" "}
           <LinkIcon className="inline size-5" />
-        </a>
-        &nbsp;&nbsp;
+        </a>{" "}
         <span className="text-xl">2022.12 - 2023.04</span>
       </div>
     );
@@ -55,11 +53,9 @@ export function SubSectionTitle(props: SubSectionTitleProps) {
   return (
     <div>
       <span className="text-4xl">
-        <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>
-        &nbsp;
+        <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>{" "}
         <LinkIcon className="inline size-5" />
-      </span>
-      &nbsp;&nbsp;
+      </span>{" "}
       <span className="text-xl">2022.12 - 2023.04</span>
     </div>
   );

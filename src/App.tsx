@@ -135,10 +135,7 @@ export function App() {
                       "ml-20 opacity-0": !navbar.isOpen,
                     })}
                   >
-                    {theme.toUpperCase()}
-                    &nbsp;
-                    <ArrowRightIcon className="inline size-4" />
-                    &nbsp;
+                    {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
                     {nextThemeMapper[theme].toUpperCase()}
                   </span>
                 </div>
@@ -219,10 +216,7 @@ export function App() {
                         "ml-20 opacity-0": !navbar.isOpen,
                       })}
                     >
-                      {theme.toUpperCase()}
-                      &nbsp;
-                      <ArrowRightIcon className="inline size-4" />
-                      &nbsp;
+                      {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
                       {nextThemeMapper[theme].toUpperCase()}
                     </span>
                   </div>
