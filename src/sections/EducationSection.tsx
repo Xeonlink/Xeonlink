@@ -1,3 +1,4 @@
+import namjuFrontSymbolImage from "@/assets/namju_front_symbol.png";
 import ssuImage from "@/assets/ssu.jpg";
 import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
 import { Section } from "@/components/section";
@@ -32,7 +33,7 @@ export function EducationSection() {
         <ArticleHeader
           image={
             <ArticleImage
-              src="https://school.jje.go.kr/images/web/namju-h/sub/symbol_02.png"
+              src={namjuFrontSymbolImage}
               alt="남주고등학교 상징마크, 하늘을 향해 있는 3개의 펜촉 모양"
               className="bg-white"
             />
