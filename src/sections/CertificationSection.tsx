@@ -1,5 +1,5 @@
-import SQLD자격증Image from "@/assets/SQLD자격증.png";
-import 정보처리기사자격증Image from "@/assets/정보처리기사자격증.jpeg";
+import 정보처리기사자격증Image from "@/assets/engineer_information_processing_cert.jpeg";
+import SQLD자격증Image from "@/assets/sqld_cert.png";
 import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
 import { Section } from "@/components/section";
 import { Strong } from "@/components/strong";
