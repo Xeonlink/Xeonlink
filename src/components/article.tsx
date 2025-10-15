@@ -141,23 +141,34 @@ export function ArticleContent(props: ArticleContentProps) {
 }
 
 type ArticleContentTitleProps = ComponentProps<"h4"> & {
+  as?: React.HTMLElementType;
   href?: string;
 };
 
 export function ArticleContentTitle(props: ArticleContentTitleProps) {
-  const { children, className, href, ...rest } = props;
+  const { children, className, href, as, ...rest } = props;
 
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
-        <h4 className="border-underline inline text-xl font-bold">{children}</h4> <LinkIcon className="inline size-4" />
+        {createElement(
+          as ?? "h4",
+          {
+            className: "border-underline inline text-xl font-bold",
+          },
+          children,
+        )}{" "}
+        <LinkIcon className="inline size-4" />
       </a>
     );
   }
 
-  return (
-    <h4 className={cn("text-xl font-bold", className)} {...rest}>
-      {children}
-    </h4>
+  return createElement(
+    as ?? "h4",
+    {
+      className: cn("text-xl font-bold", className),
+      ...rest,
+    },
+    children,
   );
 }

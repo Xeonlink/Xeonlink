@@ -40,7 +40,7 @@ export function ProjectsSection() {
             />
           }
         >
-          <ArticleTitle label="2024.10.18 - 2025.01.22" href="https://github.com/Xeonlink/re-folder">
+          <ArticleTitle as="h2" label="2024.10.18 - 2025.01.22" href="https://github.com/Xeonlink/re-folder">
             ReFolder
           </ArticleTitle>
           <ArticleBadgeList>
@@ -67,7 +67,9 @@ export function ProjectsSection() {
         </ArticleHeader>
 
         <ArticleMain>
-          <ArticleContentTitle className="mb-1">도전 과제</ArticleContentTitle>
+          <ArticleContentTitle className="mb-1" as="h3">
+            도전 과제
+          </ArticleContentTitle>
           <ArticleContent>
             <div className="flex flex-wrap items-center gap-2">
               <img
@@ -116,7 +118,7 @@ export function ProjectsSection() {
       {/* 한국인증채우기 */}
       <Article>
         <ArticleHeader image={<ArticleImage src={koreaAuthFillerImage} alt="원형 태극무늬 형상" />}>
-          <ArticleTitle label="2025.01.13 - 2025.03.06" href="https://github.com/Xeonlink/korea-auth-filler">
+          <ArticleTitle as="h2" label="2025.01.13 - 2025.03.06" href="https://github.com/Xeonlink/korea-auth-filler">
             한국인증채우기
           </ArticleTitle>
           <ArticleBadgeList>
@@ -147,7 +149,9 @@ export function ProjectsSection() {
           </p>
         </ArticleHeader>
         <ArticleMain>
-          <ArticleContentTitle className="mb-1">도전 과제</ArticleContentTitle>
+          <ArticleContentTitle className="mb-1" as="h3">
+            도전 과제
+          </ArticleContentTitle>
           <ArticleContent>
             <ImageSwap className="w-120">
               <img
