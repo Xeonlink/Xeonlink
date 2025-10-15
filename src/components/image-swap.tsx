@@ -12,13 +12,13 @@ export function ImageSwap(props: ImageSwapProps) {
     <div className={cn("group relative flex flex-wrap items-center w-120 max-w-full", className)} {...rest}>
       {cloneElement(children[0], {
         className: cn(
-          "rounded-xl transition-all duration-700 group-hover:opacity-0 group-hover:blur-md",
+          "rounded-xl motion-safe:duration-700 group-hover:opacity-0 group-hover:blur-md",
           children[0].props.className,
         ),
       })}
       {cloneElement(children[1], {
         className: cn(
-          "absolute rounded-xl opacity-0 blur-md transition-all duration-700 group-hover:opacity-100 group-hover:blur-none",
+          "absolute rounded-xl opacity-0 blur-md motion-safe:duration-700 group-hover:opacity-100 group-hover:blur-none",
           children[1].props.className,
         ),
       })}

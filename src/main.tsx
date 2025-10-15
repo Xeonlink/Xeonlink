@@ -1,3 +1,4 @@
+import { MotionConfig } from "motion/react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
@@ -11,6 +12,8 @@ const root = createRoot(rootElement);
 
 root.render(
   <ThemeProvider defaultTheme="system">
-    <App />
+    <MotionConfig reducedMotion="user">
+      <App />
+    </MotionConfig>
   </ThemeProvider>,
 );

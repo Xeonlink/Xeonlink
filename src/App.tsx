@@ -13,7 +13,7 @@ import {
   SunIcon,
   SunMoonIcon,
 } from "lucide-react";
-import { motion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import type { Theme } from "./components/theme-provider";
 import { Button } from "./components/ui/button";
 import { useTheme } from "./hooks/use-theme";
@@ -72,6 +72,7 @@ export function App() {
   const navbar = useToggle(true, "isOpen");
   const topNavbar = useToggle(false, "isOpen");
   const { theme, setTheme } = useTheme();
+  const isReducedMotion = useReducedMotion();
 
   const changeTheme = () => {
     setTheme(nextThemeMapper[theme]);
@@ -88,11 +89,11 @@ export function App() {
     <>
       <div className="flex h-screen w-screen">
         <nav
-          className={cn("flex md:w-72 flex-col overflow-y-scroll bg-sidebar-primary transition-all duration-1000 w-0", {
+          className={cn("flex md:w-72 flex-col overflow-y-scroll bg-sidebar-primary motion-safe:duration-1000 w-0", {
             "md:w-17": !navbar.isOpen,
           })}
           style={{
-            transitionDelay: !navbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
+            transitionDelay: !navbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
           }}
         >
           {/* 네비게이션 메뉴 */}
@@ -108,11 +109,11 @@ export function App() {
                   <div className="flex items-center">
                     {item.icon}
                     <span
-                      className={cn("ml-4 transition-all duration-700", {
+                      className={cn("ml-4 motion-safe:duration-700", {
                         "ml-20 opacity-0": !navbar.isOpen,
                       })}
                       style={{
-                        transitionDelay: `${index * 100}ms`,
+                        transitionDelay: !isReducedMotion ? `${index * 100}ms` : "0ms",
                       }}
                     >
                       {item.name}
@@ -131,7 +132,7 @@ export function App() {
                   {theme === "dark" ? <MoonIcon className="size-5" /> : null}
                   {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
                   <span
-                    className={cn("ml-3 transition-all duration-700", {
+                    className={cn("ml-3 motion-safe:duration-700", {
                       "ml-20 opacity-0": !navbar.isOpen,
                     })}
                   >
@@ -145,12 +146,12 @@ export function App() {
               <Button variant="ghost" className="w-full justify-start" onClick={() => navbar.toggle()}>
                 <div className="flex items-center">
                   <ArrowLeftToLineIcon
-                    className={cn("size-5 transition-all duration-700", {
+                    className={cn("size-5 motion-safe:duration-700", {
                       "rotate-180": !navbar.isOpen,
                     })}
                   />
                   <span
-                    className={cn("ml-3 transition-all duration-700", {
+                    className={cn("ml-3 motion-safe:duration-700", {
                       "ml-20 opacity-0": !navbar.isOpen,
                     })}
                   >
@@ -165,13 +166,13 @@ export function App() {
         <div className="flex-1 overflow-y-scroll">
           <nav
             className={cn(
-              "sticky top-0 md:h-0 bg-sidebar-primary transition-all duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
+              "sticky top-0 md:h-0 bg-sidebar-primary motion-safe:duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
               {
                 "max-md:h-10": !topNavbar.isOpen,
               },
             )}
             style={{
-              transitionDelay: !topNavbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
+              transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
             }}
           >
             {/* 네비게이션 메뉴 */}
@@ -189,11 +190,11 @@ export function App() {
                     <div className="flex items-center">
                       {item.icon}
                       <span
-                        className={cn("ml-4 transition-all duration-700", {
+                        className={cn("ml-4 motion-safe:duration-700", {
                           "ml-20 opacity-0": !topNavbar.isOpen,
                         })}
                         style={{
-                          transitionDelay: `${index * 100}ms`,
+                          transitionDelay: !isReducedMotion ? `${index * 100}ms` : "0ms",
                         }}
                       >
                         {item.name}
@@ -212,7 +213,7 @@ export function App() {
                     {theme === "dark" ? <MoonIcon className="size-5" /> : null}
                     {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
                     <span
-                      className={cn("ml-3 transition-all duration-700", {
+                      className={cn("ml-3 motion-safe:duration-700", {
                         "ml-20 opacity-0": !navbar.isOpen,
                       })}
                     >
@@ -229,25 +230,14 @@ export function App() {
               className="absolute bottom-0 left-0 right-0 h-10 rounded-none"
               onClick={() => topNavbar.toggle()}
             >
-              <motion.div
-                animate={{
-                  y: 10,
+              <ChevronDownIcon
+                className={cn("size-10 motion-safe:duration-700 motion-safe:animate-[bounce_2s_linear_infinite] mt-3", {
+                  "rotate-180 mt-0": topNavbar.isOpen,
+                })}
+                style={{
+                  transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
                 }}
-                transition={{
-                  duration: 1,
-                  repeatType: "reverse",
-                  repeat: Infinity,
-                }}
-              >
-                <ChevronDownIcon
-                  className={cn("size-10 transition-all duration-700", {
-                    "rotate-180": topNavbar.isOpen,
-                  })}
-                  style={{
-                    transitionDelay: !topNavbar.isOpen ? `${(navItems.length - 3) * 100}ms` : "0ms",
-                  }}
-                />
-              </motion.div>
+              />
             </Button>
           </nav>
 
@@ -262,10 +252,10 @@ export function App() {
       <div className="group fixed right-0 bottom-0">
         <Button
           variant="outline"
-          className="mr-8 mb-8 size-10 duration-500 group-hover:size-20"
+          className="mr-8 mb-8 size-10 motion-safe:duration-500 group-hover:size-20"
           onClick={() => scrollToById("about")}
         >
-          <ArrowUpToLineIcon className="size-6 transition-all duration-300 group-hover:size-10" />
+          <ArrowUpToLineIcon className="size-6 motion-safe:duration-300 group-hover:size-10" />
         </Button>
       </div>
     </>

@@ -6,7 +6,7 @@ import { Strong } from "@/components/strong";
 import { Button } from "@/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";
-import dockerAlignImage from "../../public/docker-align.png";
+import dockerAlignImage from "/docker-align.png?url";
 
 export function AboutSection() {
   return (
@@ -16,7 +16,7 @@ export function AboutSection() {
         <img
           src={dockerAlignImage}
           alt="고래 등에 컨테이너가 실려있는 모습"
-          className="absolute right-0 h-40 rounded-4xl object-cover object-top transition-all duration-2000 ease-linear group-hover:-right-4 group-hover:translate-x-full"
+          className="absolute right-0 h-40 rounded-4xl object-cover object-top motion-safe:duration-2000 ease-linear group-hover:-right-4 group-hover:translate-x-full"
         />
       </div>
       <h2 className="text-7xl font-bold">

@@ -13,7 +13,7 @@ export function Article(props: ArticleProps) {
       {({ ref, inView }) => (
         <article
           ref={ref}
-          className={cn("transition-all duration-500 relative", className)}
+          className={cn("motion-safe:duration-500 relative", className)}
           {...rest}
           style={{ opacity: inView ? 1 : 0 }}
         >

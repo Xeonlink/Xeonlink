@@ -16,7 +16,7 @@ export function Section(props: SectionProps) {
         <section
           ref={ref}
           className={cn(
-            "space-y-6 border-dotted p-8 transition-all duration-1000 not-last:border-b-2 md:p-14",
+            "space-y-6 border-dotted p-8 motion-safe:duration-1000 not-last:border-b-2 md:p-14",
             className,
             inView ? "opacity-100" : "opacity-0",
           )}
