@@ -16,7 +16,7 @@ export function EducationSection() {
             />
           }
         >
-          <ArticleTitle label="March 2020 - February 2026" href="https://cse.ssu.ac.kr/">
+          <ArticleTitle as="h2" label="March 2020 - February 2026" href="https://cse.ssu.ac.kr/">
             SOONGSIL <Strong>UNIV</Strong>ERSITY
           </ArticleTitle>
           <p>
@@ -38,7 +38,7 @@ export function EducationSection() {
             />
           }
         >
-          <ArticleTitle label="March 2017 - February 2020" href="https://school.jje.go.kr/namju-h/main.do">
+          <ArticleTitle as="h2" label="March 2017 - February 2020" href="https://school.jje.go.kr/namju-h/main.do">
             NAMJU <Strong>HIGH</Strong> SCHOOL
           </ArticleTitle>
           <p>

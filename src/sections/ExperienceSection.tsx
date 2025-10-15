@@ -1,3 +1,5 @@
+import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
+import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
 import {
   Article,
   ArticleBadge,
@@ -18,11 +20,7 @@ export function ExperienceSection() {
     <Section id="experience" className="space-y-10" title="경력사항">
       <SubSectionTitle href="https://www.cublick.com/">큐브릭 디지털</SubSectionTitle>
       <Article>
-        <ArticleHeader
-          image={
-            <ArticleImage src="https://www.cublick.com/wp-content/uploads/2021/04/cloud_logo.png" alt="큐브릭 로고" />
-          }
-        >
+        <ArticleHeader image={<ArticleImage src={cublickCloudImage} alt="큐브릭 로고" />}>
           <ArticleTitle label="2022.03 - 2022.04" href="https://www.cublick.com/솔루션/큐브릭서비스/">
             큐브릭 <Strong>클라우드 사인</Strong> 고도화
           </ArticleTitle>
@@ -77,14 +75,7 @@ export function ExperienceSection() {
         </ArticleMain>
       </Article>
       <Article>
-        <ArticleHeader
-          image={
-            <ArticleImage
-              src="https://www.cublick.com/wp-content/uploads/2021/04/standalone_logo.png"
-              alt="큐브릭 로고"
-            />
-          }
-        >
+        <ArticleHeader image={<ArticleImage src={cublikStandaloneImage} alt="큐브릭 로고" />}>
           <ArticleTitle
             label="2022.03 - 2022.04"
             href="https://www.cublick.com/%ec%86%94%eb%a3%a8%ec%85%98/%ed%81%90%eb%b8%8c%eb%a6%ad%ec%84%9c%eb%b9%84%ec%8a%a4/"

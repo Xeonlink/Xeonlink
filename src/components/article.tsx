@@ -1,7 +1,7 @@
 import { getStaticBadgeUrl, type StaticBadgeOptions } from "@/lib/shields.io";
 import { cn } from "@/lib/utils";
 import { LinkIcon } from "lucide-react";
-import type { ComponentProps, PropsWithChildren } from "react";
+import { createElement, type ComponentProps, type PropsWithChildren } from "react";
 import { InView } from "react-intersection-observer";
 
 type ArticleProps = ComponentProps<"article">;
@@ -47,19 +47,26 @@ export function ArticleHeader(props: ArticleHeaderProps) {
 }
 
 type ArticleTitleProps = PropsWithChildren<{
+  as?: React.HTMLElementType;
   label?: string;
   href?: string;
 }>;
 
 export function ArticleTitle(props: ArticleTitleProps) {
-  const { children, label, href } = props;
+  const { children, label, href, as } = props;
 
   if (href) {
     return (
       <div>
         {label ? <div>{label}</div> : null}
         <a target="_blank" rel="noopener noreferrer" href={href}>
-          <h3 className="border-underline inline-block text-3xl">{children}</h3>{" "}
+          {createElement(
+            as ?? "h3",
+            {
+              className: "border-underline inline-block text-3xl",
+            },
+            children,
+          )}{" "}
           <LinkIcon className="inline-block size-5 align-baseline" />
         </a>
       </div>

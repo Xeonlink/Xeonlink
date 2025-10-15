@@ -238,6 +238,7 @@ export function App() {
                   transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
                 }}
               />
+              <span className="sr-only">toggle expand or shrink top navigation section</span>
             </Button>
           </nav>
 
@@ -256,6 +257,7 @@ export function App() {
           onClick={() => scrollToById("about")}
         >
           <ArrowUpToLineIcon className="size-6 motion-safe:duration-300 group-hover:size-10" />
+          <span className="sr-only">scroll to top</span>
         </Button>
       </div>
     </>

@@ -43,6 +43,7 @@ export function AboutSection() {
           <Button variant="outline" className="size-14 rounded-full" asChild>
             <Link href="tel:01067674151">
               <PhoneOutgoingIcon className="size-full -translate-x-0.5 translate-y-0.5" />
+              <span className="sr-only">call to 010-6767-4151</span>
             </Link>
           </Button>
         </motion.li>
@@ -50,6 +51,7 @@ export function AboutSection() {
           <Button variant="outline" className="size-14 rounded-full" asChild>
             <Link href="mailto:jimin7020@gmail.com">
               <MailIcon className="size-full" />
+              <span className="sr-only">send email to jimin7020@gmail.com</span>
             </Link>
           </Button>
         </motion.li>

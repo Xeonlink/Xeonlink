@@ -60,7 +60,7 @@ export function ProjectsSection() {
             다운로드 폴더에 항상 파일이 쌓이는 분, 바탕화면이 지저분한 것을 참지 못하는 분들을 위해 만들었습니다. <br />
             자세한 기능은{" "}
             <Link href="https://github.com/Xeonlink/re-folder">
-              <Strong variant="bold">여기</Strong>
+              <Strong variant="bold">레포지토리</Strong>
             </Link>
             를 참고바랍니다.
           </p>
@@ -141,7 +141,7 @@ export function ProjectsSection() {
             필요한 정보를 자동으로 채워주는 브라우저 확장프로그램 입니다. <br />
             간단한 캡챠이미지는 <Strong>비전 AI</Strong>를 통해 자동으로 채워넣습니다. 자세한 기능은{" "}
             <Link href="https://github.com/Xeonlink/korea-auth-filler">
-              <Strong variant="bold">여기</Strong>
+              <Strong variant="bold">레포지토리</Strong>
             </Link>
             를 참고바랍니다.
           </p>
