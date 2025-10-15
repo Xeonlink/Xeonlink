@@ -1,4 +1,4 @@
-import tempImage from "@/assets/selfie0_crop2.jpeg";
+import SQLD자격증Image from "@/assets/SQLD자격증.png";
 import 정보처리기사자격증Image from "@/assets/정보처리기사자격증.jpeg";
 import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
 import { Section } from "@/components/section";
@@ -20,9 +20,8 @@ export function CertificationSection() {
         </ArticleHeader>
       </Article>
       <Article>
-        <ArticleHeader image={<ArticleImage src={tempImage} alt="SQLD 자격증" className="object-cover" />}>
-          {/* TODO: 날짜 변경 */}
-          <ArticleTitle label="soon 2025" href="https://www.dataq.or.kr/www/sub/a_04.do">
+        <ArticleHeader image={<ArticleImage src={SQLD자격증Image} alt="SQLD 자격증" className="object-cover" />}>
+          <ArticleTitle label="Sep 2025" href="https://www.dataq.or.kr/www/sub/a_04.do">
             SQL <Strong>개발자</Strong> (SQLD)
           </ArticleTitle>
           <p>

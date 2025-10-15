@@ -1,6 +1,6 @@
 import afterPageLocatorImage from "@/assets/after_page_loactor.png";
-import allcaseImage from "@/assets/allcase.png";
-import allcaseImage3 from "@/assets/allcase3.png";
+import captchaBreakImage from "@/assets/captcha-break.gif";
+import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
 import createApiSelectorImage from "@/assets/create_api_selector.png";
 import createApiSelectorImage2 from "@/assets/create_api_selector2.png";
 import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
@@ -24,6 +24,8 @@ import { Li, Ul } from "@/components/list";
 import { Section } from "@/components/section";
 import { Strong } from "@/components/strong";
 import { ArrowRightIcon } from "lucide-react";
+// import allcaseImage from "@/assets/allcase.png";
+// import allcaseImage3 from "@/assets/allcase3.png";
 
 export function ProjectsSection() {
   return (
@@ -184,7 +186,7 @@ export function ProjectsSection() {
                 </Ul>
               </Li>
             </Ul>
-            <ImageSwap className="w-120">
+            {/* <ImageSwap className="w-120">
               <img
                 src={allcaseImage3}
                 alt="allcase2 함수에서 나온 testcase변수에 regist함수를 호출하여 테스트를 등록하는 코드. 정의한 타입이 자동으로 추론됨"
@@ -207,6 +209,40 @@ export function ProjectsSection() {
                 <Ul>
                   <Li>regist함수에서 파라미터 추가만으로 테스트 커버리지 확장</Li>
                   <Li>test.describe 자동 등록, variables의 통한 타입 추론</Li>
+                </Ul>
+              </Li>
+            </Ul> */}
+            <ImageSwap className="w-120">
+              <img
+                src={captchaBreakImage}
+                alt="자동으로 캡챠이미지를 리로드하고, 캡챠풀기를 반복하는 움직이는 이미지"
+              />
+              <img
+                src={captchaSolveCodeImage}
+                alt="캡챠를 풀기 위한 captchaSolve 함수를 호출하고, 그 결과를 화면에 표시하는 코드"
+              />
+            </ImageSwap>
+            <Ul>
+              <Li>
+                초기에 tesseract.js를 테스트 <ArrowRightIcon className="inline size-4" />{" "}
+                <Strong>실패(정확도 부족)</Strong>
+              </Li>
+              <Li>
+                캡챠 풀기의 정확도를 높이기 위해 인식모델을{" "}
+                <Link href="https://github.com/Xeonlink/kaptch">
+                  <Strong variant="bold">적접개발</Strong>
+                </Link>
+                <Ul>
+                  <Li>
+                    <Strong>CRNN</Strong> 구조로 설계, <Strong>ONNXRUNTIME</Strong>으로 실행
+                  </Li>
+                  <Li>
+                    인증벤더마다 모델을 개발 <ArrowRightIcon className="inline size-4" /> 정확도 향상 & 모델 경량화
+                  </Li>
+                  <Li>
+                    기존에 캡챠를 풀기위해 사용자의 집중을 요구 <ArrowRightIcon className="inline size-4" />{" "}
+                    <Strong>딸깍으로 가능</Strong>
+                  </Li>
                 </Ul>
               </Li>
             </Ul>
