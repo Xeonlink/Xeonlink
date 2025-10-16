@@ -220,10 +220,12 @@ export function ProjectsSection() {
               <img
                 src={captchaBreakImage}
                 alt="자동으로 캡챠이미지를 리로드하고, 캡챠풀기를 반복하는 움직이는 이미지"
+                loading="lazy"
               />
               <img
                 src={captchaSolveCodeImage}
                 alt="캡챠를 풀기 위한 captchaSolve 함수를 호출하고, 그 결과를 화면에 표시하는 코드"
+                loading="lazy"
               />
             </ImageSwap>
             <Ul>

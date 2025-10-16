@@ -12,7 +12,12 @@ export function AboutSection() {
   return (
     <Section id="about">
       <div className="group relative flex w-fit items-center">
-        <img src={profileImage} alt="profile" className="z-10 h-80 rounded-4xl object-cover object-top" />
+        <img
+          src={profileImage}
+          alt="profile"
+          className="z-10 h-80 rounded-4xl object-cover object-top"
+          fetchPriority="high"
+        />
         <img
           src={dockerAlignImage}
           alt="고래 등에 컨테이너가 실려있는 모습"
