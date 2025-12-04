@@ -125,7 +125,7 @@ export function App() {
           </ul>
           {/* 각종 조작버튼 */}
           <ul className="p-2">
-            <li>
+            <li className="list-disc">
               <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
                 <div className="flex items-center">
                   {theme === "light" ? <SunIcon className="size-5" /> : null}
@@ -142,7 +142,7 @@ export function App() {
                 </div>
               </Button>
             </li>
-            <li>
+            <li className="list-disc">
               <Button variant="ghost" className="w-full justify-start" onClick={() => navbar.toggle()}>
                 <div className="flex items-center">
                   <ArrowLeftToLineIcon
@@ -163,7 +163,7 @@ export function App() {
           </ul>
         </nav>
 
-        <div className="flex-1 overflow-y-scroll">
+        <div className="flex-1">
           <nav
             className={cn(
               "sticky top-0 md:h-0 bg-sidebar-primary motion-safe:duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
@@ -213,9 +213,12 @@ export function App() {
                     {theme === "dark" ? <MoonIcon className="size-5" /> : null}
                     {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
                     <span
-                      className={cn("ml-3 motion-safe:duration-700", {
-                        "ml-20 opacity-0": !navbar.isOpen,
+                      className={cn("ml-4 motion-safe:duration-700", {
+                        "ml-20 opacity-0": !topNavbar.isOpen,
                       })}
+                      style={{
+                        transitionDelay: !isReducedMotion ? `${navItems.length * 100}ms` : "0ms",
+                      }}
                     >
                       {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
                       {nextThemeMapper[theme].toUpperCase()}
@@ -242,12 +245,14 @@ export function App() {
             </Button>
           </nav>
 
-          <AboutSection />
-          <EducationSection />
-          <CertificationSection />
-          <ExperienceSection />
-          <ProjectsSection />
-          <ExtraSection />
+          <div className="overflow-y-auto h-full">
+            <AboutSection />
+            <EducationSection />
+            <CertificationSection />
+            <ExperienceSection />
+            <ProjectsSection />
+            <ExtraSection />
+          </div>
         </div>
       </div>
       <div className="group fixed right-0 bottom-0">

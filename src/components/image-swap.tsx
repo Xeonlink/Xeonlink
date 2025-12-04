@@ -9,7 +9,7 @@ export function ImageSwap(props: ImageSwapProps) {
   const { children, className, ...rest } = props;
 
   return (
-    <div className={cn("group relative flex flex-wrap items-center w-120 max-w-full", className)} {...rest}>
+    <div className={cn("group relative flex flex-wrap items-center", className)} {...rest}>
       {cloneElement(children[0], {
         className: cn(
           "rounded-xl motion-safe:duration-700 group-hover:opacity-0 group-hover:blur-md",

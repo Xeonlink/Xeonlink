@@ -1,259 +1,261 @@
-import afterPageLocatorImage from "@/assets/after_page_loactor.png";
 import captchaBreakImage from "@/assets/captcha-break.gif";
 import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
 import createApiSelectorImage from "@/assets/create_api_selector.png";
 import createApiSelectorImage2 from "@/assets/create_api_selector2.png";
 import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
-import prePageLocatorImage from "@/assets/per_page_locator.png";
+import prettierPluginOrganizeAttributesImage from "@/assets/prettier_plugin_organize_attributes.png";
 import refolderImage from "@/assets/refolder_icon.png";
-import versionRangeMapImage from "@/assets/version_range_map.png";
-import {
-  Article,
-  ArticleBadge,
-  ArticleBadgeList,
-  ArticleContent,
-  ArticleContentTitle,
-  ArticleHeader,
-  ArticleImage,
-  ArticleMain,
-  ArticleTitle,
-} from "@/components/article";
+import { Article, ArticleImage } from "@/components/article";
+import { Badge } from "@/components/badge";
 import { ImageSwap } from "@/components/image-swap";
-import { Link } from "@/components/link";
-import { Li, Ul } from "@/components/list";
+import { Link, LinkIcon } from "@/components/link";
 import { Section } from "@/components/section";
-import { Strong } from "@/components/strong";
+import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ArrowRightIcon } from "lucide-react";
-// import allcaseImage from "@/assets/allcase.png";
-// import allcaseImage3 from "@/assets/allcase3.png";
 
 export function ProjectsSection() {
   return (
     <Section id="projects" className="space-y-10" title="PROJECTS">
       {/* ReFolder */}
-      <Article>
-        <ArticleHeader
-          image={
-            <ArticleImage
-              src={refolderImage}
-              alt="파란색 배경에 흰색의 두꺼운 선으로 폴더 아이콘 우상단에 기어 아이콘이 있는 형상"
-            />
-          }
-        >
-          <ArticleTitle as="h2" label="2024.10.18 - 2025.01.22" href="https://github.com/Xeonlink/re-folder">
-            ReFolder
-          </ArticleTitle>
-          <ArticleBadgeList>
-            <ArticleBadge message="react" color="20232a" logo={{ slug: "react", color: "61DAFB" }} />
-            <ArticleBadge message="electron" color="191970" logo={{ slug: "electron", color: "white" }} />
-            <ArticleBadge message="react query" color="FF4154" logo={{ slug: "reactquery", color: "white" }} />
-            <ArticleBadge message="sqlite" color="07405e" logo={{ slug: "sqlite", color: "white" }} />
-            <ArticleBadge
-              message="drizzle"
-              color="C5F74F"
-              logo={{ slug: "drizzle", color: "black" }}
-              href="https://orm.drizzle.team/"
-            />
-          </ArticleBadgeList>
-          <p>
-            ReFolder는 사용자가 설정한 규칙에 따라서 정리되지 않은 폴더의 파일을 정리해주는 프로그램입니다. <br />
-            다운로드 폴더에 항상 파일이 쌓이는 분, 바탕화면이 지저분한 것을 참지 못하는 분들을 위해 만들었습니다. <br />
-            자세한 기능은{" "}
-            <Link href="https://github.com/Xeonlink/re-folder">
-              <Strong variant="bold">레포지토리</Strong>
-            </Link>
-            를 참고바랍니다.
-          </p>
-        </ArticleHeader>
-
-        <ArticleMain>
-          <ArticleContentTitle className="mb-1" as="h3">
-            도전 과제
-          </ArticleContentTitle>
-          <ArticleContent>
-            <div className="flex flex-wrap items-center gap-2">
-              <img
-                src={versionRangeMapImage}
-                alt="key로 버전의 범위를 받고, value로 db schema를 받는 VersionRangeMap클래스의 인스턴스를 생성"
-                className="w-120 rounded-xl"
-              />
+      <Article className="w-full">
+        <ArticleImage
+          src={refolderImage}
+          alt="파란색 배경에 흰색의 두꺼운 선으로 폴더 아이콘 우상단에 기어 아이콘이 있는 형상"
+        />
+        <div className="flex flex-col">
+          <div>
+            <span>2024.10.18 - 2025.01.22</span>
+            <h3 className="text-3xl">
+              <Link href="https://github.com/Xeonlink/re-folder" className="border-underline">
+                ReFolder
+              </Link>
+              &nbsp;
+              <LinkIcon />
+            </h3>
+            <div className="flex flex-wrap mt-1">
+              <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
+                react
+              </Badge>
+              <Badge color="191970" logo={{ slug: "electron", color: "white" }}>
+                electron
+              </Badge>
+              <Badge color="FF4154" logo={{ slug: "reactquery", color: "white" }}>
+                react query
+              </Badge>
+              <Badge color="07405e" logo={{ slug: "sqlite", color: "white" }}>
+                sqlite
+              </Badge>
+              <Link href="https://orm.drizzle.team/" className="border-underline">
+                <Badge color="C5F74F" logo={{ slug: "drizzle", color: "black" }}>
+                  Drizzle
+                </Badge>
+              </Link>
             </div>
-            <Ul>
-              <Li>
-                업데이트할 때, <Strong>DB를 유연하게 변경</Strong> 필요
-                <Ul>
-                  <Li>db schema 변경보다 프로그램 버전 변경이 더 빠름</Li>
-                  <Li>
-                    매번 버전에 맞는 조건문 필요 <ArrowRightIcon className="inline size-4" />{" "}
-                    <Strong>schema 변경</Strong>에만 집중 가능
-                  </Li>
-                </Ul>
-              </Li>
-            </Ul>
-            <ImageSwap className="w-120">
-              <img src={createApiSelectorImage} alt="ipc정의타입을 받아서, renderer에 노출할 ipc를 true/false로 선택" />
-              <img src={createApiSelectorImage2} alt="어떤 ipc가 있는지 타입추론되는 이미지" />
-            </ImageSwap>
-            <Ul>
-              <Li>
-                ipc 통신을 더 쉽고, 실수없이 정의하고 싶음
-                <Ul>
-                  <Li>
-                    채널 이름을 기억하기 어려움 <ArrowRightIcon className="inline size-4" /> 채널이름을 key로 하여{" "}
-                    <Strong>typescript를 통해 추론</Strong>
-                  </Li>
-                  <Li>
-                    handle함수에 맞는 <Strong>invoke 함수</Strong>를 자동 생성
-                  </Li>
-                  <Li>
-                    main의 에러가 renderer로 전달 안됨 <ArrowRightIcon className="inline size-4" />{" "}
-                    <Strong>Error 직렬화/역직렬화</Strong>로 전달
-                  </Li>
-                </Ul>
-              </Li>
-            </Ul>
-          </ArticleContent>
-        </ArticleMain>
+            <p className="mt-1 max-w-140 break-keep">
+              ReFolder는 사용자가 설정한 규칙에 따라서 정리되지 않은 폴더의 파일을 정리해주는 프로그램입니다. nodejs
+              watch 기능을 사용하여, 폴더가 더러워지는 것을 미연에 방지합니다. 자세한 기능은{" "}
+              <Link href="https://github.com/Xeonlink/re-folder">
+                <span className="text-accent font-bold">레포지토리</span>
+              </Link>
+              를 참고바랍니다.
+            </p>
+          </div>
+          <Collapsible>
+            <CollapsibleTrigger asChild>
+              <Button variant="outline" className="justify-start mt-2 text-lg" size="lg">
+                도전 과제 및 해결 방법
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-8 md:mt-10 space-y-8 md:space-y-10">
+              <div>
+                <h4 className="text-xl font-bold">도전 과제</h4>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    electron의 ipc통신은 channel name(string)을 <span className="text-accent">기억하고 사용</span>
+                    해야함.
+                  </li>
+                  <li className="list-disc">
+                    channel 이름에 오타가 발생하여,{" "}
+                    <span className="text-accent">없는 채널로 요청을 보내는 Human Error</span>가 종종 발생.
+                  </li>
+                  <li className="list-disc">
+                    main process에서의 <span className="text-accent">에러</span>가 renderer process로 전달되지 않음.
+                    (예기치 못한 시점에 main process가 죽음)
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold">해결 방법</h4>
+                <ImageSwap className="my-2 max-w-140">
+                  <img
+                    src={createApiSelectorImage}
+                    alt="ipc정의타입을 받아서, renderer에 노출할 ipc를 true/false로 선택"
+                  />
+                  <img src={createApiSelectorImage2} alt="어떤 ipc가 있는지 타입추론되는 이미지" />
+                </ImageSwap>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    electron의 invoke, handle 함수를 감싸서 channel name이{" "}
+                    <span className="text-accent">자동으로 생성</span>되도록 설계.
+                  </li>
+                  <li className="list-disc">
+                    <span className="text-accent">Error를 직렬화 / 역직렬화</span>하여, main process 에러를 renderer까지
+                    전파
+                  </li>
+                  <li className="list-disc">
+                    preload script에 <span className="text-accent">ipc정의만 전달</span>하여, invoke 함수가 런타임에
+                    생성되도록 함.
+                  </li>
+                </ul>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
       </Article>
       {/* 한국인증채우기 */}
       <Article>
-        <ArticleHeader image={<ArticleImage src={koreaAuthFillerImage} alt="원형 태극무늬 형상" />}>
-          <ArticleTitle as="h2" label="2025.01.13 - 2025.03.06" href="https://github.com/Xeonlink/korea-auth-filler">
-            한국인증채우기
-          </ArticleTitle>
-          <ArticleBadgeList>
-            <ArticleBadge message="react" color="20232a" logo={{ slug: "react", color: "61DAFB" }} />
-            <ArticleBadge message="wxt" color="00DC82" logo={{ slug: "wxt", color: "white" }} href="https://wxt.dev/" />
-            <ArticleBadge
-              message="onnx"
-              color="005CED"
-              logo={{ slug: "onnx", color: "white" }}
-              href="https://github.com/onnx/onnx"
-            />
-            <ArticleBadge message="playwright" color="2EAD33" href="https://github.com/microsoft/playwright" />
-            <ArticleBadge
-              message="browser extension api"
-              color="FF6B35"
-              logo={{ slug: "googlechrome", color: "white" }}
-            />
-          </ArticleBadgeList>
-
-          <p>
-            한국에서 사용되는 모바일 본인인증, 휴대폰 인증, 민간인증서 인증 등을 사용할 때 <br />
-            필요한 정보를 자동으로 채워주는 브라우저 확장프로그램 입니다. <br />
-            간단한 캡챠이미지는 <Strong>비전 AI</Strong>를 통해 자동으로 채워넣습니다. 자세한 기능은{" "}
-            <Link href="https://github.com/Xeonlink/korea-auth-filler">
-              <Strong variant="bold">레포지토리</Strong>
-            </Link>
-            를 참고바랍니다.
-          </p>
-        </ArticleHeader>
-        <ArticleMain>
-          <ArticleContentTitle className="mb-1" as="h3">
-            도전 과제
-          </ArticleContentTitle>
-          <ArticleContent>
-            <ImageSwap className="w-120">
-              <img
-                src={prePageLocatorImage}
-                alt="document.querySelector로 요소를 찾고, 요소가 있는지 없는지 if문으로 확인하고 로직을 실행하는 블럭이 2개 있음"
-              />
-              <img
-                src={afterPageLocatorImage}
-                alt="page input visibie fill 함수가 체이닝되어 있고, await를 사용하고 있는 구문이 여럿 있음"
-              />
-            </ImageSwap>
-            <Ul>
-              <Li>
-                확장프로그램이 너무 빨라서 DOM에서 <Strong>요소를 못찾음</Strong>
-              </Li>
-              <Li>
-                <Strong>hydration</Strong>이 끝나기 전에 버튼을 클릭하는 경우 발생
-                <Ul>
-                  <Li>
-                    playwright에서 영감을 얻어{" "}
-                    <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Page.ts">
-                      <Strong variant="bold">Page</Strong>
+        <ArticleImage src={koreaAuthFillerImage} alt="원형 태극무늬 형상" />
+        <div className="flex flex-col">
+          <div>
+            <span>2025.01.13 - 2025.03.06</span>
+            <h3 className="text-3xl">
+              <Link
+                href="https://chromewebstore.google.com/detail/%ED%95%9C%EA%B5%AD%EC%9D%B8%EC%A6%9D%EC%B1%84%EC%9A%B0%EA%B8%B0/eonnjagalbjlklfjnfpgdeaajkghpnjc?authuser=0&hl=ko"
+                className="border-underline"
+              >
+                한국인증채우기
+              </Link>
+              &nbsp;
+              <LinkIcon />
+            </h3>
+            <div className="flex flex-wrap mt-1">
+              <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
+                react
+              </Badge>
+              <Badge color="00DC82" logo={{ slug: "wxt", color: "white" }}>
+                wxt
+              </Badge>
+              <Link href="https://wxt.dev/">
+                <Badge color="005CED" logo={{ slug: "onnx", color: "white" }}>
+                  onnx
+                </Badge>
+              </Link>
+              <Badge color="2EAD33">playwright</Badge>
+              <Link href="https://github.com/microsoft/playwright">
+                <Badge color="FF6B35" logo={{ slug: "googlechrome", color: "white" }}>
+                  browser extension api
+                </Badge>
+              </Link>
+            </div>
+            <p className="mt-1 max-w-140 break-keep">
+              한국에서 사용되는 모바일 본인인증, 휴대폰 인증, 민간인증서 인증 등을 사용할 때 필요한 정보를 자동으로
+              채워주는 브라우저 확장프로그램 입니다. 간단한 캡챠이미지는 <span className="text-accent">비전 AI</span>를
+              통해 자동으로 채워넣습니다. 자세한 기능은{" "}
+              <Link href="https://github.com/Xeonlink/korea-auth-filler" className="border-underline">
+                <span className="text-accent font-bold">레포지토리</span>
+              </Link>
+              를 참고바랍니다.
+            </p>
+          </div>
+          <Collapsible>
+            <CollapsibleTrigger asChild>
+              <Button variant="outline" className="justify-start mt-2 text-lg" size="lg">
+                도전 과제 및 해결 방법
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-8 md:mt-10 space-y-8 md:space-y-10">
+              <div>
+                <h4 className="text-xl font-bold">도전 과제</h4>
+                <ul className="ml-8">
+                  <li className="list-disc">기존에는 사용자가 의도적으로 캡챠를 풀어야했음.</li>
+                  <li className="list-disc">
+                    초기에 tesseract.js를 사용해서 captcha breaking 시도 <ArrowRightIcon className="inline size-4" />{" "}
+                    <span className="text-accent">실패 (정확도 30% 미만)</span>
+                  </li>
+                  <li className="list-disc">
+                    모델을 만들더라도 인증밴더가 캡챠를 바꾸면 다시 제작해야하는 문제가 있음.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold">해결 방법</h4>
+                <ImageSwap className="my-2 ml-4 max-w-140">
+                  <img
+                    src={captchaBreakImage}
+                    alt="자동으로 캡챠이미지를 리로드하고, 캡챠풀기를 반복하는 움직이는 이미지"
+                    loading="lazy"
+                  />
+                  <img
+                    src={captchaSolveCodeImage}
+                    alt="캡챠를 풀기 위한 captchaSolve 함수를 호출하고, 그 결과를 화면에 표시하는 코드"
+                    loading="lazy"
+                  />
+                </ImageSwap>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    캡챠 풀기의 정확도를 높이기 위해 인식모델을{" "}
+                    <Link href="https://github.com/Xeonlink/kaptch" className="border-underline">
+                      <span className="text-accent font-bold">직접개발</span>
                     </Link>
-                    와{" "}
-                    <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/src/utils/Locator.ts">
-                      <Strong variant="bold">Locator</Strong>
-                    </Link>
-                    구현
-                  </Li>
-                  <Li>
-                    <Strong>retry</Strong>와 <Strong>sleep</Strong>을 통해 더 안정적으로 채워넣기
-                  </Li>
-                  <Li>
-                    인터넷 느리면 채우기 실패 <ArrowRightIcon className="inline size-4" /> 안정적 채우기 가능
-                  </Li>
-                </Ul>
-              </Li>
-            </Ul>
-            {/* <ImageSwap className="w-120">
-              <img
-                src={allcaseImage3}
-                alt="allcase2 함수에서 나온 testcase변수에 regist함수를 호출하여 테스트를 등록하는 코드. 정의한 타입이 자동으로 추론됨"
-              />
-              <img
-                src={allcaseImage}
-                alt="테스트 커버리지에 맞는 타입이 정의되어있고, allcase2 함수에 타입을 제네릭으로 넣어주고 있음"
-              />
-            </ImageSwap>
-            <Ul>
-              <Li>
-                e2e 테스트 차원을 늘릴 때마다 test.describe와 test가 중복 <ArrowRightIcon className="inline size-4" />{" "}
-                규격화 곤란
-              </Li>
-              <Li>
-                <Link href="https://github.com/Xeonlink/korea-auth-filler/blob/main/tests/utils/testcase.ts">
-                  <Strong variant="bold">allcase</Strong>
-                </Link>{" "}
-                함수 정의
-                <Ul>
-                  <Li>regist함수에서 파라미터 추가만으로 테스트 커버리지 확장</Li>
-                  <Li>test.describe 자동 등록, variables의 통한 타입 추론</Li>
-                </Ul>
-              </Li>
-            </Ul> */}
-            <ImageSwap className="w-120">
-              <img
-                src={captchaBreakImage}
-                alt="자동으로 캡챠이미지를 리로드하고, 캡챠풀기를 반복하는 움직이는 이미지"
-                loading="lazy"
-              />
-              <img
-                src={captchaSolveCodeImage}
-                alt="캡챠를 풀기 위한 captchaSolve 함수를 호출하고, 그 결과를 화면에 표시하는 코드"
-                loading="lazy"
-              />
-            </ImageSwap>
-            <Ul>
-              <Li>
-                초기에 tesseract.js를 테스트 <ArrowRightIcon className="inline size-4" />{" "}
-                <Strong>실패(정확도 부족)</Strong>
-              </Li>
-              <Li>
-                캡챠 풀기의 정확도를 높이기 위해 인식모델을{" "}
-                <Link href="https://github.com/Xeonlink/kaptch">
-                  <Strong variant="bold">적접개발</Strong>
-                </Link>
-                <Ul>
-                  <Li>
-                    <Strong>CRNN</Strong> 구조로 설계, <Strong>ONNXRUNTIME</Strong>으로 실행
-                  </Li>
-                  <Li>
-                    인증벤더마다 모델을 개발 <ArrowRightIcon className="inline size-4" /> 정확도 향상 & 모델 경량화
-                  </Li>
-                  <Li>
-                    기존에 캡챠를 풀기위해 사용자의 집중을 요구 <ArrowRightIcon className="inline size-4" />{" "}
-                    <Strong>딸깍으로 가능</Strong>
-                  </Li>
-                </Ul>
-              </Li>
-            </Ul>
-          </ArticleContent>
-        </ArticleMain>
+                  </li>
+                  <li className="list-disc">
+                    <span className="text-accent">CRNN</span> 구조로 설계,{" "}
+                    <span className="text-accent">ONNXRUNTIME</span>
+                    으로 실행
+                  </li>
+                  <li className="list-disc">
+                    인증벤더마다 전용 모델을 개발하여, <span className="text-accent">정확도 99.9% 이상</span> 달성
+                  </li>
+                  <li className="list-disc">특정 인증벤더의 캡챠가 바뀌더라도 모델 전체를 재학습시키지 않아도 됨</li>
+                </ul>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
+      </Article>
+      {/* prettier-plugin-organize-attributes */}
+      <Article>
+        <ArticleImage
+          src={prettierPluginOrganizeAttributesImage}
+          alt="prettier-plugin-organize-attributes 플러그인 소개 이미지"
+        />
+        <div className="flex flex-col space-y-8 md:space-y-10">
+          <div>
+            <span>2025.08.21 - 2025.09.25</span>
+            <h3 className="text-3xl">
+              <Link
+                href="https://www.npmjs.com/package/@xeonlink/prettier-plugin-organize-attributes"
+                className="border-underline"
+              >
+                prettier-plugin-organize-attributes
+              </Link>
+              &nbsp;
+              <LinkIcon />
+            </h3>
+            <div className="flex flex-wrap mt-1">
+              <Badge color="1C2B34" logo={{ slug: "prettier" }}>
+                prettier
+              </Badge>
+              <Badge color="20232a" logo={{ slug: "typescript" }}>
+                tsup
+              </Badge>
+              <Badge color="20232a" logo={{ slug: "vitest" }}>
+                vitest
+              </Badge>
+              <Badge color="DF1538">angular html parser</Badge>
+              <Badge color="F1DC56">estree parser</Badge>
+            </div>
+            <p className="mt-1 max-w-140 break-keep">
+              prettier-plugin-organize-attributes는 prettier 플러그인으로, html like한 코드에서 attributes를 재배치하여
+              코드를 보기 좋게 만들어주는 플러그인입니다. 자세한 기능은{" "}
+              <Link href="https://github.com/Xeonlink/prettier-plugin-organize-attributes" className="border-underline">
+                <span className="text-accent font-bold">레포지토리</span>
+              </Link>
+              를 참고바랍니다.
+            </p>
+          </div>
+        </div>
       </Article>
     </Section>
   );

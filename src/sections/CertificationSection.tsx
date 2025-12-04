@@ -1,33 +1,40 @@
 import 정보처리기사자격증Image from "@/assets/engineer_information_processing_cert.jpeg";
 import SQLD자격증Image from "@/assets/sqld_cert.png";
-import { Article, ArticleHeader, ArticleImage, ArticleTitle } from "@/components/article";
+import { Article, ArticleImage } from "@/components/article";
+import { Link, LinkIcon } from "@/components/link";
 import { Section } from "@/components/section";
-import { Strong } from "@/components/strong";
 
 export function CertificationSection() {
   return (
     <Section id="certification" title="기술 자격증">
       <Article>
-        <ArticleHeader
-          image={<ArticleImage src={정보처리기사자격증Image} alt="정보처리기사자격증" className="object-cover" />}
-        >
-          <ArticleTitle as="h2" label="June 2025" href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
-            정보 처리 <Strong>기사</Strong>
-          </ArticleTitle>
-          <p>
-            <span className="text-xl">한국산업인력공단</span>
-          </p>
-        </ArticleHeader>
+        <ArticleImage src={정보처리기사자격증Image} alt="정보처리기사자격증" className="object-cover" />
+        <div className="flex flex-col">
+          <span>June 2025</span>
+          <Link href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
+            <h2 className="text-3xl inline-block border-underline">
+              정보 처리 <span className="text-accent font-bold">기사</span>
+            </h2>
+            &nbsp;
+            <LinkIcon />
+          </Link>
+          <span className="text-xl">한국산업인력공단</span>
+        </div>
       </Article>
+
       <Article>
-        <ArticleHeader image={<ArticleImage src={SQLD자격증Image} alt="SQLD 자격증" className="object-cover" />}>
-          <ArticleTitle as="h2" label="Sep 2025" href="https://www.dataq.or.kr/www/sub/a_04.do">
-            SQL <Strong>개발자</Strong> (SQLD)
-          </ArticleTitle>
-          <p>
-            <span className="text-xl">한국데이터산업진흥원</span>
-          </p>
-        </ArticleHeader>
+        <ArticleImage src={SQLD자격증Image} alt="SQLD 자격증" className="object-cover" />
+        <div className="flex flex-col">
+          <span>Sep 2025</span>
+          <Link href="https://www.dataq.or.kr/www/sub/a_04.do">
+            <h2 className="text-3xl inline-block border-underline">
+              SQL <span className="text-accent font-bold">개발자</span> (SQLD)
+            </h2>
+            &nbsp;
+            <LinkIcon />
+          </Link>
+          <span className="text-xl">한국데이터산업진흥원</span>
+        </div>
       </Article>
     </Section>
   );

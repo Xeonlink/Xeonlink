@@ -2,7 +2,6 @@ import profileImage from "@/assets/selfie0_crop2.jpeg";
 import { GithubIcon } from "@/components/icon/GithubIcon";
 import { Link } from "@/components/link";
 import { Section } from "@/components/section";
-import { Strong } from "@/components/strong";
 import { Button } from "@/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -10,7 +9,7 @@ import dockerAlignImage from "/docker-align.png?url";
 
 export function AboutSection() {
   return (
-    <Section id="about">
+    <Section id="about" className="md:space-y-6">
       <div className="group relative flex w-fit items-center">
         <img
           src={profileImage}
@@ -25,12 +24,12 @@ export function AboutSection() {
         />
       </div>
       <h2 className="text-7xl font-bold">
-        오지민, <Strong variant="bold">OH</Strong> JIMIN
+        오지민, <span className="text-accent font-bold">OH</span> JIMIN
       </h2>
       <p className="text-4xl">
-        TEL. <Strong>010-6767-4151</Strong>
+        TEL. <span className="text-accent">010-6767-4151</span>
         {" | "}
-        E-MAIL. <Strong>jimin7020@gmail.com</Strong>
+        E-MAIL. <span className="text-accent">jimin7020@gmail.com</span>
       </p>
       <p className="text-xl">
         지루한 반복작업을 줄이고, 더 가치있는 일에 집중하도록 하는 도구를 만듭니다. <br />

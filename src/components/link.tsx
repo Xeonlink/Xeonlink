@@ -1,12 +1,18 @@
 import { cn } from "@/lib/utils";
+import { LinkIcon as LucideLinkIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 
 export function Link(props: ComponentProps<"a">) {
-  const { children, href, className, ...rest } = props;
+  const { children, ...rest } = props;
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("border-underline", className)} {...rest}>
+    <a target="_blank" rel="noopener noreferrer" {...rest}>
       {children}
     </a>
   );
+}
+
+export function LinkIcon(props: ComponentProps<typeof LucideLinkIcon>) {
+  const { className, ...rest } = props;
+  return <LucideLinkIcon className={cn("inline-block size-5 align-baseline", className)} {...rest} />;
 }

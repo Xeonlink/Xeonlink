@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import { LinkIcon } from "lucide-react";
-import type { ComponentProps, PropsWithChildren } from "react";
+import type { ComponentProps } from "react";
 import { InView } from "react-intersection-observer";
 
 type SectionProps = ComponentProps<"section"> & {
@@ -16,7 +15,7 @@ export function Section(props: SectionProps) {
         <section
           ref={ref}
           className={cn(
-            "space-y-6 border-dotted p-8 motion-safe:duration-1000 not-last:border-b-2 md:p-14",
+            "space-y-8 border-dotted p-8 motion-safe:duration-1000 not-last:border-b-2 md:p-14 md:space-y-14",
             className,
             inView ? "opacity-100" : "opacity-0",
           )}
@@ -28,35 +27,5 @@ export function Section(props: SectionProps) {
         </section>
       )}
     </InView>
-  );
-}
-
-type SubSectionTitleProps = PropsWithChildren<{
-  href?: string;
-}>;
-
-export function SubSectionTitle(props: SubSectionTitleProps) {
-  const { children, href } = props;
-
-  if (href) {
-    return (
-      <div>
-        <a href={href} className="text-4xl" target="_blank" rel="noopener noreferrer">
-          <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>{" "}
-          <LinkIcon className="inline size-5" />
-        </a>{" "}
-        <span className="text-xl">2022.12 - 2023.04</span>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <span className="text-4xl">
-        <h2 className="inline border-b border-transparent font-bold hover:border-white">{children}</h2>{" "}
-        <LinkIcon className="inline size-5" />
-      </span>{" "}
-      <span className="text-xl">2022.12 - 2023.04</span>
-    </div>
   );
 }
