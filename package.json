@@ -1,0 +1,56 @@
+{
+  "name": "prettier-plugin-linear",
+  "version": "1.0.0",
+  "description": "A plugin that runs prettier plugins independently and merges them.",
+  "license": "MIT",
+  "author": {
+    "name": "OH jimin",
+    "email": "jimin7020@gmail.com",
+    "url": "https://github.com/Xeonlink"
+  },
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "prettier",
+    "plugin",
+    "merge",
+    "independent",
+    "squantial",
+    "multiple",
+    "format",
+    "conflict",
+    "compatibility"
+  ],
+  "peerDependencies": {
+    "prettier": "3.8.1"
+  },
+  "dependencies": {
+    "es-toolkit": "^1.45.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^24.3.1",
+    "prettier-plugin-curly": "^0.4.1",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "prettier-plugin-package": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}
