@@ -87,11 +87,15 @@ export function App() {
 
   return (
     <>
-      <div className="flex h-screen w-screen">
+      <div className="flex h-screen">
+        {/* 데스크탑 네비게이션 */}
         <nav
-          className={cn("flex md:w-72 flex-col overflow-y-scroll bg-sidebar-primary motion-safe:duration-1000 w-0", {
-            "md:w-17": !navbar.isOpen,
-          })}
+          className={cn(
+            "flex md:w-72 flex-col overflow-y-scroll bg-sidebar-primary motion-safe:duration-1000 w-0 scrollbar-hide",
+            {
+              "md:w-17": !navbar.isOpen,
+            },
+          )}
           style={{
             transitionDelay: !navbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
           }}
@@ -163,96 +167,95 @@ export function App() {
           </ul>
         </nav>
 
-        <div className="flex-1">
-          <nav
-            className={cn(
-              "sticky top-0 md:h-0 bg-sidebar-primary motion-safe:duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
-              {
-                "max-md:h-10": !topNavbar.isOpen,
-              },
-            )}
-            style={{
-              transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
-            }}
-          >
-            {/* 네비게이션 메뉴 */}
-            <ul className="w-full p-2">
-              {navItems.map((item, index) => (
-                <li key={item.name}>
-                  <Button
-                    variant="ghost"
-                    className="h-12 w-full justify-start text-2xl"
-                    onClick={() => {
-                      scrollToById(item.name.toLowerCase());
-                      topNavbar.setFalse();
-                    }}
-                  >
-                    <div className="flex items-center">
-                      {item.icon}
-                      <span
-                        className={cn("ml-4 motion-safe:duration-700", {
-                          "ml-20 opacity-0": !topNavbar.isOpen,
-                        })}
-                        style={{
-                          transitionDelay: !isReducedMotion ? `${index * 100}ms` : "0ms",
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                    </div>
-                  </Button>
-                </li>
-              ))}
-            </ul>
-            {/* 각종 조작버튼 */}
-            <ul className="p-2">
-              <li>
-                <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
+        {/* 모바일 네비게이션 */}
+        <nav
+          className={cn(
+            "fixed w-full md:h-0 bg-sidebar-primary motion-safe:duration-1000 h-104 overflow-hidden z-20 max-md:pt-6",
+            {
+              "max-md:h-10": !topNavbar.isOpen,
+            },
+          )}
+          style={{
+            transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
+          }}
+        >
+          {/* 네비게이션 메뉴 */}
+          <ul className="p-2">
+            {navItems.map((item, index) => (
+              <li key={item.name}>
+                <Button
+                  variant="ghost"
+                  className="h-12 w-full justify-start text-2xl"
+                  onClick={() => {
+                    scrollToById(item.name.toLowerCase());
+                    topNavbar.setFalse();
+                  }}
+                >
                   <div className="flex items-center">
-                    {theme === "light" ? <SunIcon className="size-5" /> : null}
-                    {theme === "dark" ? <MoonIcon className="size-5" /> : null}
-                    {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                    {item.icon}
                     <span
                       className={cn("ml-4 motion-safe:duration-700", {
                         "ml-20 opacity-0": !topNavbar.isOpen,
                       })}
                       style={{
-                        transitionDelay: !isReducedMotion ? `${navItems.length * 100}ms` : "0ms",
+                        transitionDelay: !isReducedMotion ? `${index * 100}ms` : "0ms",
                       }}
                     >
-                      {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
-                      {nextThemeMapper[theme].toUpperCase()}
+                      {item.name}
                     </span>
                   </div>
                 </Button>
               </li>
-            </ul>
+            ))}
+          </ul>
+          {/* 각종 조작버튼 */}
+          <ul className="p-2">
+            <li>
+              <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
+                <div className="flex items-center">
+                  {theme === "light" ? <SunIcon className="size-5" /> : null}
+                  {theme === "dark" ? <MoonIcon className="size-5" /> : null}
+                  {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                  <span
+                    className={cn("ml-4 motion-safe:duration-700", {
+                      "ml-20 opacity-0": !topNavbar.isOpen,
+                    })}
+                    style={{
+                      transitionDelay: !isReducedMotion ? `${navItems.length * 100}ms` : "0ms",
+                    }}
+                  >
+                    {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
+                    {nextThemeMapper[theme].toUpperCase()}
+                  </span>
+                </div>
+              </Button>
+            </li>
+          </ul>
 
-            <Button
-              variant="ghost"
-              className="absolute bottom-0 left-0 right-0 h-10 rounded-none"
-              onClick={() => topNavbar.toggle()}
-            >
-              <ChevronDownIcon
-                className={cn("size-10 motion-safe:duration-700 motion-safe:animate-[bounce_2s_linear_infinite] mt-3", {
-                  "rotate-180 mt-0": topNavbar.isOpen,
-                })}
-                style={{
-                  transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
-                }}
-              />
-              <span className="sr-only">toggle expand or shrink top navigation section</span>
-            </Button>
-          </nav>
+          <Button
+            variant="ghost"
+            className="absolute bottom-0 left-0 right-0 h-10 rounded-none"
+            onClick={() => topNavbar.toggle()}
+          >
+            <ChevronDownIcon
+              className={cn("size-10 motion-safe:duration-700 motion-safe:animate-[bounce_2s_linear_infinite] mt-3", {
+                "rotate-180 mt-0": topNavbar.isOpen,
+              })}
+              style={{
+                transitionDelay: !topNavbar.isOpen && !isReducedMotion ? `${(navItems.length - 3) * 100}ms` : "0ms",
+              }}
+            />
+            <span className="sr-only">toggle expand or shrink top navigation section</span>
+          </Button>
+        </nav>
 
-          <div className="overflow-y-auto h-full">
-            <AboutSection />
-            <EducationSection />
-            <CertificationSection />
-            <ExperienceSection />
-            <ProjectsSection />
-            <ExtraSection />
-          </div>
+        <div className="flex-1 overflow-y-auto mt-10 md:mt-0">
+          <AboutSection />
+          <EducationSection />
+          <CertificationSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <ExtraSection />
         </div>
       </div>
       <div className="group fixed right-0 bottom-0">
