@@ -174,7 +174,8 @@ function withMiddleware<C, MO = unknown, MI = unknown, R = unknown>(
           metadata: _middleware.metadata ?? ({} as MO),
           next: {
             call: async (): Promise<void & Marker> => {
-              await next(ctx);
+              const r = await next(ctx);
+              return r as void & Marker;
             },
             withCtx: async <CO extends AnyRecord>(ctxOut: NotEmpty<CO>) => {
               const r = await next({ ...ctx, ...ctxOut });
