@@ -1,17 +1,20 @@
 FROM node:22.18.0-alpine AS base
 
-# Install dependencies only when needed
-FROM base AS deps
-WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN corepack enable pnpm && pnpm i --frozen-lockfile
+# Install proejct dependencies only when needed
+# FROM base AS deps
+# WORKDIR /app
+# RUN apk add --no-cache autoconf automake libtool make gcc g++ zlib-dev libwebp-dev libwebp-tools
+# COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+# RUN corepack enable pnpm && pnpm ci
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+RUN apk add --no-cache autoconf automake libtool make gcc g++ zlib-dev libwebp-dev libwebp-tools
+# COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable pnpm && pnpm run build && rm -rf ./node_modules
+ENV CI=true
+RUN corepack enable pnpm && pnpm run build
 
 # Production image, copy all the files and run next
 FROM nginx:1.29.2-alpine3.22-slim AS runner
