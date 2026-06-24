@@ -1,8 +1,8 @@
-import namjuFrontSymbolImage from "@/assets/namju_front_symbol.png";
-import ssuImage from "@/assets/ssu.jpg";
-import { Article, ArticleImage } from "@/components/article";
-import { Link, LinkIcon } from "@/components/link";
-import { Section } from "@/components/section";
+import namjuFrontSymbolImage from "@/features/resume/assets/namju_front_symbol.png";
+import ssuImage from "@/features/resume/assets/ssu.jpg";
+import { Article, ArticleImage } from "@/shared/components/article";
+import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
+import { Section } from "@/shared/components/section";
 
 export function EducationSection() {
   return (
@@ -15,13 +15,13 @@ export function EducationSection() {
         />
         <div className="flex flex-col">
           <span>March 2020 - February 2026</span>
-          <Link href="https://cse.ssu.ac.kr/">
+          <ExternalLink href="https://cse.ssu.ac.kr/">
             <h2 className="text-3xl inline-block border-underline">
               SOONGSIL <span className="text-accent">UNIV</span>ERSITY
             </h2>
             &nbsp;
             <LinkIcon />
-          </Link>
+          </ExternalLink>
           <span className="text-2xl">
             <span className="text-accent">컴퓨터</span> 학부 학사
           </span>
@@ -36,13 +36,13 @@ export function EducationSection() {
         />
         <div className="flex flex-col">
           <span>March 2017 - February 2020</span>
-          <Link href="https://school.jje.go.kr/namju-h/main.do">
+          <ExternalLink href="https://school.jje.go.kr/namju-h/main.do">
             <h2 className="text-3xl inline-block border-underline">
               NAMJU <span className="text-accent">HIGH</span> SCHOOL
             </h2>
             &nbsp;
             <LinkIcon />
-          </Link>
+          </ExternalLink>
           <span className="text-2xl">
             인문계열 <span className="text-accent">이과</span>
           </span>

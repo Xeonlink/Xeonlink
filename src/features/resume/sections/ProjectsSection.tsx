@@ -1,21 +1,21 @@
-import captchaBreakImage from "@/assets/captcha-break.gif";
-import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
-import createApiSelectorImage from "@/assets/create_api_selector.png";
-import createApiSelectorImage2 from "@/assets/create_api_selector2.png";
-import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
-import prettierPluginOrganizeAttributesImage from "@/assets/prettier_plugin_organize_attributes.png";
-import refolderImage from "@/assets/refolder_icon.png";
-import syncronClockSkewImage from "@/assets/syncron_clockskew.jpeg";
-import syncronClockSkewCalculationImage from "@/assets/syncron_clockskew_calc.png";
-import syncronClockSkewCalculatorImage from "@/assets/syncron_clockskew_calculator.png";
-import syncronFaviconImage from "@/assets/syncron_favicon.svg";
-import { Article, ArticleImage } from "@/components/article";
-import { Badge } from "@/components/badge";
-import { ImageSwap } from "@/components/image-swap";
-import { Link, LinkIcon } from "@/components/link";
-import { Section } from "@/components/section";
-import { Button } from "@/components/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import captchaBreakImage from "@/features/resume/assets/captcha-break.gif";
+import captchaSolveCodeImage from "@/features/resume/assets/captcha_solve_code.png";
+import createApiSelectorImage from "@/features/resume/assets/create_api_selector.png";
+import createApiSelectorImage2 from "@/features/resume/assets/create_api_selector2.png";
+import koreaAuthFillerImage from "@/features/resume/assets/korea_auth_filler_image.png";
+import prettierPluginOrganizeAttributesImage from "@/features/resume/assets/prettier_plugin_organize_attributes.png";
+import refolderImage from "@/features/resume/assets/refolder_icon.png";
+import syncronClockSkewImage from "@/features/resume/assets/syncron_clockskew.jpeg";
+import syncronClockSkewCalculationImage from "@/features/resume/assets/syncron_clockskew_calc.png";
+import syncronClockSkewCalculatorImage from "@/features/resume/assets/syncron_clockskew_calculator.png";
+import syncronFaviconImage from "@/features/resume/assets/syncron_favicon.svg";
+import { Article, ArticleImage } from "@/shared/components/article";
+import { Badge } from "@/shared/components/badge";
+import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
+import { ImageSwap } from "@/shared/components/image-swap";
+import { Section } from "@/shared/components/section";
+import { Button } from "@/shared/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/ui/collapsible";
 import { ArrowRightIcon } from "lucide-react";
 
 export function ProjectsSection() {
@@ -31,9 +31,9 @@ export function ProjectsSection() {
           <div>
             <span>2024.10.18 - 2025.01.22</span>
             <h3 className="text-3xl">
-              <Link href="https://github.com/Xeonlink/re-folder" className="border-underline">
+              <ExternalLink href="https://github.com/Xeonlink/re-folder" className="border-underline">
                 ReFolder
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -50,18 +50,18 @@ export function ProjectsSection() {
               <Badge color="07405e" logo={{ slug: "sqlite", color: "white" }}>
                 sqlite
               </Badge>
-              <Link href="https://orm.drizzle.team/" className="border-underline">
+              <ExternalLink href="https://orm.drizzle.team/" className="border-underline">
                 <Badge color="C5F74F" logo={{ slug: "drizzle", color: "black" }}>
                   Drizzle
                 </Badge>
-              </Link>
+              </ExternalLink>
             </div>
             <p className="mt-1 max-w-150 break-keep">
               ReFolder는 사용자가 설정한 규칙에 따라서 정리되지 않은 폴더의 파일을 정리해주는 프로그램입니다. nodejs
               watch 기능을 사용하여, 폴더가 더러워지는 것을 미연에 방지합니다. 자세한 기능은{" "}
-              <Link href="https://github.com/Xeonlink/re-folder">
+              <ExternalLink href="https://github.com/Xeonlink/re-folder">
                 <span className="text-accent font-bold">레포지토리</span>
-              </Link>
+              </ExternalLink>
               를 참고바랍니다.
             </p>
           </div>
@@ -124,12 +124,12 @@ export function ProjectsSection() {
           <div>
             <span>2025.01.13 - 2025.03.06</span>
             <h3 className="text-3xl">
-              <Link
+              <ExternalLink
                 href="https://chromewebstore.google.com/detail/%ED%95%9C%EA%B5%AD%EC%9D%B8%EC%A6%9D%EC%B1%84%EC%9A%B0%EA%B8%B0/eonnjagalbjlklfjnfpgdeaajkghpnjc?authuser=0&hl=ko"
                 className="border-underline"
               >
                 한국인증채우기
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -140,25 +140,25 @@ export function ProjectsSection() {
               <Badge color="00DC82" logo={{ slug: "wxt", color: "white" }}>
                 wxt
               </Badge>
-              <Link href="https://wxt.dev/">
+              <ExternalLink href="https://wxt.dev/">
                 <Badge color="005CED" logo={{ slug: "onnx", color: "white" }}>
                   onnx
                 </Badge>
-              </Link>
+              </ExternalLink>
               <Badge color="2EAD33">playwright</Badge>
-              <Link href="https://github.com/microsoft/playwright">
+              <ExternalLink href="https://github.com/microsoft/playwright">
                 <Badge color="FF6B35" logo={{ slug: "googlechrome", color: "white" }}>
                   browser extension api
                 </Badge>
-              </Link>
+              </ExternalLink>
             </div>
             <p className="mt-1 max-w-150 break-keep">
               한국에서 사용되는 모바일 본인인증, 휴대폰 인증, 민간인증서 인증 등을 사용할 때 필요한 정보를 자동으로
               채워주는 브라우저 확장프로그램 입니다. 간단한 캡챠이미지는 <span className="text-accent">비전 AI</span>를
               통해 자동으로 채워넣습니다. 자세한 기능은{" "}
-              <Link href="https://github.com/Xeonlink/korea-auth-filler" className="border-underline">
+              <ExternalLink href="https://github.com/Xeonlink/korea-auth-filler" className="border-underline">
                 <span className="text-accent font-bold">레포지토리</span>
-              </Link>
+              </ExternalLink>
               를 참고바랍니다.
             </p>
           </div>
@@ -199,9 +199,9 @@ export function ProjectsSection() {
                 <ul className="ml-8">
                   <li className="list-disc">
                     캡챠 풀기의 정확도를 높이기 위해 인식모델을{" "}
-                    <Link href="https://github.com/Xeonlink/kaptch" className="border-underline">
+                    <ExternalLink href="https://github.com/Xeonlink/kaptch" className="border-underline">
                       <span className="text-accent font-bold">직접개발</span>
-                    </Link>
+                    </ExternalLink>
                   </li>
                   <li className="list-disc">
                     <span className="text-accent">CRNN</span> 구조로 설계,{" "}
@@ -225,16 +225,16 @@ export function ProjectsSection() {
           <div>
             <span>2026.04.23 - 2026.05.13</span>
             <h3 className="text-3xl">
-              <Link href="https://syncron.ohjimin.com/" className="border-underline">
+              <ExternalLink href="https://syncron.ohjimin.com/" className="border-underline">
                 Syncron - Web Metronome
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
             <div className="flex flex-wrap mt-1">
-              <Link href="https://elysiajs.com/">
+              <ExternalLink href="https://elysiajs.com/">
                 <Badge color="5E5E5E">ElysiaJS - websocket</Badge>
-              </Link>
+              </ExternalLink>
               <Badge color="B87915" logo={{ slug: "daisyui", color: "white" }}>
                 DaisyUI
               </Badge>
@@ -246,9 +246,9 @@ export function ProjectsSection() {
             <p className="mt-1 max-w-150 break-keep">
               Sync Metronome은 브라우저에서 동작하는 <span className="text-accent font-bold">실시간 동기화</span>{" "}
               메트로놈입니다. 호스트의 BPM·박자·재생 상태를 공유하여 연습할 수 있습니다. 자세한 기능은{" "}
-              <Link href="https://github.com/phanzi/WebMetrome" className="border-underline">
+              <ExternalLink href="https://github.com/phanzi/WebMetrome" className="border-underline">
                 <span className="text-accent font-bold">레포지토리</span>
-              </Link>
+              </ExternalLink>
               를 참고바랍니다.
             </p>
           </div>
@@ -319,12 +319,12 @@ export function ProjectsSection() {
           <div>
             <span>2025.08.21 - 2025.09.25</span>
             <h3 className="text-3xl">
-              <Link
+              <ExternalLink
                 href="https://www.npmjs.com/package/@xeonlink/prettier-plugin-organize-attributes"
                 className="border-underline"
               >
                 prettier-plugin-organize-attributes
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -344,9 +344,12 @@ export function ProjectsSection() {
             <p className="mt-1 max-w-150 break-keep">
               prettier-plugin-organize-attributes는 prettier 플러그인으로, html like한 코드에서 attributes를 재배치하여
               코드를 보기 좋게 만들어주는 플러그인입니다. 자세한 기능은{" "}
-              <Link href="https://github.com/Xeonlink/prettier-plugin-organize-attributes" className="border-underline">
+              <ExternalLink
+                href="https://github.com/Xeonlink/prettier-plugin-organize-attributes"
+                className="border-underline"
+              >
                 <span className="text-accent font-bold">레포지토리</span>
-              </Link>
+              </ExternalLink>
               를 참고바랍니다.
             </p>
           </div>

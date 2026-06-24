@@ -1,6 +1,6 @@
-import { Article } from "@/components/article";
-import { Link, LinkIcon } from "@/components/link";
-import { Section } from "@/components/section";
+import { Article } from "@/shared/components/article";
+import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
+import { Section } from "@/shared/components/section";
 
 export function ExtraSection() {
   return (
@@ -9,9 +9,9 @@ export function ExtraSection() {
         <div className="flex flex-col space-y-8 md:space-y-10">
           <div>
             <h3 className="text-3xl">
-              <Link href="https://github.com/Xeonlink/kaptch" className="border-underline">
+              <ExternalLink href="https://github.com/Xeonlink/kaptch" className="border-underline">
                 Kaptch
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -28,9 +28,9 @@ export function ExtraSection() {
         <div className="flex flex-col space-y-8 md:space-y-10">
           <div>
             <h3 className="text-3xl">
-              <Link href="https://github.com/Xeonlink/LoanService" className="border-underline">
+              <ExternalLink href="https://github.com/Xeonlink/LoanService" className="border-underline">
                 LoanService
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>

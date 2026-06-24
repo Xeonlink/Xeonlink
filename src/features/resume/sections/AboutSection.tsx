@@ -1,8 +1,8 @@
-import profileImage from "@/assets/selfie0_crop2.jpeg";
-import { GithubIcon } from "@/components/icon/GithubIcon";
-import { Link } from "@/components/link";
-import { Section } from "@/components/section";
-import { Button } from "@/components/ui/button";
+import profileImage from "@/features/resume/assets/selfie0_crop2.jpeg";
+import { ExternalLink } from "@/shared/components/external-link";
+import { GithubIcon } from "@/shared/components/icon/GithubIcon";
+import { Section } from "@/shared/components/section";
+import { Button } from "@/shared/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";
 import dockerAlignImage from "/docker-align.png?url";
@@ -38,25 +38,25 @@ export function AboutSection() {
       <ul className="flex gap-4">
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
           <Button variant="outline" className="size-14 rounded-full" asChild>
-            <Link href="https://github.com/Xeonlink">
+            <ExternalLink href="https://github.com/Xeonlink">
               <GithubIcon className="size-full scale-125" />
-            </Link>
+            </ExternalLink>
           </Button>
         </motion.li>
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
           <Button variant="outline" className="size-14 rounded-full" asChild>
-            <Link href="tel:01067674151">
+            <ExternalLink href="tel:01067674151">
               <PhoneOutgoingIcon className="size-full -translate-x-0.5 translate-y-0.5" />
               <span className="sr-only">call to 010-6767-4151</span>
-            </Link>
+            </ExternalLink>
           </Button>
         </motion.li>
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
           <Button variant="outline" className="size-14 rounded-full" asChild>
-            <Link href="mailto:jimin7020@gmail.com">
+            <ExternalLink href="mailto:jimin7020@gmail.com">
               <MailIcon className="size-full" />
               <span className="sr-only">send email to jimin7020@gmail.com</span>
-            </Link>
+            </ExternalLink>
           </Button>
         </motion.li>
       </ul>

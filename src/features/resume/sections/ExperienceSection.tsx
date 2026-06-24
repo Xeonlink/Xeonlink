@@ -1,11 +1,11 @@
-import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
-import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
-import { Article, ArticleImage } from "@/components/article";
-import { Badge } from "@/components/badge";
-import { Link, LinkIcon } from "@/components/link";
-import { Section } from "@/components/section";
-import { Button } from "@/components/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import cublickCloudImage from "@/features/resume/assets/cublick_cloud_logo.png";
+import cublikStandaloneImage from "@/features/resume/assets/cublick_standalone_logo.png";
+import { Article, ArticleImage } from "@/shared/components/article";
+import { Badge } from "@/shared/components/badge";
+import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
+import { Section } from "@/shared/components/section";
+import { Button } from "@/shared/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/ui/collapsible";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
 
 export function ExperienceSection() {
@@ -14,9 +14,9 @@ export function ExperienceSection() {
       <div className="flex flex-col">
         <span>2022.12 - 2023.04</span>
         <h2 className="text-4xl font-bold">
-          <Link href="https://www.cublick.com/" className="border-underline">
+          <ExternalLink href="https://www.cublick.com/" className="border-underline">
             큐브릭 디지털
-          </Link>
+          </ExternalLink>
           &nbsp;
           <LinkIcon />
         </h2>
@@ -27,9 +27,9 @@ export function ExperienceSection() {
           <div>
             <span>2022.03 - 2022.04</span>
             <h3 className="text-3xl">
-              <Link href="https://www.cublick.com/솔루션/큐브릭서비스/" className="border-underline">
+              <ExternalLink href="https://www.cublick.com/솔루션/큐브릭서비스/" className="border-underline">
                 큐브릭 <span className="text-accent">클라우드 사인</span> 고도화
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -37,11 +37,11 @@ export function ExperienceSection() {
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
                 react
               </Badge>
-              <Link href="https://fabricjs.com/" className="border-underline">
+              <ExternalLink href="https://fabricjs.com/" className="border-underline">
                 <Badge color="ff6b6b" logo={{ slug: "javascript", color: "white" }}>
                   fabric.js
                 </Badge>
-              </Link>
+              </ExternalLink>
               <Badge color="FF4154" logo={{ slug: "reactquery", color: "white" }}>
                 react query
               </Badge>
@@ -103,9 +103,9 @@ export function ExperienceSection() {
           <div>
             <span>2022.12 - 2023.02</span>
             <h3 className="text-3xl">
-              <Link href="https://www.cublick.com/솔루션/큐브릭서비스/" className="border-underline">
+              <ExternalLink href="https://www.cublick.com/솔루션/큐브릭서비스/" className="border-underline">
                 큐브릭 <span className="text-accent">사인</span> DX 개선
-              </Link>
+              </ExternalLink>
               &nbsp;
               <LinkIcon />
             </h3>
@@ -113,22 +113,22 @@ export function ExperienceSection() {
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
                 react
               </Badge>
-              <Link href="https://www.electronjs.org/" className="border-underline">
+              <ExternalLink href="https://www.electronjs.org/" className="border-underline">
                 <Badge color="191970" logo={{ slug: "electron", color: "white" }}>
                   electron
                 </Badge>
-              </Link>
+              </ExternalLink>
               <Badge color="593d88" logo={{ slug: "redux", color: "white" }}>
                 redux toolkit
               </Badge>
-              <Link href="https://github.com/socketio/socket.io" className="border-underline">
+              <ExternalLink href="https://github.com/socketio/socket.io" className="border-underline">
                 <Badge color="black" logo={{ slug: "socketdotio", color: "white" }}>
                   socket.io
                 </Badge>
-              </Link>
-              <Link href="https://github.com/louischatriot/nedb" className="border-underline">
+              </ExternalLink>
+              <ExternalLink href="https://github.com/louischatriot/nedb" className="border-underline">
                 <Badge color="213939">nedb</Badge>
-              </Link>
+              </ExternalLink>
             </div>
           </div>
           <Collapsible>
