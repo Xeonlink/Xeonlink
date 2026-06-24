@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
 import { ThemeProviderContext } from "@/lib/theme";
+import { useEffect, useMemo, useState } from "react";
 
 export type Theme = "dark" | "light" | "system";
 
