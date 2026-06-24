@@ -1,5 +1,4 @@
-import type { Theme } from "@/shared/components/theme-provider";
-import { ThemeProviderContext } from "@/shared/lib/theme";
+import { ThemeProviderContext, type Theme } from "@/shared/lib/theme";
 import { useEffect, useMemo, useState } from "react";
 
 export type { Theme };

@@ -1,9 +1,11 @@
-import type { Theme } from "@/shared/components/theme-provider";
 import { createContext } from "react";
+
+export type Theme = "light" | "dark" | "system";
+export type ResolvedTheme = Exclude<Theme, "system">;
 
 type ThemeProviderState = {
   theme: Theme;
-  resolvedTheme: Omit<Theme, "system">;
+  resolvedTheme: ResolvedTheme;
   setTheme: (theme: Theme) => void;
 };
 
