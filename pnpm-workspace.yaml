@@ -1,9 +1,0 @@
-allowBuilds:
-  '@tailwindcss/oxide': true
-  cwebp-bin: true
-  es5-ext: true
-  esbuild: true
-  fsevents: true
-  sharp: true
-onlyBuiltDependencies:
-  - sharp
