@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { cloneElement, type ComponentProps } from "react";
 
 type ImageSwapProps = ComponentProps<"div"> & {

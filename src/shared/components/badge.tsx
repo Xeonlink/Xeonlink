@@ -1,4 +1,4 @@
-import { getStaticBadgeUrl, type StaticBadgeOptions } from "@/lib/shields.io";
+import { getStaticBadgeUrl, type StaticBadgeOptions } from "@/shared/lib/shields.io";
 
 type Props = StaticBadgeOptions & {
   children: string;

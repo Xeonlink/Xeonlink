@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { LinkIcon as LucideLinkIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 
-export function Link(props: ComponentProps<"a">) {
+export function ExternalLink(props: ComponentProps<"a">) {
   const { children, ...rest } = props;
 
   return (

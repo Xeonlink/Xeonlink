@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { Corner, Root, ScrollAreaThumb, Scrollbar, Viewport } from "@radix-ui/react-scroll-area";
 
 type ScrollAreaProps = React.ComponentProps<typeof Root>;
