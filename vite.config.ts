@@ -1,18 +1,18 @@
 import tailwindcss from "@tailwindcss/vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
+import { nitro } from "nitro/vite";
 import path from "path";
 import { defineConfig } from "vite";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), ViteImageOptimizer()],
+  server: {
+    port: 3000,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    port: 3000,
-  },
+  plugins: [tailwindcss(), tanstackStart(), nitro({ preset: "bun" }), react()],
 });
