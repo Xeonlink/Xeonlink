@@ -1,6 +1,6 @@
-import { Article } from "@/shared/components/article";
-import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
-import { Section } from "@/shared/components/section";
+import { Article } from "@/features/resume/components/article";
+import { ExternalLink, LinkIcon } from "@/features/resume/components/external-link";
+import { Section } from "@/features/resume/components/section";
 
 export function ExtraSection() {
   return (

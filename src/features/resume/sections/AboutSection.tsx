@@ -1,8 +1,8 @@
 import dockerAlignImage from "@/assets/docker-align.png";
 import profileImage from "@/assets/selfie0_crop2.jpeg";
-import { ExternalLink } from "@/shared/components/external-link";
-import { GithubIcon } from "@/shared/components/icon/GithubIcon";
-import { Section } from "@/shared/components/section";
+import { ExternalLink } from "@/features/resume/components/external-link";
+import { GithubIcon } from "@/features/resume/components/icon/GithubIcon";
+import { Section } from "@/features/resume/components/section";
 import { Button } from "@/shared/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";

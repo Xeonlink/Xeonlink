@@ -1,8 +1,8 @@
 import 정보처리기사자격증Image from "@/assets/engineer_information_processing_cert.jpeg";
 import SQLD자격증Image from "@/assets/sqld_cert.png";
-import { Article, ArticleImage } from "@/shared/components/article";
-import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
-import { Section } from "@/shared/components/section";
+import { Article, ArticleImage } from "@/features/resume/components/article";
+import { ExternalLink, LinkIcon } from "@/features/resume/components/external-link";
+import { Section } from "@/features/resume/components/section";
 
 export function CertificationSection() {
   return (

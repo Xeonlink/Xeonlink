@@ -1,9 +1,9 @@
 import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
 import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
-import { Article, ArticleImage } from "@/shared/components/article";
-import { Badge } from "@/shared/components/badge";
-import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
-import { Section } from "@/shared/components/section";
+import { Article, ArticleImage } from "@/features/resume/components/article";
+import { Badge } from "@/features/resume/components/badge";
+import { ExternalLink, LinkIcon } from "@/features/resume/components/external-link";
+import { Section } from "@/features/resume/components/section";
 import { Button } from "@/shared/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/ui/collapsible";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
