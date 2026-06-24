@@ -5,9 +5,7 @@ import { EducationSection } from "@/features/resume/sections/EducationSection";
 import { ExperienceSection } from "@/features/resume/sections/ExperienceSection";
 import { ExtraSection } from "@/features/resume/sections/ExtraSection";
 import { ProjectsSection } from "@/features/resume/sections/ProjectsSection";
-import type { Theme } from "@/shared/components/theme-provider";
 import { Button } from "@/shared/components/ui/button";
-import { useTheme } from "@/shared/hooks/use-theme";
 import { useToggle } from "@/shared/hooks/use-toggle";
 import { cn } from "@/shared/lib/utils";
 import { createFileRoute } from "@tanstack/react-router";
@@ -27,6 +25,9 @@ import {
   SunMoonIcon,
 } from "lucide-react";
 import { useReducedMotion } from "motion/react";
+import { useTheme } from "next-themes";
+
+type Theme = "light" | "dark" | "system";
 
 const navItems = [
   {
@@ -123,10 +124,11 @@ function Page() {
   const navbar = useToggle(true, "isOpen");
   const topNavbar = useToggle(false, "isOpen");
   const { theme, setTheme } = useTheme();
+  const currentTheme = (theme ?? "system") as Theme;
   const isReducedMotion = useReducedMotion();
 
   const changeTheme = () => {
-    setTheme(nextThemeMapper[theme]);
+    setTheme(nextThemeMapper[currentTheme]);
   };
 
   const scrollToById = (id: string) => {
@@ -180,16 +182,16 @@ function Page() {
             <li className="list-disc">
               <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
                 <div className="flex items-center">
-                  {theme === "light" ? <SunIcon className="size-5" /> : null}
-                  {theme === "dark" ? <MoonIcon className="size-5" /> : null}
-                  {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                  {currentTheme === "light" ? <SunIcon className="size-5" /> : null}
+                  {currentTheme === "dark" ? <MoonIcon className="size-5" /> : null}
+                  {currentTheme === "system" ? <SunMoonIcon className="size-5" /> : null}
                   <span
                     className={cn("ml-3 motion-safe:duration-700", {
                       "ml-20 opacity-0": !navbar.isOpen,
                     })}
                   >
-                    {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
-                    {nextThemeMapper[theme].toUpperCase()}
+                    {currentTheme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
+                    {nextThemeMapper[currentTheme].toUpperCase()}
                   </span>
                 </div>
               </Button>
@@ -258,9 +260,9 @@ function Page() {
             <li>
               <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
                 <div className="flex items-center">
-                  {theme === "light" ? <SunIcon className="size-5" /> : null}
-                  {theme === "dark" ? <MoonIcon className="size-5" /> : null}
-                  {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                  {currentTheme === "light" ? <SunIcon className="size-5" /> : null}
+                  {currentTheme === "dark" ? <MoonIcon className="size-5" /> : null}
+                  {currentTheme === "system" ? <SunMoonIcon className="size-5" /> : null}
                   <span
                     className={cn("ml-4 motion-safe:duration-700", {
                       "ml-20 opacity-0": !topNavbar.isOpen,
@@ -269,8 +271,8 @@ function Page() {
                       transitionDelay: !isReducedMotion ? `${navItems.length * 100}ms` : "0ms",
                     }}
                   >
-                    {theme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
-                    {nextThemeMapper[theme].toUpperCase()}
+                    {currentTheme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
+                    {nextThemeMapper[currentTheme].toUpperCase()}
                   </span>
                 </div>
               </Button>

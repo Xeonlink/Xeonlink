@@ -1,4 +1,4 @@
-import { useTheme } from "@/shared/hooks/use-theme";
+import { useTheme } from "next-themes";
 import { type SVGProps } from "react";
 
 export function GithubIcon(props: SVGProps<SVGSVGElement>) {

@@ -1,8 +1,8 @@
 import favicon from "@/assets/docker-align.png";
-import { ThemeProvider } from "@/shared/components/theme-provider";
+import "@/index.css";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
-import "@/index.css";
+import { ThemeProvider } from "next-themes";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,20 +25,21 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootDocument,
+  notFoundComponent: () => <div>404</div>,
 });
 
 function RootDocument() {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-      <ThemeProvider defaultTheme="system">
-        <MotionConfig reducedMotion="user">
-          <Outlet />
-        </MotionConfig>
-      </ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="color-scheme">
+          <MotionConfig reducedMotion="user">
+            <Outlet />
+          </MotionConfig>
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>
