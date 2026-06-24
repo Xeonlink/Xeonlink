@@ -1,12 +1,11 @@
-import profileImage from "@/features/resume/assets/selfie0_crop2.jpeg";
+import dockerAlignImage from "@/assets/docker-align.png";
+import profileImage from "@/assets/selfie0_crop2.jpeg";
 import { ExternalLink } from "@/shared/components/external-link";
 import { GithubIcon } from "@/shared/components/icon/GithubIcon";
 import { Section } from "@/shared/components/section";
 import { Button } from "@/shared/components/ui/button";
 import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
 import { motion } from "motion/react";
-import dockerAlignImage from "/docker-align.png?url";
-
 export function AboutSection() {
   return (
     <Section id="about" className="md:space-y-6">

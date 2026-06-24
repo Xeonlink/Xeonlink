@@ -1,5 +1,5 @@
-import cublickCloudImage from "@/features/resume/assets/cublick_cloud_logo.png";
-import cublikStandaloneImage from "@/features/resume/assets/cublick_standalone_logo.png";
+import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
+import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
 import { Article, ArticleImage } from "@/shared/components/article";
 import { Badge } from "@/shared/components/badge";
 import { ExternalLink, LinkIcon } from "@/shared/components/external-link";

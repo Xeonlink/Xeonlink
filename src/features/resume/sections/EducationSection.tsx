@@ -1,5 +1,5 @@
-import namjuFrontSymbolImage from "@/features/resume/assets/namju_front_symbol.png";
-import ssuImage from "@/features/resume/assets/ssu.jpg";
+import namjuFrontSymbolImage from "@/assets/namju_front_symbol.png";
+import ssuImage from "@/assets/ssu.jpg";
 import { Article, ArticleImage } from "@/shared/components/article";
 import { ExternalLink, LinkIcon } from "@/shared/components/external-link";
 import { Section } from "@/shared/components/section";

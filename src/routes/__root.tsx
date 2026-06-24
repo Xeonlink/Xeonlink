@@ -1,3 +1,4 @@
+import favicon from "@/assets/docker-align.png";
 import { ThemeProvider } from "@/shared/components/theme-provider";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
@@ -17,7 +18,7 @@ export const Route = createRootRoute({
       { name: "apple-mobile-web-app-title", content: "오지민 개발자" },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: "/docker-align.png" },
+      { rel: "icon", type: "image/png", href: favicon },
       { rel: "canonical", href: "https://portfolio.ohjimin.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
