@@ -13,10 +13,7 @@
     },
     "typescript-lsp": {
       "command": "bunx",
-      "args": [
-        "-y",
-        "@anthropic/typescript-mcp-server"
-      ]
+      "args": ["-y", "@anthropic/typescript-mcp-server"]
     }
   }
 }

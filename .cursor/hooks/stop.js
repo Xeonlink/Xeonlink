@@ -1,10 +1,5 @@
 #!/usr/bin/env node
-const {
-  readStdin,
-  runExistingHook,
-  transformToClaude,
-  hookEnabled,
-} = require("./adapter");
+const { readStdin, runExistingHook, transformToClaude, hookEnabled } = require("./adapter");
 readStdin()
   .then((raw) => {
     const input = JSON.parse(raw || "{}");
@@ -16,9 +11,7 @@ readStdin()
     if (hookEnabled("stop:session-end", ["minimal", "standard", "strict"])) {
       runExistingHook("session-end.js", claudeInput);
     }
-    if (
-      hookEnabled("stop:evaluate-session", ["minimal", "standard", "strict"])
-    ) {
+    if (hookEnabled("stop:evaluate-session", ["minimal", "standard", "strict"])) {
       runExistingHook("evaluate-session.js", claudeInput);
     }
     if (hookEnabled("stop:cost-tracker", ["minimal", "standard", "strict"])) {

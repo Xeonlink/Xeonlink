@@ -91,9 +91,7 @@ function processUsers(users) {
   if (!users) {
     return [];
   }
-  return users
-    .filter((user) => user.active && user.email)
-    .map((user) => ({ ...user, verified: true }));
+  return users.filter((user) => user.active && user.email).map((user) => ({ ...user, verified: true }));
 }
 ```
 
@@ -150,9 +148,7 @@ When reviewing backend code:
 // BAD: N+1 query pattern
 const users = await db.query("SELECT * FROM users");
 for (const user of users) {
-  user.posts = await db.query("SELECT * FROM posts WHERE user_id = $1", [
-    user.id,
-  ]);
+  user.posts = await db.query("SELECT * FROM posts WHERE user_id = $1", [user.id]);
 }
 
 // GOOD: Single query with JOIN or batch
