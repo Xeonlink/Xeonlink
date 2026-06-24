@@ -1,8 +1,0 @@
-out
-dist
-.output
-bun.lock
-LICENSE.md
-# tsconfig.json
-# tsconfig.*.json
-.*
