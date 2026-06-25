@@ -6,6 +6,7 @@ import { ExperienceSection } from "@/features/resume/sections/ExperienceSection"
 import { ExtraSection } from "@/features/resume/sections/ExtraSection";
 import { ProjectsSection } from "@/features/resume/sections/ProjectsSection";
 import { Button } from "@/shared/components/ui/button";
+import { useTheme } from "@/shared/hooks/use-theme";
 import { useToggle } from "@/shared/hooks/use-toggle";
 import { cn } from "@/shared/lib/utils";
 import { createFileRoute } from "@tanstack/react-router";
@@ -25,9 +26,6 @@ import {
   SunMoonIcon,
 } from "lucide-react";
 import { useReducedMotion } from "motion/react";
-import { useTheme } from "next-themes";
-
-type Theme = "light" | "dark" | "system";
 
 const navItems = [
   {
@@ -55,12 +53,6 @@ const navItems = [
     icon: <FilePlusIcon className="size-5" />,
   },
 ];
-
-const nextThemeMapper: Record<Theme, Theme> = {
-  light: "dark",
-  dark: "system",
-  system: "light",
-};
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -123,13 +115,8 @@ export const Route = createFileRoute("/resume")({
 function Page() {
   const navbar = useToggle(true, "isOpen");
   const topNavbar = useToggle(false, "isOpen");
-  const { theme, setTheme } = useTheme();
-  const currentTheme = (theme ?? "system") as Theme;
+  const { theme, nextTheme, gotoNextTheme } = useTheme();
   const isReducedMotion = useReducedMotion();
-
-  const changeTheme = () => {
-    setTheme(nextThemeMapper[currentTheme]);
-  };
 
   const scrollToById = (id: string) => {
     const element = document.getElementById(id);
@@ -180,18 +167,17 @@ function Page() {
           </ul>
           <ul className="p-2">
             <li className="list-disc">
-              <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
+              <Button variant="ghost" className="w-full justify-start" onClick={() => gotoNextTheme()}>
                 <div className="flex items-center">
-                  {currentTheme === "light" ? <SunIcon className="size-5" /> : null}
-                  {currentTheme === "dark" ? <MoonIcon className="size-5" /> : null}
-                  {currentTheme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                  {theme === "light" ? <SunIcon className="size-5" /> : null}
+                  {theme === "dark" ? <MoonIcon className="size-5" /> : null}
+                  {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
                   <span
                     className={cn("ml-3 motion-safe:duration-700", {
                       "ml-20 opacity-0": !navbar.isOpen,
                     })}
                   >
-                    {currentTheme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
-                    {nextThemeMapper[currentTheme].toUpperCase()}
+                    {theme?.toUpperCase()} <ArrowRightIcon className="inline size-4" /> {nextTheme?.toUpperCase()}
                   </span>
                 </div>
               </Button>
@@ -258,11 +244,11 @@ function Page() {
           </ul>
           <ul className="p-2">
             <li>
-              <Button variant="ghost" className="w-full justify-start" onClick={() => changeTheme()}>
+              <Button variant="ghost" className="w-full justify-start" onClick={() => gotoNextTheme()}>
                 <div className="flex items-center">
-                  {currentTheme === "light" ? <SunIcon className="size-5" /> : null}
-                  {currentTheme === "dark" ? <MoonIcon className="size-5" /> : null}
-                  {currentTheme === "system" ? <SunMoonIcon className="size-5" /> : null}
+                  {theme === "light" ? <SunIcon className="size-5" /> : null}
+                  {theme === "dark" ? <MoonIcon className="size-5" /> : null}
+                  {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
                   <span
                     className={cn("ml-4 motion-safe:duration-700", {
                       "ml-20 opacity-0": !topNavbar.isOpen,
@@ -271,8 +257,7 @@ function Page() {
                       transitionDelay: !isReducedMotion ? `${navItems.length * 100}ms` : "0ms",
                     }}
                   >
-                    {currentTheme.toUpperCase()} <ArrowRightIcon className="inline size-4" />{" "}
-                    {nextThemeMapper[currentTheme].toUpperCase()}
+                    {theme?.toUpperCase()} <ArrowRightIcon className="inline size-4" /> {nextTheme?.toUpperCase()}
                   </span>
                 </div>
               </Button>
