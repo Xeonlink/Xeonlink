@@ -1,31 +1,7 @@
 import ogImage from "@/assets/selfie0_crop.jpeg";
 import { Button } from "@/shared/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpenIcon, FileTextIcon, SparklesIcon } from "lucide-react";
-
-const features = [
-  {
-    title: "Resume",
-    description: "경력, 프로젝트, 자격증을 담은 이력서",
-    href: "/resume",
-    icon: FileTextIcon,
-    available: true,
-  },
-  {
-    title: "Tech Blog",
-    description: "개발 경험과 학습을 기록하는 블로그",
-    href: "#",
-    icon: BookOpenIcon,
-    available: false,
-  },
-  {
-    title: "Proof of Work",
-    description: "능력과 경험을 증명하는 작업물 모음",
-    href: "#",
-    icon: SparklesIcon,
-    available: false,
-  },
-] as const;
+import { BookOpenIcon, FileTextIcon, SkullIcon } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,9 +30,11 @@ export const Route = createFileRoute("/")({
 
 function Page() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center gap-12 px-6 py-16">
+    <main className="mx-auto max-w-4xl space-y-12 px-6 py-20">
       <section className="space-y-6">
-        <p className="text-accent text-sm font-medium tracking-widest uppercase">OH JIMIN</p>
+        <p className="text-3xl font-bold">
+          <span className="text-accent">OH</span> JIMIN
+        </p>
         <h1 className="text-5xl leading-tight font-bold md:text-6xl">
           도구를 만들고,
           <br />
@@ -65,39 +43,49 @@ function Page() {
           증명합니다.
         </h1>
         <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-          반복을 줄이고 더 가치 있는 일에 집중할 수 있는 도구를 만듭니다. 이 사이트는 tech blog, resume, 그리고 경력과
-          능력을 증명하는 작업물을 한곳에 모으는 허브입니다.
+          반복을 줄이고 더 가치 있는 일에 집중할 수 있는 도구를 만듭니다. <br />
+          사소한 아이디어가 더 큰 아이디어를 위한 기틀이 되어, 보이지 않는 곳에서 영향을 끼치는 <br />
+          <span className="font-bold">개발자를 위한 개발자</span>
         </p>
-        <div className="flex flex-wrap gap-3">
-          <Button asChild size="lg">
-            <Link to="/resume">이력서 보기</Link>
-          </Button>
-        </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {features.map((feature) => {
-          const Icon = feature.icon;
+      <section className="grid gap-4 max-md:tex t-center md:grid-cols-3">
+        <article className="border-border bg-card space-y-4 rounded-2xl border p-6 shadow-sm">
+          <FileTextIcon className="text-accent inline-block size-8" />
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold">Resume</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              경력, 프로젝트, 자격증을 담은 이력서. 열심히 했다는 기록
+            </p>
+          </div>
+          <Button asChild variant="outline" className="w-full" size="lg">
+            <Link to="/resume">바로가기</Link>
+          </Button>
+        </article>
 
-          return (
-            <article key={feature.title} className="border-border bg-card space-y-4 rounded-2xl border p-6 shadow-sm">
-              <Icon className="text-accent size-8" />
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold">{feature.title}</h2>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-              </div>
-              {feature.available ? (
-                <Button asChild variant="outline" className="w-full">
-                  <Link to={feature.href}>바로가기</Link>
-                </Button>
-              ) : (
-                <Button variant="outline" className="w-full" disabled>
-                  Coming soon
-                </Button>
-              )}
-            </article>
-          );
-        })}
+        <article className="border-border bg-card space-y-4 rounded-2xl border p-6 shadow-sm">
+          <BookOpenIcon className="text-accent inline-block size-8" />
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold">Blog Posts</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              개발 경험과 학습, 생각을 기록하는 블로그. 내 생각의 이력
+            </p>
+          </div>
+          <Button asChild variant="outline" className="w-full" size="lg">
+            <Link to="/posts">바로가기</Link>
+          </Button>
+        </article>
+
+        <article className="border-border bg-card space-y-4 rounded-2xl border p-6 shadow-sm">
+          <SkullIcon className="text-accent inline-block size-8" />
+          <div className="space-y-2">
+            <h2 className="text-lg font-semibold">명예의 실패</h2>
+            <p className="text-muted-foreground leading-relaxed">실패했지만 끝까지 달린 POC와 실험. 시도했다는 증거</p>
+          </div>
+          <Button variant="outline" className="w-full" disabled size="lg">
+            Coming soon
+          </Button>
+        </article>
       </section>
     </main>
   );
