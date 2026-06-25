@@ -1,0 +1,24 @@
+{
+  "name": "jsx-jump-modal",
+  "version": "0.1.0",
+  "author": {
+    "name": "OH jimin",
+    "email": "jimin7020@gmail.com",
+    "url": "https://github.com/Xeonlink"
+  },
+  "description": "jsx를 state로 활용하여, callback에서 modal을 열 수 있도록 하는 컴포넌트",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.3.0",
+    "react": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "typescript": "^6.0.3"
+  }
+}
