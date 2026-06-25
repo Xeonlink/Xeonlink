@@ -49,7 +49,7 @@ function Page() {
         </p>
       </section>
 
-      <section className="grid gap-4 max-md:tex t-center md:grid-cols-3">
+      <section className="grid gap-4 max-md:text-center md:grid-cols-3">
         <article className="border-border bg-card space-y-4 rounded-2xl border p-6 shadow-sm">
           <FileTextIcon className="text-accent inline-block size-8" />
           <div className="space-y-2">

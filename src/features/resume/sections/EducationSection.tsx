@@ -25,7 +25,7 @@ export function EducationSection() {
           <span className="text-2xl">
             <span className="text-accent">컴퓨터</span> 학부 학사
           </span>
-          <span>졸업 예정</span>
+          <span>졸업</span>
         </div>
       </Article>
       <Article>
