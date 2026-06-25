@@ -2,6 +2,7 @@ import favicon from "@/assets/docker-align.png";
 import "@/index.css";
 import { Button } from "@/shared/components/ui/button";
 import { useTheme } from "@/shared/hooks/use-theme";
+import { ModalContainer } from "@/shared/lib/modal";
 import { cn } from "@/shared/lib/utils";
 import { createRootRoute, HeadContent, Link, Outlet, Scripts, useRouterState } from "@tanstack/react-router";
 import { HomeIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
@@ -107,6 +108,7 @@ function RootDocument() {
           <MotionConfig reducedMotion="user">
             <SiteNav />
             <Outlet />
+            <ModalContainer />
           </MotionConfig>
         </ThemeProvider>
         <Scripts />
