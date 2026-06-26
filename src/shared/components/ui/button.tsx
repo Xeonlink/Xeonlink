@@ -36,10 +36,10 @@ type Props = React.ComponentProps<"button"> &
   };
 
 function Button(props: Props) {
-  const { className, variant, size, asChild = false, ...rest } = props;
+  const { className, variant, size, type = "button", asChild = false, ...rest } = props;
   const Comp = asChild ? Slot : "button";
 
-  return <Comp data-slot="button" className={cn(buttonVariants({ variant, size, className }))} {...rest} />;
+  return <Comp data-slot="button" className={cn(buttonVariants({ variant, size, className }))} type={type} {...rest} />;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
