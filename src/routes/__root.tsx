@@ -8,6 +8,7 @@ import { createRootRoute, HeadContent, Link, Outlet, Scripts, useRouterState } f
 import { HomeIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "next-themes";
+import type { PropsWithChildren } from "react";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -33,32 +34,61 @@ export const Route = createRootRoute({
   notFoundComponent,
 });
 
-function SiteNav() {
-  const isResume = useRouterState({ select: (state) => state.location.pathname.startsWith("/resume") });
+function SiteLayout({ children }: PropsWithChildren) {
+  const isResume = useRouterState({
+    select: (state) => state.location.pathname.startsWith("/resume"),
+  });
   const { theme, gotoNextTheme } = useTheme();
 
+  if (isResume) {
+    return <>{children}</>;
+  }
+
   return (
-    <nav className={cn("border-border bg-background/90 z-20 w-full border-b", isResume && "hidden")}>
-      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
-        <Link to="/" className="text-xl font-bold tracking-tight">
-          <span className="text-accent">OH</span> JIMIN
-        </Link>
-        <div className="flex space-x-4">
-          <Link to="/resume" className="font-medium hover:text-accent">
-            Resume
+    <>
+      <nav className={cn("border-border bg-background/90 z-20 w-full border-b")}>
+        <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
+          <Link to="/" className="text-xl font-bold tracking-tight">
+            <span className="text-accent">OH</span> JIMIN
           </Link>
-          <Link to="/posts" className="font-medium hover:text-accent">
-            Posts
-          </Link>
-          <span className="text-muted-foreground cursor-not-allowed font-medium opacity-60">명예의 실패</span>
+          <div className="flex space-x-4">
+            <Link to="/resume" className="font-medium hover:text-accent">
+              Resume
+            </Link>
+            <Link to="/posts" className="font-medium hover:text-accent">
+              Posts
+            </Link>
+            <span className="text-muted-foreground cursor-not-allowed font-medium opacity-60">명예의 실패</span>
+          </div>
+          <Button variant="ghost" size="icon" onClick={() => gotoNextTheme()}>
+            {theme === "light" ? <SunIcon className="size-5" /> : null}
+            {theme === "dark" ? <MoonIcon className="size-5" /> : null}
+            {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
+          </Button>
         </div>
-        <Button variant="ghost" size="icon" onClick={() => gotoNextTheme()}>
-          {theme === "light" ? <SunIcon className="size-5" /> : null}
-          {theme === "dark" ? <MoonIcon className="size-5" /> : null}
-          {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
-        </Button>
-      </div>
-    </nav>
+      </nav>
+      {children}
+      <footer className="w-full border-t border-border bg-background/90 mt-16">
+        <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col items-center gap-2 text-muted-foreground text-sm">
+          <div>
+            <span className="font-bold">오지민</span> &copy; {new Date().getFullYear()} — Portfolio, Resume & Blog.
+          </div>
+          <div className="flex gap-3">
+            <a
+              href="https://github.com/Xeonlink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent underline"
+            >
+              GitHub
+            </a>
+            <a href="mailto:jimin7020@gmail.com" className="hover:text-accent underline">
+              jimin7020@gmail.com
+            </a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 
@@ -106,8 +136,9 @@ function RootDocument() {
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="color-scheme">
           <MotionConfig reducedMotion="user">
-            <SiteNav />
-            <Outlet />
+            <SiteLayout>
+              <Outlet />
+            </SiteLayout>
             <ModalContainer />
           </MotionConfig>
         </ThemeProvider>
