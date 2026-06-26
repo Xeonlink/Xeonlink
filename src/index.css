@@ -102,7 +102,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.8 0 0);
   --accent: #ff6467;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -140,4 +140,16 @@
   .border-underline {
     @apply border-b border-transparent hover:border-black dark:hover:border-white;
   }
+}
+
+.shiki-wrapper .shiki,
+.shiki-wrapper .shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+.dark .shiki-wrapper .shiki,
+.dark .shiki-wrapper .shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }
