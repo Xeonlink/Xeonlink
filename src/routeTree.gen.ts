@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsIndexRouteImport } from './routes/posts/index'
+import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/prettier-architecture'
 import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
 
 const ResumeRoute = ResumeRouteImport.update({
@@ -29,6 +30,12 @@ const PostsIndexRoute = PostsIndexRouteImport.update({
   path: '/posts/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PostsPrettierArchitectureRoute =
+  PostsPrettierArchitectureRouteImport.update({
+    id: '/posts/prettier-architecture',
+    path: '/posts/prettier-architecture',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PostsJsxAsStateRoute = PostsJsxAsStateRouteImport.update({
   id: '/posts/jsx-as-state',
   path: '/posts/jsx-as-state',
@@ -39,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/': typeof PostsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +61,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/': typeof PostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/posts/jsx-as-state' | '/posts/'
+  fullPaths:
+    | '/'
+    | '/resume'
+    | '/posts/jsx-as-state'
+    | '/posts/prettier-architecture'
+    | '/posts/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/resume' | '/posts/jsx-as-state' | '/posts'
-  id: '__root__' | '/' | '/resume' | '/posts/jsx-as-state' | '/posts/'
+  to:
+    | '/'
+    | '/resume'
+    | '/posts/jsx-as-state'
+    | '/posts/prettier-architecture'
+    | '/posts'
+  id:
+    | '__root__'
+    | '/'
+    | '/resume'
+    | '/posts/jsx-as-state'
+    | '/posts/prettier-architecture'
+    | '/posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ResumeRoute: typeof ResumeRoute
   PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
+  PostsPrettierArchitectureRoute: typeof PostsPrettierArchitectureRoute
   PostsIndexRoute: typeof PostsIndexRoute
 }
 
@@ -92,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/prettier-architecture': {
+      id: '/posts/prettier-architecture'
+      path: '/posts/prettier-architecture'
+      fullPath: '/posts/prettier-architecture'
+      preLoaderRoute: typeof PostsPrettierArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/jsx-as-state': {
       id: '/posts/jsx-as-state'
       path: '/posts/jsx-as-state'
@@ -106,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ResumeRoute: ResumeRoute,
   PostsJsxAsStateRoute: PostsJsxAsStateRoute,
+  PostsPrettierArchitectureRoute: PostsPrettierArchitectureRoute,
   PostsIndexRoute: PostsIndexRoute,
 }
 export const routeTree = rootRouteImport
