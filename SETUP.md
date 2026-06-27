@@ -1,6 +1,6 @@
 # Repository 구성
 
-이 Repository는 main#* 패턴을 만족하는 여러개의 orphan branch로 구성되어 있다. 각 브랜치는 최초 커밋(뿌리)부터 다른 orphan branch이다.
+이 Repository는 main#\* 패턴을 만족하는 여러개의 orphan branch로 구성되어 있다. 각 브랜치는 최초 커밋(뿌리)부터 다른 orphan branch이다.
 
 각각의 orphan branch는 서로 다른 실험적 레포지토리를 격리하고 추적하며, 개발을 하면서 유용하게 활용했던 유틸리티 성격의 파일들을 유지보수하고 아카이브하는 역할을 한다.
 
@@ -47,6 +47,7 @@ git clean -nfdx
 # global scope 에서 사용하고 싶을 때
 git config --global alias.clean-switch '!f() { git clean -fdX && git switch "$@"; }; f'
 ```
+
 ```bash
 # local scope (scope를 명시하여)
 git config --local alias.clean-switch '!f() { git clean -fdX && git switch "$@"; }; f'
