@@ -19,8 +19,17 @@ export type StaticBadgeOptions = {
   cacheSeconds?: number;
 };
 
-export function getStaticBadgeUrl(message: string, options: StaticBadgeOptions) {
-  const { color, style = "for-the-badge", logo, label, cacheSeconds = 3600 } = options;
+export function getStaticBadgeUrl(
+  message: string,
+  options: StaticBadgeOptions,
+) {
+  const {
+    color,
+    style = "for-the-badge",
+    logo,
+    label,
+    cacheSeconds = 3600,
+  } = options;
 
   const url = new URL("https://img.shields.io/badge");
   if (message) {

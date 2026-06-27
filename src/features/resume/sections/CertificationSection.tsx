@@ -1,18 +1,25 @@
 import 정보처리기사자격증Image from "@/assets/engineer_information_processing_cert.jpeg";
 import SQLD자격증Image from "@/assets/sqld_cert.png";
 import { Article, ArticleImage } from "@/features/resume/components/article";
-import { ExternalLink, LinkIcon } from "@/features/resume/components/external-link";
+import {
+  ExternalLink,
+  LinkIcon,
+} from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
 
 export function CertificationSection() {
   return (
     <Section id="certification" title="기술 자격증">
       <Article>
-        <ArticleImage src={정보처리기사자격증Image} alt="정보처리기사자격증" className="object-cover" />
+        <ArticleImage
+          className="object-cover"
+          src={정보처리기사자격증Image}
+          alt="정보처리기사자격증"
+        />
         <div className="flex flex-col">
           <span>June 2025</span>
           <ExternalLink href="https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320">
-            <h2 className="text-3xl inline-block border-underline">
+            <h2 className="border-underline inline-block text-3xl">
               정보 처리 <span className="text-accent font-bold">기사</span>
             </h2>
             &nbsp;
@@ -23,11 +30,15 @@ export function CertificationSection() {
       </Article>
 
       <Article>
-        <ArticleImage src={SQLD자격증Image} alt="SQLD 자격증" className="object-cover" />
+        <ArticleImage
+          className="object-cover"
+          src={SQLD자격증Image}
+          alt="SQLD 자격증"
+        />
         <div className="flex flex-col">
           <span>Sep 2025</span>
           <ExternalLink href="https://www.dataq.or.kr/www/sub/a_04.do">
-            <h2 className="text-3xl inline-block border-underline">
+            <h2 className="border-underline inline-block text-3xl">
               SQL <span className="text-accent font-bold">개발자</span> (SQLD)
             </h2>
             &nbsp;

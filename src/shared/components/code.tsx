@@ -55,7 +55,9 @@ function CodeBlockContent(props: CodeBlockProps) {
   const { children, lang = "tsx" } = props;
   const html = use(getHighlightedHtml(children, lang));
 
-  return <div className="contents" dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <div className="contents" dangerouslySetInnerHTML={{ __html: html }} />
+  );
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -76,7 +78,9 @@ function CodeBlock(props: CodeBlockProps) {
   const { children, className, variant } = props;
   return (
     <div className={cn(CodeBlockVariants({ variant }), className)}>
-      {variant !== "inline" ? <CopyButton textToCopy={children} className="absolute top-2 right-2" /> : null}
+      {variant !== "inline" ? (
+        <CopyButton className="absolute top-2 right-2" textToCopy={children} />
+      ) : null}
       <Suspense fallback={<CodeBlockFallback {...props} />}>
         <CodeBlockContent {...props} />
       </Suspense>

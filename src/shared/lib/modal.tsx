@@ -1,5 +1,10 @@
 import type { PropsWithChildren } from "react";
-import { createContext, useContext, useState, useSyncExternalStore } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 type ModalEntry = {
   key: string;
@@ -35,7 +40,11 @@ function ModalContextProvider(props: PropsWithChildren<{ modalKey: string }>) {
   const { children, modalKey } = props;
   const [open, setOpen] = useState(true);
 
-  return <ModalContext.Provider value={{ key: modalKey, open, setOpen }}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={{ key: modalKey, open, setOpen }}>
+      {children}
+    </ModalContext.Provider>
+  );
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -87,7 +96,11 @@ export function useModal() {
 }
 
 export function ModalContainer() {
-  const modals = useSyncExternalStore(modalStore.subscribe, modalStore.getSnapshot, modalStore.getSnapshot);
+  const modals = useSyncExternalStore(
+    modalStore.subscribe,
+    modalStore.getSnapshot,
+    modalStore.getSnapshot,
+  );
 
   return (
     <>

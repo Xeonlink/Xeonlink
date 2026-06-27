@@ -44,7 +44,8 @@ function Page() {
         </h1>
         <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
           반복을 줄이고 더 가치 있는 일에 집중할 수 있는 도구를 만듭니다. <br />
-          사소한 아이디어가 더 큰 아이디어를 위한 기틀이 되어, 보이지 않는 곳에서 영향을 끼치는 <br />
+          사소한 아이디어가 더 큰 아이디어를 위한 기틀이 되어, 보이지 않는
+          곳에서 영향을 끼치는 <br />
           <span className="font-bold">개발자를 위한 개발자</span>
         </p>
       </section>
@@ -58,7 +59,7 @@ function Page() {
               경력, 프로젝트, 자격증을 담은 이력서. 열심히 했다는 기록
             </p>
           </div>
-          <Button asChild variant="outline" className="w-full" size="lg">
+          <Button className="w-full" asChild variant="outline" size="lg">
             <Link to="/resume">바로가기</Link>
           </Button>
         </article>
@@ -71,7 +72,7 @@ function Page() {
               개발 경험과 학습, 생각을 기록하는 블로그. 내 생각의 이력
             </p>
           </div>
-          <Button asChild variant="outline" className="w-full" size="lg">
+          <Button className="w-full" asChild variant="outline" size="lg">
             <Link to="/posts">바로가기</Link>
           </Button>
         </article>
@@ -80,9 +81,11 @@ function Page() {
           <SkullIcon className="text-accent inline-block size-8" />
           <div className="space-y-2">
             <h2 className="text-lg font-semibold">명예의 실패</h2>
-            <p className="text-muted-foreground leading-relaxed">실패했지만 끝까지 달린 POC와 실험. 시도했다는 증거</p>
+            <p className="text-muted-foreground leading-relaxed">
+              실패했지만 끝까지 달린 POC와 실험. 시도했다는 증거
+            </p>
           </div>
-          <Button variant="outline" className="w-full" disabled size="lg">
+          <Button className="w-full" variant="outline" disabled size="lg">
             Coming soon
           </Button>
         </article>

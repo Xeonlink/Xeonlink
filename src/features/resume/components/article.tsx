@@ -10,8 +10,11 @@ export function Article(props: ArticleProps) {
     <InView>
       {({ ref, inView }) => (
         <article
+          className={cn(
+            "relative flex flex-wrap gap-2 motion-safe:duration-500",
+            className,
+          )}
           ref={ref}
-          className={cn("motion-safe:duration-500 relative flex flex-wrap gap-2", className)}
           {...rest}
           style={{ opacity: inView ? 1 : 0 }}
         >
@@ -27,7 +30,12 @@ type ArticleImageProps = ComponentProps<"img">;
 export function ArticleImage(props: ArticleImageProps) {
   const { className, ...rest } = props;
 
-  return <img className={cn("w-32 h-32 rounded-3xl object-contain mr-10", className)} {...rest} />;
+  return (
+    <img
+      className={cn("mr-10 h-32 w-32 rounded-3xl object-contain", className)}
+      {...rest}
+    />
+  );
 }
 
 type ArticleHeaderProps = ComponentProps<"div"> & {
@@ -37,7 +45,13 @@ type ArticleHeaderProps = ComponentProps<"div"> & {
 export function ArticleHeader(props: ArticleHeaderProps) {
   const { children, className, image, ...rest } = props;
   return (
-    <div className={cn("flex flex-wrap-reverse gap-1 items-end justify-between", className)} {...rest}>
+    <div
+      className={cn(
+        "flex flex-wrap-reverse items-end justify-between gap-1",
+        className,
+      )}
+      {...rest}
+    >
       <div className="space-y-1">{children}</div>
       {image}
     </div>

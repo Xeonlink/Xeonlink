@@ -1,7 +1,10 @@
 import namjuFrontSymbolImage from "@/assets/namju_front_symbol.png";
 import ssuImage from "@/assets/ssu.jpg";
 import { Article, ArticleImage } from "@/features/resume/components/article";
-import { ExternalLink, LinkIcon } from "@/features/resume/components/external-link";
+import {
+  ExternalLink,
+  LinkIcon,
+} from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
 
 export function EducationSection() {
@@ -9,14 +12,14 @@ export function EducationSection() {
     <Section id="education" title="학력사항">
       <Article>
         <ArticleImage
+          className="bg-white"
           src={ssuImage}
           alt="숭실대학교 상징마크, 대동강의 물결과 한강의 물결을 상징하는 구부러지고 곧은 물결무늬 로고"
-          className="bg-white"
         />
         <div className="flex flex-col">
           <span>March 2020 - February 2026</span>
           <ExternalLink href="https://cse.ssu.ac.kr/">
-            <h2 className="text-3xl inline-block border-underline">
+            <h2 className="border-underline inline-block text-3xl">
               SOONGSIL <span className="text-accent">UNIV</span>ERSITY
             </h2>
             &nbsp;
@@ -30,14 +33,14 @@ export function EducationSection() {
       </Article>
       <Article>
         <ArticleImage
+          className="bg-white"
           src={namjuFrontSymbolImage}
           alt="남주고등학교 상징마크, 하늘을 향해 있는 3개의 펜촉 모양"
-          className="bg-white"
         />
         <div className="flex flex-col">
           <span>March 2017 - February 2020</span>
           <ExternalLink href="https://school.jje.go.kr/namju-h/main.do">
-            <h2 className="text-3xl inline-block border-underline">
+            <h2 className="border-underline inline-block text-3xl">
               NAMJU <span className="text-accent">HIGH</span> SCHOOL
             </h2>
             &nbsp;

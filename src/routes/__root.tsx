@@ -4,7 +4,14 @@ import { Button } from "@/shared/components/ui/button";
 import { useTheme } from "@/shared/hooks/use-theme";
 import { ModalContainer } from "@/shared/lib/modal";
 import { cn } from "@/shared/lib/utils";
-import { createRootRoute, HeadContent, Link, Outlet, Scripts, useRouterState } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  HeadContent,
+  Link,
+  Outlet,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
 import { HomeIcon, MoonIcon, SunIcon, SunMoonIcon } from "lucide-react";
 import { MotionConfig } from "motion/react";
 import { ThemeProvider } from "next-themes";
@@ -27,7 +34,11 @@ export const Route = createRootRoute({
       { rel: "icon", type: "image/png", href: favicon },
       { rel: "canonical", href: "https://portfolio.ohjimin.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
     ],
   }),
   component: RootDocument,
@@ -46,19 +57,23 @@ function SiteLayout({ children }: PropsWithChildren) {
 
   return (
     <>
-      <nav className={cn("border-border bg-background/90 z-20 w-full border-b")}>
+      <nav
+        className={cn("border-border bg-background/90 z-20 w-full border-b")}
+      >
         <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
-          <Link to="/" className="text-xl font-bold tracking-tight">
+          <Link className="text-xl font-bold tracking-tight" to="/">
             <span className="text-accent">OH</span> JIMIN
           </Link>
           <div className="flex space-x-4">
-            <Link to="/resume" className="font-medium hover:text-accent">
+            <Link className="hover:text-accent font-medium" to="/resume">
               Resume
             </Link>
-            <Link to="/posts" className="font-medium hover:text-accent">
+            <Link className="hover:text-accent font-medium" to="/posts">
               Posts
             </Link>
-            <span className="text-muted-foreground cursor-not-allowed font-medium opacity-60">명예의 실패</span>
+            <span className="text-muted-foreground cursor-not-allowed font-medium opacity-60">
+              명예의 실패
+            </span>
           </div>
           <Button variant="ghost" size="icon" onClick={() => gotoNextTheme()}>
             {theme === "light" ? <SunIcon className="size-5" /> : null}
@@ -68,21 +83,25 @@ function SiteLayout({ children }: PropsWithChildren) {
         </div>
       </nav>
       {children}
-      <footer className="w-full border-t border-border bg-background/90 mt-16">
-        <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col items-center gap-2 text-muted-foreground text-sm">
+      <footer className="border-border bg-background/90 mt-16 w-full border-t">
+        <div className="text-muted-foreground mx-auto flex max-w-4xl flex-col items-center gap-2 px-6 py-8 text-sm">
           <div>
-            <span className="font-bold">오지민</span> &copy; {new Date().getFullYear()} — Portfolio, Resume & Blog.
+            <span className="font-bold">오지민</span> &copy;{" "}
+            {new Date().getFullYear()} — Portfolio, Resume & Blog.
           </div>
           <div className="flex gap-3">
             <a
+              className="hover:text-accent underline"
               href="https://github.com/Xeonlink"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent underline"
             >
               GitHub
             </a>
-            <a href="mailto:jimin7020@gmail.com" className="hover:text-accent underline">
+            <a
+              className="hover:text-accent underline"
+              href="mailto:jimin7020@gmail.com"
+            >
               jimin7020@gmail.com
             </a>
           </div>
@@ -118,7 +137,7 @@ function notFoundComponent() {
               포트폴리오 허브에서 Resume, Tech Blog 등을 만나보세요.
             </p>
           </div>
-          <Button asChild variant="outline" className="w-full" size="lg">
+          <Button className="w-full" asChild variant="outline" size="lg">
             <Link to="/">바로가기</Link>
           </Button>
         </article>
@@ -134,7 +153,12 @@ function RootDocument() {
         <HeadContent />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="color-scheme">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          storageKey="color-scheme"
+        >
           <MotionConfig reducedMotion="user">
             <SiteLayout>
               <Outlet />

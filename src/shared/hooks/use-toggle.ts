@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-export function useToggle<V extends string>(initialValue: boolean = false, varName: V = "value" as V) {
+export function useToggle<V extends string>(
+  initialValue: boolean = false,
+  varName: V = "value" as V,
+) {
   const [value, setValue] = useState(initialValue);
 
   const toggle = () => setValue((prev) => !prev);

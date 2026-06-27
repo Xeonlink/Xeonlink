@@ -13,12 +13,12 @@ export function Section(props: SectionProps) {
     <InView>
       {({ inView, ref }) => (
         <section
-          ref={ref}
           className={cn(
-            "space-y-8 border-dotted p-8 motion-safe:duration-1000 not-last:border-b-2 md:p-14 md:space-y-14",
+            "space-y-8 border-dotted p-8 not-last:border-b-2 motion-safe:duration-1000 md:space-y-14 md:p-14",
             className,
             inView ? "opacity-100" : "opacity-0",
           )}
+          ref={ref}
           {...rest}
           id={id.toLowerCase()}
         >

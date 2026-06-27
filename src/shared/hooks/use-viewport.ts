@@ -3,7 +3,9 @@ import { useCallback, useEffect, useState } from "react";
 type BreakPoint<V extends string> = Record<number, V>;
 
 export function useViewPort<V extends string>(breakpoint: BreakPoint<V>) {
-  const sortedBreakPoint = Object.entries(breakpoint).sort((a, b) => parseInt(a[0]) - parseInt(b[0]));
+  const sortedBreakPoint = Object.entries(breakpoint).sort(
+    (a, b) => parseInt(a[0]) - parseInt(b[0]),
+  );
 
   const evaluateViewpot = useCallback(
     (width: number) => {
@@ -17,7 +19,9 @@ export function useViewPort<V extends string>(breakpoint: BreakPoint<V>) {
     [sortedBreakPoint],
   );
 
-  const [viewport, setViewport] = useState<V | null>(evaluateViewpot(window.innerWidth));
+  const [viewport, setViewport] = useState<V | null>(
+    evaluateViewpot(window.innerWidth),
+  );
 
   useEffect(() => {
     const handleResize = () => {

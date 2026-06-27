@@ -4,7 +4,9 @@ import { useState } from "react";
 import { useTimer } from "../hooks/use-timer";
 import { Button } from "./ui/button";
 
-export function CopyButton(props: ComponentProps<typeof Button> & { textToCopy: string }) {
+export function CopyButton(
+  props: ComponentProps<typeof Button> & { textToCopy: string },
+) {
   const { textToCopy, ...rest } = props;
   const [canCopy, setCanCopy] = useState(true);
   const timer = useTimer();

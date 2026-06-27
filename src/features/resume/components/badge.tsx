@@ -1,4 +1,7 @@
-import { getStaticBadgeUrl, type StaticBadgeOptions } from "@/shared/lib/shields.io";
+import {
+  getStaticBadgeUrl,
+  type StaticBadgeOptions,
+} from "@/shared/lib/shields.io";
 
 type Props = StaticBadgeOptions & {
   children: string;
@@ -9,5 +12,11 @@ type Props = StaticBadgeOptions & {
 export function Badge(props: Props) {
   const { children, ...rest } = props;
 
-  return <img className="h-8" src={getStaticBadgeUrl(children, rest)} alt={`${children} badge`} />;
+  return (
+    <img
+      className="h-8"
+      src={getStaticBadgeUrl(children, rest)}
+      alt={`${children} badge`}
+    />
+  );
 }
