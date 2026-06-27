@@ -9,6 +9,13 @@ export const Route = createFileRoute("/posts/")({
 
 const posts = [
   {
+    title: "format-linear — findLast를 우회하는 선형 Prettier 플러그인",
+    description:
+      "Proxy로 parser 선택을 가로채고, nested format()으로 플러그인을 순서대로 실행하는 방법",
+    date: "2025년 9월",
+    slug: "/posts/prettier-format-linear",
+  },
+  {
     title: "Prettier의 이상한 구조",
     description:
       "parser와 printer, findLast override — Prettier 플러그인이 마지막 하나만 살아남는 이유",
