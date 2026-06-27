@@ -1,4 +1,6 @@
-import { PropsWithChildren, Suspense, use } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import { ComponentProps, Suspense, use } from "react";
 import { codeToHtml, type BundledLanguage } from "shiki";
 import { cn } from "../lib/utils";
 
@@ -23,49 +25,45 @@ function getHighlightedHtml(code: string, lang: BundledLanguage) {
   return htmlCache.get(key)!;
 }
 
-type ShikiWrapperProps = PropsWithChildren<{
-  dangerouslySetInnerHTML?: { __html: string };
-  className?: string;
-}>;
+const CodeBlockVariants = cva(
+  "shiki-wrapper overflow-x-auto rounded-lg border border-border bg-muted p-4 text-sm leading-relaxed",
+  {
+    variants: {
+      variant: {
+        default: "",
+        inline: "inline-block px-2 py-0 align-bottom",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 
-function ShikiWrapper(props: ShikiWrapperProps) {
-  const { children, dangerouslySetInnerHTML, className } = props;
-  return (
-    <div
-      className={cn(
-        "shiki-wrapper overflow-x-auto rounded-lg border border-border bg-muted p-4 text-sm leading-relaxed",
-        className,
-      )}
-      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
-    >
-      {children}
-    </div>
-  );
-}
-
-type CodeBlockProps = {
-  children?: string;
-  code?: string;
-  lang?: BundledLanguage;
-  className?: string;
-};
+type CodeBlockProps = ComponentProps<"div"> &
+  VariantProps<typeof CodeBlockVariants> & {
+    children?: string;
+    code?: string;
+    lang?: BundledLanguage;
+    className?: string;
+  };
 
 function CodeBlockContent(props: CodeBlockProps) {
-  const { code = "", lang = "tsx", className, children = "" } = props;
+  const { code = "", lang = "tsx", className, variant, children = "" } = props;
   const html = use(getHighlightedHtml(code || children, lang));
 
-  return <ShikiWrapper className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div className={cn(CodeBlockVariants({ variant }), className)} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 function CodeBlockFallback(props: CodeBlockProps) {
-  const { code, className, children = "" } = props;
+  const { code, className, variant, children = "" } = props;
 
   return (
-    <ShikiWrapper className={className}>
+    <div className={cn(CodeBlockVariants({ variant }), className)}>
       <pre>
         <code>{code || children}</code>
       </pre>
-    </ShikiWrapper>
+    </div>
   );
 }
 
