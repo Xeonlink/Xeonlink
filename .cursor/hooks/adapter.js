@@ -31,7 +31,11 @@ function transformToClaude(cursorInput, overrides = {}) {
   return {
     tool_input: {
       command: cursorInput.command || cursorInput.args?.command || "",
-      file_path: cursorInput.path || cursorInput.file || cursorInput.args?.filePath || "",
+      file_path:
+        cursorInput.path ||
+        cursorInput.file ||
+        cursorInput.args?.filePath ||
+        "",
       ...overrides.tool_input,
     },
     tool_output: {
@@ -39,7 +43,10 @@ function transformToClaude(cursorInput, overrides = {}) {
       ...overrides.tool_output,
     },
     transcript_path:
-      cursorInput.transcript_path || cursorInput.transcriptPath || cursorInput.session?.transcript_path || "",
+      cursorInput.transcript_path ||
+      cursorInput.transcriptPath ||
+      cursorInput.session?.transcript_path ||
+      "",
     _cursor: {
       conversation_id: cursorInput.conversation_id,
       hook_event_name: cursorInput.hook_event_name,
@@ -53,7 +60,8 @@ function runExistingHook(scriptName, stdinData) {
   const scriptPath = path.join(getPluginRoot(), "scripts", "hooks", scriptName);
   try {
     execFileSync("node", [scriptPath], {
-      input: typeof stdinData === "string" ? stdinData : JSON.stringify(stdinData),
+      input:
+        typeof stdinData === "string" ? stdinData : JSON.stringify(stdinData),
       stdio: ["pipe", "pipe", "pipe"],
       timeout: 15000,
       cwd: process.cwd(),
@@ -66,8 +74,12 @@ function runExistingHook(scriptName, stdinData) {
 }
 
 function hookEnabled(hookId, allowedProfiles = ["standard", "strict"]) {
-  const rawProfile = String(process.env.ECC_HOOK_PROFILE || "standard").toLowerCase();
-  const profile = ["minimal", "standard", "strict"].includes(rawProfile) ? rawProfile : "standard";
+  const rawProfile = String(
+    process.env.ECC_HOOK_PROFILE || "standard",
+  ).toLowerCase();
+  const profile = ["minimal", "standard", "strict"].includes(rawProfile)
+    ? rawProfile
+    : "standard";
 
   const disabled = new Set(
     String(process.env.ECC_DISABLED_HOOKS || "")

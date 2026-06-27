@@ -6,7 +6,9 @@ readStdin()
       const input = JSON.parse(raw);
       const filePath = input.path || input.file || "";
       if (/\.(env|key|pem)$|\.env\.|credentials|secret/i.test(filePath)) {
-        console.error("[ECC] BLOCKED: Tab cannot read sensitive file: " + filePath);
+        console.error(
+          "[ECC] BLOCKED: Tab cannot read sensitive file: " + filePath,
+        );
         process.exit(2);
       }
     } catch {}

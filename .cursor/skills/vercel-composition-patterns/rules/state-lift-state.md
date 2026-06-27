@@ -85,7 +85,11 @@ function ForwardMessageProvider({ children }: { children: React.ReactNode }) {
   const inputRef = useRef(null);
 
   return (
-    <Composer.Provider state={state} actions={{ update: setState, submit: forwardMessage }} meta={{ inputRef }}>
+    <Composer.Provider
+      state={state}
+      actions={{ update: setState, submit: forwardMessage }}
+      meta={{ inputRef }}
+    >
       {children}
     </Composer.Provider>
   );
@@ -96,10 +100,12 @@ function ForwardMessageDialog() {
     <ForwardMessageProvider>
       <Dialog>
         <ForwardMessageComposer />
-        <MessagePreview /> {/* Custom components can access state and actions */}
+        <MessagePreview />{" "}
+        {/* Custom components can access state and actions */}
         <DialogActions>
           <CancelButton />
-          <ForwardButton /> {/* Custom components can access state and actions */}
+          <ForwardButton />{" "}
+          {/* Custom components can access state and actions */}
         </DialogActions>
       </Dialog>
     </ForwardMessageProvider>

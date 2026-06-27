@@ -8,13 +8,23 @@ readStdin()
       const cmd = String(input.command || input.args?.command || "");
       const output = String(input.output || input.result || "");
 
-      if (hookEnabled("post:bash:pr-created", ["standard", "strict"]) && /\bgh\s+pr\s+create\b/.test(cmd)) {
-        const m = output.match(/https:\/\/github\.com\/[^/]+\/[^/]+\/pull\/\d+/);
+      if (
+        hookEnabled("post:bash:pr-created", ["standard", "strict"]) &&
+        /\bgh\s+pr\s+create\b/.test(cmd)
+      ) {
+        const m = output.match(
+          /https:\/\/github\.com\/[^/]+\/[^/]+\/pull\/\d+/,
+        );
         if (m) {
           console.error("[ECC] PR created: " + m[0]);
-          const repo = m[0].replace(/https:\/\/github\.com\/([^/]+\/[^/]+)\/pull\/\d+/, "$1");
+          const repo = m[0].replace(
+            /https:\/\/github\.com\/([^/]+\/[^/]+)\/pull\/\d+/,
+            "$1",
+          );
           const pr = m[0].replace(/.+\/pull\/(\d+)/, "$1");
-          console.error("[ECC] To review: gh pr review " + pr + " --repo " + repo);
+          console.error(
+            "[ECC] To review: gh pr review " + pr + " --repo " + repo,
+          );
         }
       }
 
