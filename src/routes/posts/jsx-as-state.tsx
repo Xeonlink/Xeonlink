@@ -26,7 +26,7 @@ function RouteComponent() {
   return (
     <main className="mx-auto max-w-4xl space-y-12 px-6 py-20">
       <header className="space-y-4">
-        <p className="text-muted-foreground text-sm">2026년 6월</p>
+        <p className="text-muted-foreground text-sm">2023년 1월</p>
         <h1 className="text-4xl leading-tight font-bold md:text-5xl">JSX as State</h1>
         <p className="text-muted-foreground text-xl leading-relaxed">
           콜백과 이벤트 핸들러에서도 모달을 열 수 있게, JSX를 state로 다루는 방법
