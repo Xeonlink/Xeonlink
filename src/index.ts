@@ -250,23 +250,29 @@ type ActionDef<IIn, IOut, C> = {
   withMiddleware?: WithMiddleware<C>;
 };
 
-function actionBuilder<R, M, C, IIn = undefined, IOut = undefined>(
-  def: ActionDef<IIn, IOut, C>,
-) {
-  return {
+function actionBuilder<
+  R,
+  M,
+  C,
+  IIn = undefined,
+  IOut = undefined,
+  OM extends keyof typeof builder = never,
+>(def: ActionDef<IIn, IOut, C>, omits: OM[] = []) {
+  const builder = {
     input: <_I, _O>(schema: StandardSchemaV1<_I, _O>) => {
-      const b = actionBuilder<R, M, C, _I, _O>({
-        ...def,
-        inputSchema: schema,
-      });
-      return omit(b, ["input"]);
+      return actionBuilder<R, M, C, _I, _O, OM | "input">(
+        { ...def, inputSchema: schema },
+        [...omits, "input"],
+      );
     },
     metadata: (metadata: M) => {
-      const b = actionBuilder<R, M, C, IIn, IOut>({
-        ...def,
-        withMiddleware: withMiddleware<C>(def.middlewares, metadata),
-      });
-      return omit(b, ["metadata"]);
+      return actionBuilder<R, M, C, IIn, IOut, OM | "metadata">(
+        {
+          ...def,
+          withMiddleware: withMiddleware<C>(def.middlewares, metadata),
+        },
+        [...omits, "metadata"],
+      );
     },
     action: <_R>(handler: (input: IOut, ctx: C) => Promise<_R>) => {
       const _withMiddleware =
@@ -291,6 +297,8 @@ function actionBuilder<R, M, C, IIn = undefined, IOut = undefined>(
       };
     },
   };
+
+  return omit(builder, omits);
 }
 
 type RouteDef<SP, P, B, C> = {
@@ -309,39 +317,39 @@ function routeBuilder<
   SP = undefined,
   P = undefined,
   B = undefined,
->(def: RouteDef<SP, P, B, C>) {
-  return {
+  OM extends keyof typeof builder = never,
+>(def: RouteDef<SP, P, B, C>, omits: OM[] = []) {
+  const builder = {
     searchParams: <_SP>(schema: StandardSchemaV1<AnyRecord, _SP>) => {
-      const b = routeBuilder<R, T, M, C, _SP, P, B>({
-        ...def,
-        searchParamsSchema: schema,
-      });
-      return omit(b, ["searchParams"]);
+      return routeBuilder<R, T, M, C, _SP, P, B, OM | "searchParams">(
+        { ...def, searchParamsSchema: schema },
+        [...omits, "searchParams"],
+      );
     },
     params: <
       _P extends Record<keyof Awaited<RouteContext<T>["params"]>, unsafe_any>,
     >(
       schema: StandardSchemaV1<AnyRecord, _P>,
     ) => {
-      const b = routeBuilder<R, T, M, C, SP, _P, B>({
-        ...def,
-        paramsSchema: schema,
-      });
-      return omit(b, ["params"]);
+      return routeBuilder<R, T, M, C, SP, _P, B, OM | "params">(
+        { ...def, paramsSchema: schema },
+        [...omits, "params"],
+      );
     },
     body: <_B>(schema: StandardSchemaV1<AnyRecord, _B>) => {
-      const b = routeBuilder<R, T, M, C, SP, P, _B>({
-        ...def,
-        bodySchema: schema,
-      });
-      return omit(b, ["body"]);
+      return routeBuilder<R, T, M, C, SP, P, _B, OM | "body">(
+        { ...def, bodySchema: schema },
+        [...omits, "body"],
+      );
     },
     metadata: (metadata: M) => {
-      const b = routeBuilder<R, T, M, C, SP, P, B>({
-        ...def,
-        withMiddleware: withMiddleware<C>(def.middlewares, metadata),
-      });
-      return omit(b, ["metadata"]);
+      return routeBuilder<R, T, M, C, SP, P, B, OM | "metadata">(
+        {
+          ...def,
+          withMiddleware: withMiddleware<C>(def.middlewares, metadata),
+        },
+        [...omits, "metadata"],
+      );
     },
     handler<_R>(
       handler: (
@@ -409,4 +417,6 @@ function routeBuilder<
       };
     },
   };
+
+  return omit(builder, omits);
 }
