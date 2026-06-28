@@ -138,7 +138,7 @@ function RouteComponent() {
           흐르도록 했습니다.
         </post.p>
         <Tabs>
-          <TabsList className="w-full">
+          <TabsList className="w-full" defaultValue="createBuilder">
             <TabsTrigger value="createBuilder">createBuilder</TabsTrigger>
             <TabsTrigger value="omit">omit</TabsTrigger>
           </TabsList>
