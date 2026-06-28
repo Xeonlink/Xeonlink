@@ -16,6 +16,12 @@ type Post = {
 
 const posts: Post[] = [
   {
+    title: "일회용 Method 빌더패턴",
+    description: "Closure를 활용한 일회용 Method Builder를 만드는 방법",
+    date: "2026년 2월",
+    slug: "/posts/once-method-builder",
+  },
+  {
     title: "Prettier - 모든 플러그인 통과시키기",
     description:
       "Proxy로 parser 선택을 가로채고, nested format()으로 플러그인을 모두 적용시키는 방법",

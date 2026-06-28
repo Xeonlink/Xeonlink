@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsIndexRouteImport } from './routes/posts/index'
 import { Route as PostsPrettierFormatLinearRouteImport } from './routes/posts/prettier-format-linear'
 import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/prettier-architecture'
+import { Route as PostsOnceMethodBuilderRouteImport } from './routes/posts/once-method-builder'
 import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
 
 const ResumeRoute = ResumeRouteImport.update({
@@ -43,6 +44,11 @@ const PostsPrettierArchitectureRoute =
     path: '/posts/prettier-architecture',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PostsOnceMethodBuilderRoute = PostsOnceMethodBuilderRouteImport.update({
+  id: '/posts/once-method-builder',
+  path: '/posts/once-method-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PostsJsxAsStateRoute = PostsJsxAsStateRouteImport.update({
   id: '/posts/jsx-as-state',
   path: '/posts/jsx-as-state',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts/': typeof PostsIndexRoute
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts': typeof PostsIndexRoute
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts/': typeof PostsIndexRoute
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts/'
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts/'
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ResumeRoute: typeof ResumeRoute
   PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
+  PostsOnceMethodBuilderRoute: typeof PostsOnceMethodBuilderRoute
   PostsPrettierArchitectureRoute: typeof PostsPrettierArchitectureRoute
   PostsPrettierFormatLinearRoute: typeof PostsPrettierFormatLinearRoute
   PostsIndexRoute: typeof PostsIndexRoute
@@ -147,6 +160,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsPrettierArchitectureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/once-method-builder': {
+      id: '/posts/once-method-builder'
+      path: '/posts/once-method-builder'
+      fullPath: '/posts/once-method-builder'
+      preLoaderRoute: typeof PostsOnceMethodBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/jsx-as-state': {
       id: '/posts/jsx-as-state'
       path: '/posts/jsx-as-state'
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ResumeRoute: ResumeRoute,
   PostsJsxAsStateRoute: PostsJsxAsStateRoute,
+  PostsOnceMethodBuilderRoute: PostsOnceMethodBuilderRoute,
   PostsPrettierArchitectureRoute: PostsPrettierArchitectureRoute,
   PostsPrettierFormatLinearRoute: PostsPrettierFormatLinearRoute,
   PostsIndexRoute: PostsIndexRoute,
