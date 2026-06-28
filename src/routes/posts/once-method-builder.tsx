@@ -137,8 +137,8 @@ function RouteComponent() {
           <code.ts variant="inline">omits</code.ts> 배열을 추가하여, data와 함께
           흐르도록 했습니다.
         </post.p>
-        <Tabs>
-          <TabsList className="w-full" defaultValue="createBuilder">
+        <Tabs defaultValue="createBuilder">
+          <TabsList className="w-full">
             <TabsTrigger value="createBuilder">createBuilder</TabsTrigger>
             <TabsTrigger value="omit">omit</TabsTrigger>
           </TabsList>
