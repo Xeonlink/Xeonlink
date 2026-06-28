@@ -23,9 +23,10 @@ function RouteComponent() {
     <post.main>
       <post.header>
         <post.writedate>2025년 9월</post.writedate>
-        <post.h1>format-linear</post.h1>
+        <post.h1>Prettier - 모든 플러그인 통과시키기</post.h1>
         <post.subtitle>
-          findLast를 우회해 Prettier 플러그인을 순서대로 실행하는 방법
+          Proxy로 parser 선택을 가로채고, nested format()으로 플러그인을 모두
+          적용시키는 방법
         </post.subtitle>
       </post.header>
 

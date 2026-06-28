@@ -22,9 +22,10 @@ function RouteComponent() {
     <post.main>
       <post.header>
         <post.writedate>2025년 9월</post.writedate>
-        <post.h1>Prettier의 이상한 구조</post.h1>
+        <post.h1>Prettier - 이상한 구조</post.h1>
         <post.subtitle>
-          parser와 printer, 그리고 마지막 플러그인만 남는 구조
+          parser와 printer, findLast override — Prettier 플러그인이 마지막
+          하나만 살아남는 이유
         </post.subtitle>
       </post.header>
 
