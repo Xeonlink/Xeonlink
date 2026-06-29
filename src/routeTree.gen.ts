@@ -15,6 +15,7 @@ import { Route as PostsIndexRouteImport } from './routes/posts/index'
 import { Route as PostsPrettierFormatLinearRouteImport } from './routes/posts/prettier-format-linear'
 import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/prettier-architecture'
 import { Route as PostsOnceMethodBuilderRouteImport } from './routes/posts/once-method-builder'
+import { Route as PostsNextjsNetdefRouteImport } from './routes/posts/nextjs-netdef'
 import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
 
 const ResumeRoute = ResumeRouteImport.update({
@@ -49,6 +50,11 @@ const PostsOnceMethodBuilderRoute = PostsOnceMethodBuilderRouteImport.update({
   path: '/posts/once-method-builder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PostsNextjsNetdefRoute = PostsNextjsNetdefRouteImport.update({
+  id: '/posts/nextjs-netdef',
+  path: '/posts/nextjs-netdef',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PostsJsxAsStateRoute = PostsJsxAsStateRouteImport.update({
   id: '/posts/jsx-as-state',
   path: '/posts/jsx-as-state',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ResumeRoute: typeof ResumeRoute
   PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
+  PostsNextjsNetdefRoute: typeof PostsNextjsNetdefRoute
   PostsOnceMethodBuilderRoute: typeof PostsOnceMethodBuilderRoute
   PostsPrettierArchitectureRoute: typeof PostsPrettierArchitectureRoute
   PostsPrettierFormatLinearRoute: typeof PostsPrettierFormatLinearRoute
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsOnceMethodBuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/nextjs-netdef': {
+      id: '/posts/nextjs-netdef'
+      path: '/posts/nextjs-netdef'
+      fullPath: '/posts/nextjs-netdef'
+      preLoaderRoute: typeof PostsNextjsNetdefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/jsx-as-state': {
       id: '/posts/jsx-as-state'
       path: '/posts/jsx-as-state'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ResumeRoute: ResumeRoute,
   PostsJsxAsStateRoute: PostsJsxAsStateRoute,
+  PostsNextjsNetdefRoute: PostsNextjsNetdefRoute,
   PostsOnceMethodBuilderRoute: PostsOnceMethodBuilderRoute,
   PostsPrettierArchitectureRoute: PostsPrettierArchitectureRoute,
   PostsPrettierFormatLinearRoute: PostsPrettierFormatLinearRoute,

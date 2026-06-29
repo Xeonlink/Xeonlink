@@ -16,6 +16,13 @@ type Post = {
 
 const posts: Post[] = [
   {
+    title: "netdef — Server Action과 Route Handler를 하나로",
+    description:
+      "next-safe-action에서 출발한 typesafe middleware layer. action과 route handler의 auth·validation 중복을 callBaseBuilder 하나로 통합.",
+    date: "2026년 2월",
+    slug: "/posts/nextjs-netdef",
+  },
+  {
     title: "일회용 Method 빌더패턴",
     description: "Closure를 활용한 일회용 Method Builder를 만드는 방법",
     date: "2026년 2월",
