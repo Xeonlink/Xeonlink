@@ -1,4 +1,5 @@
 import { post } from "@/features/post/components";
+import { Mermaid } from "@/features/post/components/mermaid";
 import { code } from "@/shared/components/code";
 import { ScrollArea, ScrollBar } from "@/shared/components/ui/scroll-area";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -57,8 +58,8 @@ function RouteComponent() {
         <post.h2>제작 목적</post.h2>
         <post.p>
           저는 prettier 플러그인을 여러 개 쓰면서, 각각의 변환을{" "}
-          <strong className="text-foreground font-medium">순서대로 모두</strong>{" "}
-          적용하고 싶었습니다. sort-imports → organize-imports → tailwindcss →
+          <post.strong>순서대로 모두</post.strong> 적용하고 싶었습니다.
+          sort-imports → organize-imports → tailwindcss →
           organize-attributes처럼, 배열에 적은 순서가 곧 실행 순서가 되길
           원했습니다.
         </post.p>
@@ -67,8 +68,7 @@ function RouteComponent() {
           시스템 안에서 해결할 방법을 찾았습니다. 그 결과물이{" "}
           <code.json variant="inline">{`"format-linear.mjs"`}</code.json>{" "}
           입니다. .prettierrc.mjs에서는 항상 plugins 배열의{" "}
-          <strong className="text-foreground font-medium">마지막</strong>에
-          둡니다.
+          <post.strong>마지막</post.strong>에 둡니다.
         </post.p>
         <code.js>{PRETTIERRC_EXAMPLE}</code.js>
       </post.section>
@@ -263,6 +263,7 @@ function RouteComponent() {
           사용해서 svelte를 사용하는 환경임을 확신하려는 설계의도가 담겨있기
           때문입니다.
         </post.p>
+        <Mermaid code={PARSER_DEPENDENCY_GRAPH} />
       </post.section>
 
       <post.section>
@@ -275,7 +276,7 @@ function RouteComponent() {
       </post.section>
 
       <post.section>
-        <post.h2>한계점</post.h2>
+        <post.h2>한계점 및 정리</post.h2>
         <post.p>
           format-linear는 Prettier 내부 동작에 깊이 coupling되어 있습니다.{" "}
           <code.js variant="inline">Object.hasOwn(...)</code.js> + Proxy trap,
@@ -288,6 +289,20 @@ function RouteComponent() {
           하나의 파일만 변경되니까 크게 문제가 없으나,{" "}
           <code.json variant="inline">{`"prettier --write ."`}</code.json> 처럼
           batch format에는 눈에 띄게 느려집니다.
+        </post.p>
+        <post.p>
+          구현은 단일 파일로 두어 프로젝트에 복사해 쓸 수 있게 했습니다. 전체
+          소스는 아래에서 확인할 수 있습니다.
+        </post.p>
+        <post.p>
+          <a
+            className="text-foreground underline underline-offset-4"
+            href="https://github.com/Xeonlink/Xeonlink/blob/main%23format-linear/src/index.ts"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Xeonlink/format-linear — src/index.ts
+          </a>
         </post.p>
       </post.section>
     </post.main>
@@ -372,3 +387,8 @@ printers: {
     print: (astPath) => astPath.node,
   },
 },`;
+
+const PARSER_DEPENDENCY_GRAPH = `
+graph LR
+  A --- B --- C --- D
+  C --> |svelte parser| B`;

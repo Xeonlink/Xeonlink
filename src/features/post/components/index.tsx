@@ -27,4 +27,5 @@ export const post = {
   section: toComponent("section", cva("space-y-4")),
   h2: toComponent("h2", cva("text-2xl font-semibold")),
   p: toComponent("p", cva("text-muted-foreground leading-relaxed")),
+  strong: toComponent("strong", cva("text-foreground font-medium")),
 };

@@ -69,9 +69,8 @@ function RouteComponent() {
         <post.p>
           저는 이런 구조가 불안하다고 느꼈습니다. 잘못 사용하면 builder가 여러
           함수를 넘어다니면서 side effect를 일으킬 수 있어 보였습니다. 번·패티·
-          소스를 <strong className="text-foreground font-medium">1번만</strong>{" "}
-          선택하게 강제할 수 있을까요? 강제할 수 있다면 빌드타임에 막을 수
-          있을까요?
+          소스를 <post.strong>1번만</post.strong> 선택하게 강제할 수 있을까요?
+          강제할 수 있다면 빌드타임에 막을 수 있을까요?
         </post.p>
       </post.section>
 
@@ -86,9 +85,8 @@ function RouteComponent() {
         </post.p>
         <post.p>
           그래서 일단 builder를 data 객체와 method 객체로 나누어 보았습니다.
-          왜냐하면 builder의 data 부분은 원래 buidler가 data를 처리하는 방식으로
-          흘러야하지만, method 부분은 사용한 뒤에 다시 만들어져야하기
-          때문입니다.
+          왜냐하면 data 부분은 변경점이 없고, method 부분만 재정의 되어야하기
+          때문에, 관심사를 분리하기 위해서입니다.
         </post.p>
         <Tabs defaultValue="data">
           <TabsList className="w-full">
@@ -152,11 +150,15 @@ function RouteComponent() {
         <post.p>
           <code.ts variant="inline">setBun()</code.ts> 은 한번만 호출할 수
           있도록 강제하기 위해, <code.ts variant="inline">omits</code.ts>에
-          자신의 이름을 넘겨줍니다. 반면에{" "}
-          <code.ts variant="inline">addCheese()</code.ts>는 여러 번 호출할 수
-          있기 때문에 기존 <code.ts variant="inline">omits</code.ts>를 그대로
-          넘겨줍니다. 이렇게하면 제외된 함수가 누적되어 전달되기 때문에, 한번
-          호출한 method는 계속 호출할 수 없게 됩니다.
+          자신의 이름을 추가합니다. 이렇게하면 제외된 함수가 누적되어 전달되기
+          때문에, 한번 호출한 method는 계속 제거되어 더 이상 호출할 수
+          없게됩니다.
+        </post.p>
+        <post.p>
+          반면에 <code.ts variant="inline">addCheese()</code.ts>는 여러 번
+          호출할 수 있기 때문에 기존 <code.ts variant="inline">omits</code.ts>를
+          그대로 넘겨줍니다. 제외된 목록에 자신이 없으므로, 여전히 여러 번
+          호출할 수 있습니다.
         </post.p>
       </post.section>
 
@@ -217,24 +219,24 @@ function RouteComponent() {
           </TabsContent>
         </Tabs>
         <post.p>
-          type은 재호출을 막지만, 런타임에는 동일한 instance가 돌아갑니다.{" "}
-          <code.tsx variant="inline">as</code.tsx> 는 타입 검사만 우회할 뿐 실제
-          동작을 바꾸지 않으므로, 타입을 무시하고 호출하면 여전히 덮어쓰기가
-          일어납니다.
+          한계도 명확합니다. <code.tsx variant="inline">as</code.tsx> 키워드를
+          사용했기 때문에, type을 통해 재호출은 막을 수 있어도 런타임에는 동일한
+          instance가 돌아갑니다. 이는 타입 검사만 우회할 뿐 실제 동작을 바꾸지
+          않으므로, 타입을 무시하고 호출하면 여전히 덮어쓰기가 일어납니다.
         </post.p>
         <post.p>
           Closure + <code.tsx variant="inline">omit</code.tsx> 방식은 호출마다
-          새 builder 객체를 만들고 key를 제거하므로, 이런 문제가 발생하지
-          않습니다.
+          새 builder 객체를 만들고 method를 type에서 뿐만 아니라 런타임에서도
+          제거하므로, 이런 문제가 발생하지 않습니다.
         </post.p>
       </post.section>
 
       <post.section>
         <post.h2>한계점</post.h2>
         <post.p>
-          <strong className="text-foreground font-medium">
+          <post.strong>
             createBuilder 정의부 타입이 매우 복잡합니다.
-          </strong>{" "}
+          </post.strong>{" "}
           IDE에서 hover하면 중첩된{" "}
           <code.tsx variant="inline">Omit&lt;...&gt;</code.tsx> 트리가
           이어집니다. 타입이 복잡해서, typescript LSP의 동작이 오래걸릴 수
@@ -243,13 +245,11 @@ function RouteComponent() {
         </post.p>
         <code.tsx>{COMPLEX_TYPE}</code.tsx>
         <post.p>
-          <strong className="text-foreground font-medium">
-            메모리 overhead가 있습니다.
-          </strong>{" "}
-          Class builder는 하나의 reference를 유지하지만, closure builder는
-          method 호출마다 새 객체를 생성합니다. 비슷한 객체를 쉽게 만들기 위한
-          가벼운 wrapper를 제공하는 것이 builder의 본래 목적이라고 한다면, 이
-          방식은 메모리 관점에서 불리할 수 있습니다.
+          <post.strong>메모리 overhead가 있습니다.</post.strong> Class builder는
+          하나의 reference를 유지하지만, closure builder는 method 호출마다 새
+          객체를 생성합니다. 비슷한 객체를 쉽게 만들기 위한 가벼운 wrapper를
+          제공하는 것이 builder의 본래 목적이라고 한다면, 이 방식은 메모리
+          관점에서 불리할 수 있습니다.
         </post.p>
       </post.section>
     </post.main>
