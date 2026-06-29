@@ -153,3 +153,7 @@
   color: var(--shiki-dark);
   background-color: var(--shiki-dark-bg);
 }
+
+div.mermaid-renderer {
+  @apply bg-background border-border border outline-none;
+}
