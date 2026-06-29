@@ -34,7 +34,7 @@ const CodeBlockVariants = cva(
     variants: {
       variant: {
         default: "",
-        inline: "inline-block px-2 py-0 align-bottom",
+        inline: "inline-block px-2 py-0 align-bottom max-w-full",
       },
     },
     defaultVariants: {
