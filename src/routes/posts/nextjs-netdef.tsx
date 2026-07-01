@@ -259,20 +259,20 @@ function RouteComponent() {
           middleware metadata와 route handler의 param, body 그리고 action의
           input은 Standard Schema로 검증합니다.
         </post.p>
-        <Tabs defaultValue="route">
+        <Tabs defaultValue="zod">
           <TabsList className="w-full">
-            <TabsTrigger value="route">route</TabsTrigger>
-            <TabsTrigger value="action">action</TabsTrigger>
+            <TabsTrigger value="zod">Zod</TabsTrigger>
+            <TabsTrigger value="arktype">ArkType</TabsTrigger>
           </TabsList>
-          <TabsContent value="route">
-            <code.ts>{ROUTE_CLIENT_CODE}</code.ts>
+          <TabsContent value="zod">
+            <code.ts>{VLIADATE_USING_ZOD}</code.ts>
           </TabsContent>
-          <TabsContent value="action">
-            <code.ts>{ACTION_CLIENT_CODE}</code.ts>
+          <TabsContent value="arktype">
+            <code.ts>{VALIDATE_USING_ARK}</code.ts>
           </TabsContent>
         </Tabs>
         <post.p>
-          예시에서는 zod를 사용했지만 Standard Schema를 지원함으로써{" "}
+          Standard Schema를 지원함으로써{" "}
           <post.strong>zod · Valibot · ArkType · Effect Schema 등</post.strong>{" "}
           validator-agnostic하게 검증 로직을 작성할 수 있습니다.
         </post.p>
@@ -377,36 +377,32 @@ export const GET = base.handler(async (_, ctx) => {
   return Ok(pick(coupon.data, ["name", "memo", "enabled"]));
 });`;
 
-const ROUTE_CLIENT_CODE = `function actionBuilder<...>(
-    def: ActionDef<IIn, IOut, C>, 
-    omits: OM[] = []
-) {
-  const builder = {         
-    input: <_I, _O>(schema: StandardSchemaV1<_I, _O>) => {
-                        //  ^^^^^^^^^^^^^^^^
-      return actionBuilder<R, M, C, _I, _O, OM | "input">(
-        { ...def, inputSchema: schema },
-        [...omits, "input"],
-      );
-    },
-    ...
-  };
-  ...
-}`;
+const VLIADATE_USING_ZOD = `import { z } from "zod";
 
-const ACTION_CLIENT_CODE = `function routeBuilder<...>(
-    def: RouteDef<SP, P, B, C>, 
-    omits: OM[] = []
-) {
-  const builder = {
-    searchParams: <_SP>(schema: StandardSchemaV1<AnyRecord, _SP>) => {
-                            //  ^^^^^^^^^^^^^^^^
-      return routeBuilder<...>(
-        { ...def, searchParamsSchema: schema },
-        [...omits, "searchParams"],
-      );
-    },
-    ...
-  };
-  ...
-}`;
+// zod schema example
+const userSchema = z.object({
+  name: z.string().min(2),
+  age: z.number().int().gte(0),
+});
+
+const action = actionBuilder()
+  .input(userSchema)
+  .action(async (input) => {
+    // input 'name'과 'age'는 zod로 검증됨
+    return doSomething(input);
+  });`;
+
+const VALIDATE_USING_ARK = `import { type } from "arktype";
+
+// ArkType schema example
+const productSchema = type({
+  title: "string & >1",
+  price: "number & >=0",
+});
+
+const action = actionBuilder()
+  .input(productSchema)
+  .action(async (input) => {
+    // input 'title'과 'price'는 ArkType으로 검증됨
+    return doSomethingElse(input);
+  });`;
