@@ -16,6 +16,13 @@ type Post = {
 
 const posts: Post[] = [
   {
+    title: "모노레포 짭 - Orphan Branch",
+    description:
+      "하나의 레포지토리 안에서 orphan branch와 clean-switch alias로 프로젝트를 격리하는 방법",
+    date: "2026년 3월",
+    slug: "/posts/orphan-branch-isolation",
+  },
+  {
     title: "netdef — Server Action과 Route Handler를 하나로",
     description:
       "next-safe-action에서 출발한 typesafe middleware layer. action과 route handler의 auth·validation 중복을 callBaseBuilder 하나로 통합.",

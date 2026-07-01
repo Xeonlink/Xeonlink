@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsIndexRouteImport } from './routes/posts/index'
 import { Route as PostsPrettierFormatLinearRouteImport } from './routes/posts/prettier-format-linear'
 import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/prettier-architecture'
+import { Route as PostsOrphanBranchIsolationRouteImport } from './routes/posts/orphan-branch-isolation'
 import { Route as PostsOnceMethodBuilderRouteImport } from './routes/posts/once-method-builder'
 import { Route as PostsNextjsNetdefRouteImport } from './routes/posts/nextjs-netdef'
 import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
@@ -45,6 +46,12 @@ const PostsPrettierArchitectureRoute =
     path: '/posts/prettier-architecture',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PostsOrphanBranchIsolationRoute =
+  PostsOrphanBranchIsolationRouteImport.update({
+    id: '/posts/orphan-branch-isolation',
+    path: '/posts/orphan-branch-isolation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PostsOnceMethodBuilderRoute = PostsOnceMethodBuilderRouteImport.update({
   id: '/posts/once-method-builder',
   path: '/posts/once-method-builder',
@@ -67,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
+  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts/': typeof PostsIndexRoute
@@ -77,6 +85,7 @@ export interface FileRoutesByTo {
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
+  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts': typeof PostsIndexRoute
@@ -88,6 +97,7 @@ export interface FileRoutesById {
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
+  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
   '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
   '/posts/': typeof PostsIndexRoute
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/posts/jsx-as-state'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
+    | '/posts/orphan-branch-isolation'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts/'
@@ -110,6 +121,7 @@ export interface FileRouteTypes {
     | '/posts/jsx-as-state'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
+    | '/posts/orphan-branch-isolation'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts'
@@ -120,6 +132,7 @@ export interface FileRouteTypes {
     | '/posts/jsx-as-state'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
+    | '/posts/orphan-branch-isolation'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
     | '/posts/'
@@ -131,6 +144,7 @@ export interface RootRouteChildren {
   PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
   PostsNextjsNetdefRoute: typeof PostsNextjsNetdefRoute
   PostsOnceMethodBuilderRoute: typeof PostsOnceMethodBuilderRoute
+  PostsOrphanBranchIsolationRoute: typeof PostsOrphanBranchIsolationRoute
   PostsPrettierArchitectureRoute: typeof PostsPrettierArchitectureRoute
   PostsPrettierFormatLinearRoute: typeof PostsPrettierFormatLinearRoute
   PostsIndexRoute: typeof PostsIndexRoute
@@ -173,6 +187,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsPrettierArchitectureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/orphan-branch-isolation': {
+      id: '/posts/orphan-branch-isolation'
+      path: '/posts/orphan-branch-isolation'
+      fullPath: '/posts/orphan-branch-isolation'
+      preLoaderRoute: typeof PostsOrphanBranchIsolationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/once-method-builder': {
       id: '/posts/once-method-builder'
       path: '/posts/once-method-builder'
@@ -203,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   PostsJsxAsStateRoute: PostsJsxAsStateRoute,
   PostsNextjsNetdefRoute: PostsNextjsNetdefRoute,
   PostsOnceMethodBuilderRoute: PostsOnceMethodBuilderRoute,
+  PostsOrphanBranchIsolationRoute: PostsOrphanBranchIsolationRoute,
   PostsPrettierArchitectureRoute: PostsPrettierArchitectureRoute,
   PostsPrettierFormatLinearRoute: PostsPrettierFormatLinearRoute,
   PostsIndexRoute: PostsIndexRoute,

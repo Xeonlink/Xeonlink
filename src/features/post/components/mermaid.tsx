@@ -12,6 +12,11 @@ export function Mermaid(props: Props) {
   const mermaidTheme = theme === "dark" ? "dark" : "default";
 
   return (
-    <RednerMermaid mermaidCode={code} mermaidConfig={{ theme: mermaidTheme }} />
+    <div>
+      <RednerMermaid
+        mermaidCode={code}
+        mermaidConfig={{ theme: mermaidTheme }}
+      />
+    </div>
   );
 }

@@ -28,7 +28,7 @@ orphan-branch-B/
 
 ### 해결방법
 
-정말 다행히도 git에는 clean 명령어가 있어. untracted 상태인 대상을 제거하는 명령어가 있다.
+정말 다행히도 git에는 clean 명령어가 있어. ignore 상태인 대상을 제거하는 명령어가 있다.
 
 ```bash
 git clean -fdx
