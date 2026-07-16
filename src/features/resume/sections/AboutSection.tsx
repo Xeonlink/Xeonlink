@@ -4,7 +4,8 @@ import { GithubIcon } from "@/features/resume/components/GithubIcon";
 import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
 import { Button } from "@/shared/components/ui/button";
-import { MailIcon, PhoneOutgoingIcon } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { MailIcon, PhoneOutgoingIcon, SquarePenIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function AboutSection() {
@@ -58,6 +59,14 @@ export function AboutSection() {
               <MailIcon className="size-full" />
               <span className="sr-only">send email to jimin7020@gmail.com</span>
             </ExternalLink>
+          </Button>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+          <Button className="size-14 rounded-full" variant="outline" asChild>
+            <Link to="/posts">
+              <SquarePenIcon className="size-full" />
+              <span className="sr-only">go to tech blog</span>
+            </Link>
           </Button>
         </motion.li>
       </ul>
