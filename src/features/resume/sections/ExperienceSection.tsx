@@ -1,5 +1,6 @@
 import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
 import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
+import gobundalFaviconImage from "@/assets/gobundal_favicon.png";
 import { Article, ArticleImage } from "@/features/resume/components/article";
 import { Badge } from "@/features/resume/components/badge";
 import {
@@ -226,6 +227,135 @@ export function ExperienceSection() {
                     hook을 통한 모달처리 일관성 제공{" "}
                     <ArrowRight className="inline size-4" /> css z-index 의존
                     제거
+                  </li>
+                </ul>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
+      </Article>
+      <div className="flex flex-col">
+        <span>2026.01 - 2026.03</span>
+        <h2 className="text-4xl font-bold">
+          <ExternalLink
+            className="border-underline"
+            href="https://ejejumoon.com/index.php"
+          >
+            곱은달 농장
+          </ExternalLink>
+          &nbsp;
+          <LinkIcon />
+        </h2>
+      </div>
+      <Article>
+        <ArticleImage src={gobundalFaviconImage} alt="곱은달 로고" />
+        <div className="flex flex-col">
+          <div>
+            <span>2026.01 - 2023.03</span>
+            <h3 className="text-3xl">
+              <ExternalLink
+                className="border-underline"
+                href="https://gobundal.ohjimin.com/"
+              >
+                <span className="text-accent">배송</span>
+                {" · "}
+                <span className="text-accent">고객</span> 관리 시스템 구축
+              </ExternalLink>
+              &nbsp;
+              <LinkIcon />
+            </h3>
+            <div className="mt-1 flex flex-wrap">
+              <Badge color="20232a" logo={{ slug: "nextdotjs" }}>
+                next.js
+              </Badge>
+              <ExternalLink
+                className="border-underline"
+                href="https://cheerio.js.org/"
+              >
+                <Badge color="#E78D1E">cheerio</Badge>
+              </ExternalLink>
+              <ExternalLink
+                className="border-underline"
+                href="https://recharts.github.io/"
+              >
+                <Badge color="#54B0B7">recharts</Badge>
+              </ExternalLink>
+              <ExternalLink
+                className="border-underline"
+                href="https://tanstack.com/table/latest"
+              >
+                <Badge color="#0081F2">tanstack table</Badge>
+              </ExternalLink>
+              <Badge color="2496ED" logo={{ slug: "docker", color: "white" }}>
+                Docker
+              </Badge>
+            </div>
+          </div>
+          <Collapsible>
+            <CollapsibleTrigger asChild>
+              <Button
+                className="mt-2 justify-start text-lg"
+                variant="outline"
+                size="lg"
+              >
+                수행 업무 및 성과
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-8 space-y-8 md:mt-10 md:space-y-10">
+              <div>
+                <h4 className="text-xl font-bold">수행 업무</h4>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    농장{" "}
+                    <ExternalLink
+                      className="border-underline"
+                      href="https://ejejumoon.com/index.php"
+                    >
+                      <span className="text-accent">홈페이지</span>
+                    </ExternalLink>{" "}
+                    배송 · 상품 자동 연동{" "}
+                    <ArrowRightIcon className="inline size-4" /> api 없어서,
+                    크롤 & 파싱
+                  </li>
+                  <li className="list-disc">
+                    고객 문자발송 기능 연동{" "}
+                    <ArrowRightIcon className="inline size-4" />{" "}
+                    <ExternalLink
+                      className="border-underline"
+                      href="https://www.okmunja.co.kr/main/main.php"
+                    >
+                      <span className="text-accent">OK 문자</span>
+                    </ExternalLink>{" "}
+                    연동 요청
+                  </li>
+                  <li className="list-disc">
+                    <span className="text-accent">변환 규칙 정의</span> 가
+                    가능한 다목적 Excel Exporter 구현{" "}
+                  </li>
+                  <li className="list-disc">RBAC 기반 권한 관리 시스템 구현</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold">주요 성과</h4>
+                <ul className="ml-8">
+                  <li className="list-disc">
+                    <ExternalLink
+                      className="border-underline"
+                      href="https://ejejumoon.com/index.php"
+                    >
+                      <span className="text-accent">홈페이지</span>
+                    </ExternalLink>{" "}
+                    에서 배송정보를 Excel에 옮겨 적지 않아도됨
+                  </li>
+                  <li className="list-disc">
+                    (기존) 모든 고객에게 문자발송{" "}
+                    <ArrowRight className="inline size-4" /> (변경 후) 전송 대상
+                    고객 선택 가능
+                  </li>
+                  <li className="list-disc">
+                    Excel Exporter 규칙 템플릿 추가{" "}
+                    <ArrowRight className="inline size-4" /> 지원 배송사
+                    간단하게 추가
                   </li>
                 </ul>
               </div>
