@@ -79,7 +79,10 @@ export function ProjectsSection() {
               ReFolder는 사용자가 설정한 규칙에 따라서 정리되지 않은 폴더의
               파일을 정리해주는 프로그램입니다. nodejs watch 기능을 사용하여,
               폴더가 더러워지는 것을 미연에 방지합니다. 자세한 기능은{" "}
-              <ExternalLink href="https://github.com/Xeonlink/re-folder">
+              <ExternalLink
+                className="border-underline"
+                href="https://github.com/Xeonlink/re-folder"
+              >
                 <span className="text-accent font-bold">레포지토리</span>
               </ExternalLink>
               를 참고바랍니다.
@@ -277,6 +280,53 @@ export function ProjectsSection() {
           </Collapsible>
         </div>
       </Article>
+      {/* prettier-plugin-organize-attributes */}
+      <Article>
+        <ArticleImage
+          src={prettierPluginOrganizeAttributesImage}
+          alt="prettier-plugin-organize-attributes 플러그인 소개 이미지"
+        />
+        <div className="flex flex-col space-y-8 md:space-y-10">
+          <div>
+            <span>2025.08.21 - 2025.09.25</span>
+            <h3 className="text-3xl">
+              <ExternalLink
+                className="border-underline"
+                href="https://www.npmjs.com/package/@xeonlink/prettier-plugin-organize-attributes"
+              >
+                prettier-plugin-organize-attributes
+              </ExternalLink>
+              &nbsp;
+              <LinkIcon />
+            </h3>
+            <div className="mt-1 flex flex-wrap">
+              <Badge color="1C2B34" logo={{ slug: "prettier" }}>
+                prettier
+              </Badge>
+              <Badge color="20232a" logo={{ slug: "typescript" }}>
+                tsup
+              </Badge>
+              <Badge color="20232a" logo={{ slug: "vitest" }}>
+                vitest
+              </Badge>
+              <Badge color="DF1538">angular html parser</Badge>
+              <Badge color="F1DC56">estree parser</Badge>
+            </div>
+            <p className="mt-1 max-w-150 break-keep">
+              prettier-plugin-organize-attributes는 prettier 플러그인으로, html
+              like한 코드에서 attributes를 재배치하여 코드를 보기 좋게
+              만들어주는 플러그인입니다. 자세한 기능은{" "}
+              <ExternalLink
+                className="border-underline"
+                href="https://github.com/Xeonlink/prettier-plugin-organize-attributes"
+              >
+                <span className="text-accent font-bold">레포지토리</span>
+              </ExternalLink>
+              를 참고바랍니다.
+            </p>
+          </div>
+        </div>
+      </Article>
       {/* syncron */}
       <Article>
         <ArticleImage
@@ -389,53 +439,6 @@ export function ProjectsSection() {
               </div>
             </CollapsibleContent>
           </Collapsible>
-        </div>
-      </Article>
-      {/* prettier-plugin-organize-attributes */}
-      <Article>
-        <ArticleImage
-          src={prettierPluginOrganizeAttributesImage}
-          alt="prettier-plugin-organize-attributes 플러그인 소개 이미지"
-        />
-        <div className="flex flex-col space-y-8 md:space-y-10">
-          <div>
-            <span>2025.08.21 - 2025.09.25</span>
-            <h3 className="text-3xl">
-              <ExternalLink
-                className="border-underline"
-                href="https://www.npmjs.com/package/@xeonlink/prettier-plugin-organize-attributes"
-              >
-                prettier-plugin-organize-attributes
-              </ExternalLink>
-              &nbsp;
-              <LinkIcon />
-            </h3>
-            <div className="mt-1 flex flex-wrap">
-              <Badge color="1C2B34" logo={{ slug: "prettier" }}>
-                prettier
-              </Badge>
-              <Badge color="20232a" logo={{ slug: "typescript" }}>
-                tsup
-              </Badge>
-              <Badge color="20232a" logo={{ slug: "vitest" }}>
-                vitest
-              </Badge>
-              <Badge color="DF1538">angular html parser</Badge>
-              <Badge color="F1DC56">estree parser</Badge>
-            </div>
-            <p className="mt-1 max-w-150 break-keep">
-              prettier-plugin-organize-attributes는 prettier 플러그인으로, html
-              like한 코드에서 attributes를 재배치하여 코드를 보기 좋게
-              만들어주는 플러그인입니다. 자세한 기능은{" "}
-              <ExternalLink
-                className="border-underline"
-                href="https://github.com/Xeonlink/prettier-plugin-organize-attributes"
-              >
-                <span className="text-accent font-bold">레포지토리</span>
-              </ExternalLink>
-              를 참고바랍니다.
-            </p>
-          </div>
         </div>
       </Article>
     </Section>
