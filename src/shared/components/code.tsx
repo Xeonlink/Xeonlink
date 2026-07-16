@@ -3,18 +3,18 @@ import { cva } from "class-variance-authority";
 import type { ComponentProps, ComponentType } from "react";
 import { Suspense, use } from "react";
 import type { BuiltinLanguage, BundledLanguage } from "shiki";
-import { codeToHtml } from "shiki";
+import { highlighter } from "../lib/highlighter";
 import { cn } from "../lib/utils";
 import { CopyButton } from "./copy-button";
 
-const htmlCache = new Map<string, Promise<string>>();
+const htmlCache = new Map<string, string>();
 
-function getHighlightedHtml(code: string, lang: BundledLanguage) {
+async function getHighlightedHtml(code: string, lang: BundledLanguage) {
   const key = `${lang}\0${code}`;
   if (!htmlCache.has(key)) {
     htmlCache.set(
       key,
-      codeToHtml(code, {
+      highlighter.codeToHtml(code, {
         lang,
         themes: {
           light: "light-plus",
