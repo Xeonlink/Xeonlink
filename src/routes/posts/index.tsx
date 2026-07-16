@@ -50,6 +50,13 @@ const posts: Post[] = [
     slug: "/posts/prettier-architecture",
   },
   {
+    title: "export 없이 모듈 사용하기",
+    description:
+      "모듈의 구성 요소를 export없이 외부로 노출하는 방법 - feat. python",
+    date: "2025년 3월",
+    slug: "/posts/modules-without-export",
+  },
+  {
     title: "JSX as State",
     description:
       "콜백·비동기에서도 모달을 띄우는 새로운 패턴, 외부 스토어 기반의 jsx-jump-modal 소개",

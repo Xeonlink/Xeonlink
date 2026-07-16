@@ -17,6 +17,7 @@ import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/pr
 import { Route as PostsOrphanBranchIsolationRouteImport } from './routes/posts/orphan-branch-isolation'
 import { Route as PostsOnceMethodBuilderRouteImport } from './routes/posts/once-method-builder'
 import { Route as PostsNextjsNetdefRouteImport } from './routes/posts/nextjs-netdef'
+import { Route as PostsModulesWithoutExportRouteImport } from './routes/posts/modules-without-export'
 import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
 
 const ResumeRoute = ResumeRouteImport.update({
@@ -62,6 +63,12 @@ const PostsNextjsNetdefRoute = PostsNextjsNetdefRouteImport.update({
   path: '/posts/nextjs-netdef',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PostsModulesWithoutExportRoute =
+  PostsModulesWithoutExportRouteImport.update({
+    id: '/posts/modules-without-export',
+    path: '/posts/modules-without-export',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PostsJsxAsStateRoute = PostsJsxAsStateRouteImport.update({
   id: '/posts/jsx-as-state',
   path: '/posts/jsx-as-state',
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
@@ -83,6 +91,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
@@ -95,6 +104,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/resume': typeof ResumeRoute
   '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
+  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
   '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
   '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
   '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/modules-without-export'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/orphan-branch-isolation'
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/modules-without-export'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/orphan-branch-isolation'
@@ -130,6 +142,7 @@ export interface FileRouteTypes {
     | '/'
     | '/resume'
     | '/posts/jsx-as-state'
+    | '/posts/modules-without-export'
     | '/posts/nextjs-netdef'
     | '/posts/once-method-builder'
     | '/posts/orphan-branch-isolation'
@@ -142,6 +155,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ResumeRoute: typeof ResumeRoute
   PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
+  PostsModulesWithoutExportRoute: typeof PostsModulesWithoutExportRoute
   PostsNextjsNetdefRoute: typeof PostsNextjsNetdefRoute
   PostsOnceMethodBuilderRoute: typeof PostsOnceMethodBuilderRoute
   PostsOrphanBranchIsolationRoute: typeof PostsOrphanBranchIsolationRoute
@@ -208,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsNextjsNetdefRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/modules-without-export': {
+      id: '/posts/modules-without-export'
+      path: '/posts/modules-without-export'
+      fullPath: '/posts/modules-without-export'
+      preLoaderRoute: typeof PostsModulesWithoutExportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/jsx-as-state': {
       id: '/posts/jsx-as-state'
       path: '/posts/jsx-as-state'
@@ -222,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ResumeRoute: ResumeRoute,
   PostsJsxAsStateRoute: PostsJsxAsStateRoute,
+  PostsModulesWithoutExportRoute: PostsModulesWithoutExportRoute,
   PostsNextjsNetdefRoute: PostsNextjsNetdefRoute,
   PostsOnceMethodBuilderRoute: PostsOnceMethodBuilderRoute,
   PostsOrphanBranchIsolationRoute: PostsOrphanBranchIsolationRoute,
