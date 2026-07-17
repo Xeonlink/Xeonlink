@@ -1,6 +1,7 @@
 import cublickCloudImage from "@/assets/cublick_cloud_logo.png";
 import cublikStandaloneImage from "@/assets/cublick_standalone_logo.png";
 import gobundalFaviconImage from "@/assets/gobundal_favicon.png";
+import gobundalModalDemoGif from "@/assets/gobundal_modal_demo.gif";
 import { Article, ArticleImage } from "@/features/resume/components/article";
 import { Badge } from "@/features/resume/components/badge";
 import {
@@ -301,7 +302,18 @@ export function ExperienceSection() {
                 수행 업무 및 성과
               </Button>
             </CollapsibleTrigger>
+
             <CollapsibleContent className="mt-8 space-y-8 md:mt-10 md:space-y-10">
+              <div className="mb-6 flex w-140 max-w-full flex-col items-center space-y-2 text-center">
+                <img
+                  className="max-w-full rounded-xl"
+                  src={gobundalModalDemoGif}
+                  alt="곱은달 모달 데모"
+                />
+                <span className="text-foreground/70">
+                  페이지와 독립된 Darggable Modal 구현
+                </span>
+              </div>
               <div>
                 <h4 className="text-xl font-bold">수행 업무</h4>
                 <ul className="ml-8">
