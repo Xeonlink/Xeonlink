@@ -9,7 +9,7 @@ import {
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownIcon, LinkIcon } from "lucide-react";
 
-export const Route = createFileRoute("/posts/nextjs-netdef")({
+export const Route = createFileRoute("/_blog/posts/nextjs-netdef")({
   head: () => ({
     meta: [
       { title: "netdef — Server Action과 Route Handler를 하나로" },

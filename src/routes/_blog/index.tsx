@@ -3,7 +3,7 @@ import { Button } from "@/shared/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpenIcon, FileTextIcon, SkullIcon } from "lucide-react";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_blog/")({
   head: () => ({
     meta: [
       { title: "오지민 - 개발자" },

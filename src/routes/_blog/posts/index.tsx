@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/posts/")({
+export const Route = createFileRoute("/_blog/posts/")({
   head: () => ({
     meta: [{ title: "Tech Blog - 오지민" }],
   }),

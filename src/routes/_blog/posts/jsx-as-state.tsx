@@ -14,7 +14,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import ReactDraggable from "react-draggable";
 
-export const Route = createFileRoute("/posts/jsx-as-state")({
+export const Route = createFileRoute("/_blog/posts/jsx-as-state")({
   head: () => ({
     meta: [
       { title: "JSX as State — 콜백에서도 모달을 열다" },

@@ -10,112 +10,129 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResumeRouteImport } from './routes/resume'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as PostsIndexRouteImport } from './routes/posts/index'
-import { Route as PostsPrettierFormatLinearRouteImport } from './routes/posts/prettier-format-linear'
-import { Route as PostsPrettierArchitectureRouteImport } from './routes/posts/prettier-architecture'
-import { Route as PostsOrphanBranchIsolationRouteImport } from './routes/posts/orphan-branch-isolation'
-import { Route as PostsOnceMethodBuilderRouteImport } from './routes/posts/once-method-builder'
-import { Route as PostsNextjsNetdefRouteImport } from './routes/posts/nextjs-netdef'
-import { Route as PostsModulesWithoutExportRouteImport } from './routes/posts/modules-without-export'
-import { Route as PostsJsxAsStateRouteImport } from './routes/posts/jsx-as-state'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as BlogRouteRouteImport } from './routes/_blog/route'
+import { Route as BlogIndexRouteImport } from './routes/_blog/index'
+import { Route as BlogPostsIndexRouteImport } from './routes/_blog/posts/index'
+import { Route as BlogPostsPrettierFormatLinearRouteImport } from './routes/_blog/posts/prettier-format-linear'
+import { Route as BlogPostsPrettierArchitectureRouteImport } from './routes/_blog/posts/prettier-architecture'
+import { Route as BlogPostsOrphanBranchIsolationRouteImport } from './routes/_blog/posts/orphan-branch-isolation'
+import { Route as BlogPostsOnceMethodBuilderRouteImport } from './routes/_blog/posts/once-method-builder'
+import { Route as BlogPostsNextjsNetdefRouteImport } from './routes/_blog/posts/nextjs-netdef'
+import { Route as BlogPostsModulesWithoutExportRouteImport } from './routes/_blog/posts/modules-without-export'
+import { Route as BlogPostsJsxAsStateRouteImport } from './routes/_blog/posts/jsx-as-state'
 
 const ResumeRoute = ResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRouteRoute = BlogRouteRouteImport.update({
+  id: '/_blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => BlogRouteRoute,
 } as any)
-const PostsIndexRoute = PostsIndexRouteImport.update({
+const BlogPostsIndexRoute = BlogPostsIndexRouteImport.update({
   id: '/posts/',
   path: '/posts/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => BlogRouteRoute,
 } as any)
-const PostsPrettierFormatLinearRoute =
-  PostsPrettierFormatLinearRouteImport.update({
+const BlogPostsPrettierFormatLinearRoute =
+  BlogPostsPrettierFormatLinearRouteImport.update({
     id: '/posts/prettier-format-linear',
     path: '/posts/prettier-format-linear',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => BlogRouteRoute,
   } as any)
-const PostsPrettierArchitectureRoute =
-  PostsPrettierArchitectureRouteImport.update({
+const BlogPostsPrettierArchitectureRoute =
+  BlogPostsPrettierArchitectureRouteImport.update({
     id: '/posts/prettier-architecture',
     path: '/posts/prettier-architecture',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => BlogRouteRoute,
   } as any)
-const PostsOrphanBranchIsolationRoute =
-  PostsOrphanBranchIsolationRouteImport.update({
+const BlogPostsOrphanBranchIsolationRoute =
+  BlogPostsOrphanBranchIsolationRouteImport.update({
     id: '/posts/orphan-branch-isolation',
     path: '/posts/orphan-branch-isolation',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => BlogRouteRoute,
   } as any)
-const PostsOnceMethodBuilderRoute = PostsOnceMethodBuilderRouteImport.update({
-  id: '/posts/once-method-builder',
-  path: '/posts/once-method-builder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PostsNextjsNetdefRoute = PostsNextjsNetdefRouteImport.update({
+const BlogPostsOnceMethodBuilderRoute =
+  BlogPostsOnceMethodBuilderRouteImport.update({
+    id: '/posts/once-method-builder',
+    path: '/posts/once-method-builder',
+    getParentRoute: () => BlogRouteRoute,
+  } as any)
+const BlogPostsNextjsNetdefRoute = BlogPostsNextjsNetdefRouteImport.update({
   id: '/posts/nextjs-netdef',
   path: '/posts/nextjs-netdef',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => BlogRouteRoute,
 } as any)
-const PostsModulesWithoutExportRoute =
-  PostsModulesWithoutExportRouteImport.update({
+const BlogPostsModulesWithoutExportRoute =
+  BlogPostsModulesWithoutExportRouteImport.update({
     id: '/posts/modules-without-export',
     path: '/posts/modules-without-export',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => BlogRouteRoute,
   } as any)
-const PostsJsxAsStateRoute = PostsJsxAsStateRouteImport.update({
+const BlogPostsJsxAsStateRoute = BlogPostsJsxAsStateRouteImport.update({
   id: '/posts/jsx-as-state',
   path: '/posts/jsx-as-state',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => BlogRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof BlogIndexRoute
+  '/portfolio': typeof PortfolioRoute
   '/resume': typeof ResumeRoute
-  '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
-  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
-  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
-  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
-  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
-  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
-  '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
-  '/posts/': typeof PostsIndexRoute
+  '/posts/jsx-as-state': typeof BlogPostsJsxAsStateRoute
+  '/posts/modules-without-export': typeof BlogPostsModulesWithoutExportRoute
+  '/posts/nextjs-netdef': typeof BlogPostsNextjsNetdefRoute
+  '/posts/once-method-builder': typeof BlogPostsOnceMethodBuilderRoute
+  '/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
+  '/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
+  '/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/posts/': typeof BlogPostsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/portfolio': typeof PortfolioRoute
   '/resume': typeof ResumeRoute
-  '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
-  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
-  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
-  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
-  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
-  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
-  '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
-  '/posts': typeof PostsIndexRoute
+  '/': typeof BlogIndexRoute
+  '/posts/jsx-as-state': typeof BlogPostsJsxAsStateRoute
+  '/posts/modules-without-export': typeof BlogPostsModulesWithoutExportRoute
+  '/posts/nextjs-netdef': typeof BlogPostsNextjsNetdefRoute
+  '/posts/once-method-builder': typeof BlogPostsOnceMethodBuilderRoute
+  '/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
+  '/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
+  '/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/posts': typeof BlogPostsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_blog': typeof BlogRouteRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
   '/resume': typeof ResumeRoute
-  '/posts/jsx-as-state': typeof PostsJsxAsStateRoute
-  '/posts/modules-without-export': typeof PostsModulesWithoutExportRoute
-  '/posts/nextjs-netdef': typeof PostsNextjsNetdefRoute
-  '/posts/once-method-builder': typeof PostsOnceMethodBuilderRoute
-  '/posts/orphan-branch-isolation': typeof PostsOrphanBranchIsolationRoute
-  '/posts/prettier-architecture': typeof PostsPrettierArchitectureRoute
-  '/posts/prettier-format-linear': typeof PostsPrettierFormatLinearRoute
-  '/posts/': typeof PostsIndexRoute
+  '/_blog/': typeof BlogIndexRoute
+  '/_blog/posts/jsx-as-state': typeof BlogPostsJsxAsStateRoute
+  '/_blog/posts/modules-without-export': typeof BlogPostsModulesWithoutExportRoute
+  '/_blog/posts/nextjs-netdef': typeof BlogPostsNextjsNetdefRoute
+  '/_blog/posts/once-method-builder': typeof BlogPostsOnceMethodBuilderRoute
+  '/_blog/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
+  '/_blog/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
+  '/_blog/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/_blog/posts/': typeof BlogPostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/portfolio'
     | '/resume'
     | '/posts/jsx-as-state'
     | '/posts/modules-without-export'
@@ -127,8 +144,9 @@ export interface FileRouteTypes {
     | '/posts/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
+    | '/portfolio'
     | '/resume'
+    | '/'
     | '/posts/jsx-as-state'
     | '/posts/modules-without-export'
     | '/posts/nextjs-netdef'
@@ -139,29 +157,24 @@ export interface FileRouteTypes {
     | '/posts'
   id:
     | '__root__'
-    | '/'
+    | '/_blog'
+    | '/portfolio'
     | '/resume'
-    | '/posts/jsx-as-state'
-    | '/posts/modules-without-export'
-    | '/posts/nextjs-netdef'
-    | '/posts/once-method-builder'
-    | '/posts/orphan-branch-isolation'
-    | '/posts/prettier-architecture'
-    | '/posts/prettier-format-linear'
-    | '/posts/'
+    | '/_blog/'
+    | '/_blog/posts/jsx-as-state'
+    | '/_blog/posts/modules-without-export'
+    | '/_blog/posts/nextjs-netdef'
+    | '/_blog/posts/once-method-builder'
+    | '/_blog/posts/orphan-branch-isolation'
+    | '/_blog/posts/prettier-architecture'
+    | '/_blog/posts/prettier-format-linear'
+    | '/_blog/posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  BlogRouteRoute: typeof BlogRouteRouteWithChildren
+  PortfolioRoute: typeof PortfolioRoute
   ResumeRoute: typeof ResumeRoute
-  PostsJsxAsStateRoute: typeof PostsJsxAsStateRoute
-  PostsModulesWithoutExportRoute: typeof PostsModulesWithoutExportRoute
-  PostsNextjsNetdefRoute: typeof PostsNextjsNetdefRoute
-  PostsOnceMethodBuilderRoute: typeof PostsOnceMethodBuilderRoute
-  PostsOrphanBranchIsolationRoute: typeof PostsOrphanBranchIsolationRoute
-  PostsPrettierArchitectureRoute: typeof PostsPrettierArchitectureRoute
-  PostsPrettierFormatLinearRoute: typeof PostsPrettierFormatLinearRoute
-  PostsIndexRoute: typeof PostsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -173,83 +186,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResumeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_blog': {
+      id: '/_blog'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof BlogRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_blog/': {
+      id: '/_blog/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/': {
-      id: '/posts/'
+    '/_blog/posts/': {
+      id: '/_blog/posts/'
       path: '/posts'
       fullPath: '/posts/'
-      preLoaderRoute: typeof PostsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsIndexRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/prettier-format-linear': {
-      id: '/posts/prettier-format-linear'
+    '/_blog/posts/prettier-format-linear': {
+      id: '/_blog/posts/prettier-format-linear'
       path: '/posts/prettier-format-linear'
       fullPath: '/posts/prettier-format-linear'
-      preLoaderRoute: typeof PostsPrettierFormatLinearRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsPrettierFormatLinearRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/prettier-architecture': {
-      id: '/posts/prettier-architecture'
+    '/_blog/posts/prettier-architecture': {
+      id: '/_blog/posts/prettier-architecture'
       path: '/posts/prettier-architecture'
       fullPath: '/posts/prettier-architecture'
-      preLoaderRoute: typeof PostsPrettierArchitectureRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsPrettierArchitectureRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/orphan-branch-isolation': {
-      id: '/posts/orphan-branch-isolation'
+    '/_blog/posts/orphan-branch-isolation': {
+      id: '/_blog/posts/orphan-branch-isolation'
       path: '/posts/orphan-branch-isolation'
       fullPath: '/posts/orphan-branch-isolation'
-      preLoaderRoute: typeof PostsOrphanBranchIsolationRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsOrphanBranchIsolationRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/once-method-builder': {
-      id: '/posts/once-method-builder'
+    '/_blog/posts/once-method-builder': {
+      id: '/_blog/posts/once-method-builder'
       path: '/posts/once-method-builder'
       fullPath: '/posts/once-method-builder'
-      preLoaderRoute: typeof PostsOnceMethodBuilderRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsOnceMethodBuilderRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/nextjs-netdef': {
-      id: '/posts/nextjs-netdef'
+    '/_blog/posts/nextjs-netdef': {
+      id: '/_blog/posts/nextjs-netdef'
       path: '/posts/nextjs-netdef'
       fullPath: '/posts/nextjs-netdef'
-      preLoaderRoute: typeof PostsNextjsNetdefRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsNextjsNetdefRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/modules-without-export': {
-      id: '/posts/modules-without-export'
+    '/_blog/posts/modules-without-export': {
+      id: '/_blog/posts/modules-without-export'
       path: '/posts/modules-without-export'
       fullPath: '/posts/modules-without-export'
-      preLoaderRoute: typeof PostsModulesWithoutExportRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsModulesWithoutExportRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
-    '/posts/jsx-as-state': {
-      id: '/posts/jsx-as-state'
+    '/_blog/posts/jsx-as-state': {
+      id: '/_blog/posts/jsx-as-state'
       path: '/posts/jsx-as-state'
       fullPath: '/posts/jsx-as-state'
-      preLoaderRoute: typeof PostsJsxAsStateRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof BlogPostsJsxAsStateRouteImport
+      parentRoute: typeof BlogRouteRoute
     }
   }
 }
 
+interface BlogRouteRouteChildren {
+  BlogIndexRoute: typeof BlogIndexRoute
+  BlogPostsJsxAsStateRoute: typeof BlogPostsJsxAsStateRoute
+  BlogPostsModulesWithoutExportRoute: typeof BlogPostsModulesWithoutExportRoute
+  BlogPostsNextjsNetdefRoute: typeof BlogPostsNextjsNetdefRoute
+  BlogPostsOnceMethodBuilderRoute: typeof BlogPostsOnceMethodBuilderRoute
+  BlogPostsOrphanBranchIsolationRoute: typeof BlogPostsOrphanBranchIsolationRoute
+  BlogPostsPrettierArchitectureRoute: typeof BlogPostsPrettierArchitectureRoute
+  BlogPostsPrettierFormatLinearRoute: typeof BlogPostsPrettierFormatLinearRoute
+  BlogPostsIndexRoute: typeof BlogPostsIndexRoute
+}
+
+const BlogRouteRouteChildren: BlogRouteRouteChildren = {
+  BlogIndexRoute: BlogIndexRoute,
+  BlogPostsJsxAsStateRoute: BlogPostsJsxAsStateRoute,
+  BlogPostsModulesWithoutExportRoute: BlogPostsModulesWithoutExportRoute,
+  BlogPostsNextjsNetdefRoute: BlogPostsNextjsNetdefRoute,
+  BlogPostsOnceMethodBuilderRoute: BlogPostsOnceMethodBuilderRoute,
+  BlogPostsOrphanBranchIsolationRoute: BlogPostsOrphanBranchIsolationRoute,
+  BlogPostsPrettierArchitectureRoute: BlogPostsPrettierArchitectureRoute,
+  BlogPostsPrettierFormatLinearRoute: BlogPostsPrettierFormatLinearRoute,
+  BlogPostsIndexRoute: BlogPostsIndexRoute,
+}
+
+const BlogRouteRouteWithChildren = BlogRouteRoute._addFileChildren(
+  BlogRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  BlogRouteRoute: BlogRouteRouteWithChildren,
+  PortfolioRoute: PortfolioRoute,
   ResumeRoute: ResumeRoute,
-  PostsJsxAsStateRoute: PostsJsxAsStateRoute,
-  PostsModulesWithoutExportRoute: PostsModulesWithoutExportRoute,
-  PostsNextjsNetdefRoute: PostsNextjsNetdefRoute,
-  PostsOnceMethodBuilderRoute: PostsOnceMethodBuilderRoute,
-  PostsOrphanBranchIsolationRoute: PostsOrphanBranchIsolationRoute,
-  PostsPrettierArchitectureRoute: PostsPrettierArchitectureRoute,
-  PostsPrettierFormatLinearRoute: PostsPrettierFormatLinearRoute,
-  PostsIndexRoute: PostsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

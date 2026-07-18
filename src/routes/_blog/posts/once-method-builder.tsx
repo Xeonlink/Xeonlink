@@ -8,7 +8,7 @@ import {
 } from "@/shared/components/ui/tabs";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/posts/once-method-builder")({
+export const Route = createFileRoute("/_blog/posts/once-method-builder")({
   head: () => ({
     meta: [
       { title: "일회용 Method 빌더패턴" },

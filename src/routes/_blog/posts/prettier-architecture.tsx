@@ -3,7 +3,7 @@ import { code } from "@/shared/components/code";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownIcon } from "lucide-react";
 
-export const Route = createFileRoute("/posts/prettier-architecture")({
+export const Route = createFileRoute("/_blog/posts/prettier-architecture")({
   head: () => ({
     meta: [
       { title: "Prettier Plugin Architecture — parser와 printer" },

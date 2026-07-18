@@ -5,7 +5,7 @@ import { ScrollArea, ScrollBar } from "@/shared/components/ui/scroll-area";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRightIcon, CircleIcon, XIcon } from "lucide-react";
 
-export const Route = createFileRoute("/posts/prettier-format-linear")({
+export const Route = createFileRoute("/_blog/posts/prettier-format-linear")({
   head: () => ({
     meta: [
       { title: "format-linear — findLast를 우회하는 선형 Prettier 플러그인" },

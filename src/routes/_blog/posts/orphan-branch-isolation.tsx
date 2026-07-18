@@ -6,7 +6,7 @@ import { code } from "@/shared/components/code";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ExpandIcon, MoveHorizontalIcon, MoveVerticalIcon } from "lucide-react";
 
-export const Route = createFileRoute("/posts/orphan-branch-isolation")({
+export const Route = createFileRoute("/_blog/posts/orphan-branch-isolation")({
   head: () => ({
     meta: [
       { title: "Orphan Branch로 프로젝트 격리하기" },

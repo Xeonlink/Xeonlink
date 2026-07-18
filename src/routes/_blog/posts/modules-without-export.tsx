@@ -8,7 +8,7 @@ import {
 } from "@/shared/components/ui/tabs";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/posts/modules-without-export")({
+export const Route = createFileRoute("/_blog/posts/modules-without-export")({
   head: () => ({
     meta: [
       { title: "export 없이 모듈 사용하기" },
