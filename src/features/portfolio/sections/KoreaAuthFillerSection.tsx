@@ -146,7 +146,9 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-2xl p-8 max-lg:hidden"></div>
+        <div className="bg-muted space-y-4 rounded-2xl p-8 max-lg:hidden">
+          <h3 className="text-2xl font-bold">Trouble Shooting</h3>
+        </div>
 
         <div className="bg-muted space-y-4 rounded-2xl p-8">
           <h3 className="text-2xl font-bold">기타 구현 및 기여</h3>

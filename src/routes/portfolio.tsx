@@ -2,6 +2,7 @@ import ogImage from "@/assets/selfie0_crop.jpeg";
 import { GobundalSection } from "@/features/portfolio/sections/GobundalSection";
 import { HomeLabSection } from "@/features/portfolio/sections/HomeLabSection";
 import { KoreaAuthFillerSection } from "@/features/portfolio/sections/KoreaAuthFillerSection";
+import { ReFolderSection } from "@/features/portfolio/sections/ReFolderSection";
 import { Button } from "@/shared/components/ui/button";
 import { useTheme } from "@/shared/hooks/use-theme";
 import { createFileRoute } from "@tanstack/react-router";
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/portfolio")({
       {
         name: "description",
         content:
-          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, HomeLab 프로젝트를 소개합니다.",
+          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, ReFolder, HomeLab 프로젝트를 소개합니다.",
       },
       {
         name: "keywords",
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/portfolio")({
       {
         property: "og:description",
         content:
-          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, HomeLab 프로젝트를 소개합니다.",
+          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, ReFolder, HomeLab 프로젝트를 소개합니다.",
       },
       { property: "og:image", content: ogImage },
       { property: "og:image:width", content: "1200" },
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/portfolio")({
       {
         property: "twitter:description",
         content:
-          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, HomeLab 프로젝트를 소개합니다.",
+          "개발자 오지민의 포트폴리오입니다. 곱은달 농장 배송·고객 관리 시스템, 한국인증채우기, ReFolder, HomeLab 프로젝트를 소개합니다.",
       },
       { property: "twitter:image", content: ogImage },
       { property: "twitter:image:alt", content: "오지민 개발자 프로필 이미지" },
@@ -75,6 +76,7 @@ function Page() {
       <main className="max-sm:text-sm">
         <GobundalSection />
         <KoreaAuthFillerSection />
+        <ReFolderSection />
         <HomeLabSection />
       </main>
       <div className="group fixed right-0 bottom-0">
