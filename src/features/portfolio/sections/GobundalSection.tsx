@@ -18,14 +18,14 @@ import { motion } from "motion/react";
 
 export function GobundalSection() {
   return (
-    <section className="flex flex-col space-y-16 border-dotted p-8 py-16 not-last:border-b-2">
-      <div className="flex justify-center gap-8">
+    <section className="flex flex-col space-y-16 border-dotted py-16 transition-all not-last:border-b-2 md:px-8">
+      <div className="flex items-center max-md:flex-col md:justify-center">
         <img
           className="mb-2 h-32"
           src={gobundalFaviconImage}
           alt="곱은달 농장 로고"
         />
-        <div>
+        <div className="mx-8">
           <span>2026.01 - 2026.03</span>
           <h2 className="text-4xl font-bold">
             곱은달 농장 <span className="text-accent">배송</span>
@@ -38,10 +38,14 @@ export function GobundalSection() {
           </p>
           <ul className="mt-2 flex">
             <motion.li
-              whileHover={{ scale: 1.3 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
-              <Button className="rounded-full" variant="outline" asChild>
+              <Button
+                className="text-muted-foreground rounded-full"
+                variant="outline"
+                asChild
+              >
                 <ExternalLink href="https://gobundal.ohjimin.com/">
                   <LinkIcon className="size-4" />
                 </ExternalLink>
@@ -51,8 +55,8 @@ export function GobundalSection() {
         </div>
       </div>
 
-      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-8 xl:grid-cols-2">
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-4 transition-all md:gap-8 lg:grid-cols-2">
+        <div className="bg-muted space-y-4 rounded-2xl p-6 sm:p-8">
           <h3 className="text-2xl font-bold">Draggable Window 구현</h3>
           <p>
             여러 정보를 동시에 보면서, <span className="text-accent">비교</span>{" "}
@@ -60,18 +64,18 @@ export function GobundalSection() {
             요구사항을 만족시켜야 했음. <br />
             전통적인 page 및 tab 구조로는 만족시키기 어렵다고 판단
           </p>
-          <div className="my-2 flex h-64 w-180 max-w-full flex-col items-center space-y-2 overflow-hidden rounded-xl text-center">
-            <img
-              className="max-w-full"
-              src={gobundalModalDemoGif}
-              alt="드래그 가능한 모달을 여러 개 띄우는 데모"
-              loading="lazy"
-            />
-            <span className="text-foreground/70">
-              페이지와 독립된 Draggable Modal 구현
-            </span>
+          <div className="my-2 flex w-180 max-w-full flex-col items-center space-y-2 overflow-hidden text-center">
+            <div className="h-56 overflow-hidden rounded-xl">
+              <img
+                className="max-w-full"
+                src={gobundalModalDemoGif}
+                alt="드래그 가능한 모달을 여러 개 띄우는 데모"
+                loading="lazy"
+              />
+            </div>
+            <span className="text-foreground/70">구현 결과</span>
           </div>
-          <ul className="ml-8 space-y-2">
+          <ul className="ml-4 space-y-2">
             <li className="list-disc">
               페이지 <span className="text-accent">독립성</span>과 z-index
               관리를 위해,{" "}
@@ -81,7 +85,7 @@ export function GobundalSection() {
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
-                  <Link className="border-underline" to="/posts/jsx-as-state">
+                  <Link to="/posts/jsx-as-state">
                     <span className="">JAX as State</span>
                     <LinkIcon className="size-4" />
                   </Link>
@@ -95,7 +99,7 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+        <div className="bg-muted space-y-4 rounded-2xl p-6 sm:p-8">
           <h3 className="text-2xl font-bold">Middleware 시스템 · DAL 도입</h3>
           <p>
             <span className="text-accent">CVE</span>{" "}
@@ -104,34 +108,34 @@ export function GobundalSection() {
               transition={{ type: "spring" }}
             >
               <Button className="rounded-full" variant="outline" asChild>
-                <ExternalLink
-                  className="border-underline"
-                  href="https://nextjs.org/blog/security-update-2025-12-11"
-                >
+                <ExternalLink href="https://nextjs.org/blog/security-update-2025-12-11">
                   <span className="">React2Shell</span>
                   <LinkIcon className="size-4" />
                 </ExternalLink>
               </Button>
             </motion.span>{" "}
             이후에 시작한 프로젝트라 input · role 검증등 Server Action이
-            비대해진 상태에서 Draggable Modal (client component) 대응을 위해
-            Route Handler까지 추가되자{" "}
-            <span className="text-accent">중복된 로직</span> 이 급격히 증가
+            비대해진 상태에서 <br />
+            Draggable Modal (client component) 을 위해 Route Handler까지
+            추가되자 <span className="text-accent">중복된 로직</span> 이 급격히
+            증가
           </p>
           <div className="flex flex-col items-center gap-4 py-6">
             <div className="flex items-center gap-2 max-md:flex-col">
               <div className="flex items-center gap-2 md:flex-col">
-                <div className="bg-muted rounded-md border p-2">
+                <div className="bg-muted rounded-md border p-2 text-center">
                   form action
                 </div>
-                <div className="bg-muted rounded-md border p-2">fetch</div>
+                <div className="bg-muted rounded-md border p-2 text-center">
+                  fetch
+                </div>
               </div>
               <ArrowDownIcon className="h-4 w-4 md:-rotate-90" />
               <div className="flex items-center gap-2 md:flex-col">
-                <div className="bg-muted rounded-md border p-2">
+                <div className="bg-muted rounded-md border p-2 text-center">
                   Server Action
                 </div>
-                <div className="bg-muted rounded-md border p-2">
+                <div className="bg-muted rounded-md border p-2 text-center">
                   Route Handler
                 </div>
               </div>
@@ -154,7 +158,7 @@ export function GobundalSection() {
               이 중복 작성된다
             </span>
           </div>
-          <ul className="ml-8 space-y-2">
+          <ul className="ml-4 space-y-2">
             <li className="list-disc">
               <span className="text-blue-600 dark:text-blue-300">
                 Cross cutting concerns
@@ -166,7 +170,7 @@ export function GobundalSection() {
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
-                  <Link className="border-underline" to="/posts/nextjs-netdef">
+                  <Link to="/posts/nextjs-netdef">
                     <span className="">Next netdef</span>
                     <LinkIcon className="size-4" />
                   </Link>
@@ -186,9 +190,9 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+        <div className="bg-muted space-y-4 rounded-2xl p-6 sm:p-8">
           <h3 className="text-2xl font-bold">기타 연동 및 기여</h3>
-          <ul className="ml-8 space-y-2">
+          <ul className="ml-4 space-y-2">
             <li className="list-disc">
               Sever side에서 농장{" "}
               <ExternalLink
@@ -231,10 +235,10 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+        <div className="bg-muted space-y-4 rounded-2xl p-6 sm:p-8">
           <h3 className="text-2xl font-bold">기술스택</h3>
-          <ul className="ml-8 space-y-2">
-            <li className="flex flex-wrap items-center gap-2">
+          <ul className="space-y-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -245,12 +249,12 @@ export function GobundalSection() {
                     Next.js
                   </ExternalLink>
                 </Button>
-              </motion.span>
+              </motion.span>{" "}
               <span>
                 SSR과 API Route를 하나의 코드베이스에서 관리하기 위해 사용
               </span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -261,10 +265,10 @@ export function GobundalSection() {
                     Cheerio
                   </ExternalLink>
                 </Button>
-              </motion.span>
+              </motion.span>{" "}
               <span>공식 API가 없는 어드민 페이지를 파싱하기 위해 사용</span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -275,10 +279,10 @@ export function GobundalSection() {
                     Chart.js
                   </ExternalLink>
                 </Button>
-              </motion.span>
+              </motion.span>{" "}
               <span>판매 · 배송 통계를 시각화하기 위해 사용</span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -289,26 +293,23 @@ export function GobundalSection() {
                     TanStack Table
                   </ExternalLink>
                 </Button>
-              </motion.span>
+              </motion.span>{" "}
               <span>
                 사용자 요구사항에 맞는 interactable한 표를 구현하기 위해 사용
               </span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
-                  <ExternalLink
-                    className="border-underline"
-                    href="https://www.docker.com/"
-                  >
+                  <ExternalLink href="https://www.docker.com/">
                     <SiDocker />
                     Docker
                   </ExternalLink>
                 </Button>
-              </motion.span>
+              </motion.span>{" "}
               <span>
                 Vercel 이 비싸서, On-Premise 환경에 배포하기 위해 사용
               </span>

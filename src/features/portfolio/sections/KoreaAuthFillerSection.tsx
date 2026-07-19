@@ -21,14 +21,14 @@ import { motion } from "motion/react";
 
 export function KoreaAuthFillerSection() {
   return (
-    <section className="flex flex-col space-y-16 border-dotted p-8 py-16 not-last:border-b-2">
-      <div className="flex justify-center gap-8">
+    <section className="flex flex-col space-y-16 border-dotted py-16 not-last:border-b-2 md:px-8">
+      <div className="flex items-center max-md:flex-col md:justify-center">
         <img
           className="mb-2 h-32"
           src={koreaAuthFillerImage}
           alt="원형 태극무늬 형상"
         />
-        <div>
+        <div className="mx-8">
           <span>2025.01 - 2025.03</span>
           <h2 className="text-4xl font-bold">
             한국<span className="text-accent">인증</span>채우기
@@ -41,10 +41,14 @@ export function KoreaAuthFillerSection() {
           </p>
           <ul className="mt-2 flex gap-2">
             <motion.li
-              whileHover={{ scale: 1.3 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
-              <Button className="rounded-full" variant="outline" asChild>
+              <Button
+                className="text-muted-foreground rounded-full"
+                variant="outline"
+                asChild
+              >
                 <ExternalLink href="https://chromewebstore.google.com/detail/한국인증채우기/eonnjagalbjlklfjnfpgdeaajkghpnjc">
                   <SiChromewebstore className="size-4" />
                   <span>Web Store</span>
@@ -52,10 +56,14 @@ export function KoreaAuthFillerSection() {
               </Button>
             </motion.li>
             <motion.li
-              whileHover={{ scale: 1.3 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
-              <Button className="rounded-full" variant="outline" asChild>
+              <Button
+                className="text-muted-foreground rounded-full"
+                variant="outline"
+                asChild
+              >
                 <ExternalLink href="https://addons.mozilla.org/en-US/firefox/addon/korea-auth-filler/">
                   <SiFirefox className="size-4" />
                   <span>Add-ons</span>
@@ -63,10 +71,14 @@ export function KoreaAuthFillerSection() {
               </Button>
             </motion.li>
             <motion.li
-              whileHover={{ scale: 1.3 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
-              <Button className="rounded-full" variant="outline" asChild>
+              <Button
+                className="text-muted-foreground rounded-full"
+                variant="outline"
+                asChild
+              >
                 <ExternalLink href="https://github.com/Xeonlink/korea-auth-filler">
                   <SiGithub className="size-4" />
                   <span>GitHub</span>
@@ -77,8 +89,8 @@ export function KoreaAuthFillerSection() {
         </div>
       </div>
 
-      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-8 xl:grid-cols-2">
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-4 transition-all md:gap-8 lg:grid-cols-2">
+        <div className="bg-muted space-y-4 rounded-2xl p-8">
           <h3 className="text-2xl font-bold">
             캡챠 자동 인식 (Captcha Breaking)
           </h3>
@@ -101,7 +113,7 @@ export function KoreaAuthFillerSection() {
               loading="lazy"
             />
           </ImageSwap>
-          <ul className="ml-8 space-y-2">
+          <ul className="ml-4 space-y-2">
             <li className="list-disc">
               <span className="text-accent">CRNN</span> 구조의 인식 모델을 직접
               학습하고, <span className="text-accent">ONNX Runtime</span>
@@ -134,11 +146,11 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8 max-xl:hidden"></div>
+        <div className="bg-muted space-y-4 rounded-2xl p-8 max-lg:hidden"></div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+        <div className="bg-muted space-y-4 rounded-2xl p-8">
           <h3 className="text-2xl font-bold">기타 구현 및 기여</h3>
-          <ul className="ml-8 space-y-2">
+          <ul className="ml-4 space-y-2">
             <li className="list-disc">
               인증 폼 자동 입력 <ArrowRightIcon className="inline size-4" />{" "}
               content script에서 DOM의{" "}
@@ -163,10 +175,10 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-4xl p-8">
+        <div className="bg-muted space-y-4 rounded-2xl p-8">
           <h3 className="text-2xl font-bold">기술스택</h3>
-          <ul className="ml-8 space-y-2">
-            <li className="flex flex-wrap items-center gap-2">
+          <ul className="space-y-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -180,7 +192,7 @@ export function KoreaAuthFillerSection() {
               </motion.span>
               <span>확장프로그램 팝업 UI를 구현하기 위해 사용</span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -194,7 +206,7 @@ export function KoreaAuthFillerSection() {
               </motion.span>
               <span>크로스 브라우저 확장프로그램 빌드를 위해 사용</span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -210,7 +222,7 @@ export function KoreaAuthFillerSection() {
                 서버 없이 브라우저에서 캡챠 인식 모델을 추론하기 위해 사용
               </span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
@@ -226,7 +238,7 @@ export function KoreaAuthFillerSection() {
                 실제 인증 페이지에서 E2E 시나리오를 검증하기 위해 사용
               </span>
             </li>
-            <li className="flex flex-wrap items-center gap-2">
+            <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring" }}
