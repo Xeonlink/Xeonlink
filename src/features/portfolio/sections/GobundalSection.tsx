@@ -1,29 +1,27 @@
 import gobundalFaviconImage from "@/assets/gobundal_favicon.png";
 import gobundalModalDemoGif from "@/assets/gobundal_modal_demo.gif";
-import { Article, ArticleImage } from "@/features/resume/components/article";
-import { Badge } from "@/features/resume/components/badge";
 import {
   ExternalLink,
   LinkIcon,
 } from "@/features/resume/components/external-link";
-import { code } from "@/shared/components/code";
 import { Button } from "@/shared/components/ui/button";
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/shared/components/ui/tabs";
+  SiChartdotjs,
+  SiCheerio,
+  SiDocker,
+  SiNextdotjs,
+  SiTanstack,
+} from "@icons-pack/react-simple-icons";
 import { Link } from "@tanstack/react-router";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowDownIcon, ArrowRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function GobundalSection() {
   return (
-    <section className="space-y-8 border-dotted p-8 py-16 not-last:border-b-2">
-      <Article>
-        <ArticleImage
-          className="mb-2"
+    <section className="flex flex-col space-y-16 border-dotted p-8 py-16 not-last:border-b-2">
+      <div className="flex justify-center gap-8">
+        <img
+          className="mb-2 w-32"
           src={gobundalFaviconImage}
           alt="곱은달 농장 로고"
         />
@@ -45,15 +43,16 @@ export function GobundalSection() {
             >
               <Button className="rounded-full" variant="outline" asChild>
                 <ExternalLink href="https://gobundal.ohjimin.com/">
-                  <LinkIcon className="size-full scale-125" />
+                  <LinkIcon className="size-4" />
                 </ExternalLink>
               </Button>
             </motion.li>
           </ul>
         </div>
-      </Article>
-      <div className="space-y-16">
-        <div className="space-y-4">
+      </div>
+
+      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-8 xl:grid-cols-2">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">Draggable Window 구현</h3>
           <p>
             여러 정보를 동시에 보면서, <span className="text-accent">비교</span>{" "}
@@ -96,7 +95,7 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">Middleware 시스템 · DAL 도입</h3>
           <p>
             <span className="text-accent">CVE</span>{" "}
@@ -115,30 +114,52 @@ export function GobundalSection() {
               </Button>
             </motion.span>{" "}
             이후에 시작한 프로젝트라 input · role 검증등 Server Action이
-            비대해진 상태에서 <br /> Draggable Modal (client component) 대응을
-            위해 Route Handler까지 추가되자{" "}
+            비대해진 상태에서 Draggable Modal (client component) 대응을 위해
+            Route Handler까지 추가되자{" "}
             <span className="text-accent">중복된 로직</span> 이 급격히 증가
           </p>
-          <Tabs className="max-w-200" defaultValue="before">
-            <TabsList className="w-full">
-              <TabsTrigger value="before">Before</TabsTrigger>
-              <TabsTrigger value="after">After</TabsTrigger>
-            </TabsList>
-            <TabsContent value="before">
-              <code.tsx className="max-h-96 overflow-y-auto">
-                {BEFORE_MIDDLEWARE_SYSTEM}
-              </code.tsx>
-            </TabsContent>
-            <TabsContent value="after">
-              <code.tsx className="max-h-96 overflow-y-auto">
-                {AFTER_MIDDLEWARE_SYSTEM}
-              </code.tsx>
-            </TabsContent>
-          </Tabs>
+          <div className="flex flex-col items-center gap-4 py-6">
+            <div className="flex items-center gap-2 max-md:flex-col">
+              <div className="flex items-center gap-2 md:flex-col">
+                <div className="bg-muted rounded-md border p-2">
+                  form action
+                </div>
+                <div className="bg-muted rounded-md border p-2">fetch</div>
+              </div>
+              <ArrowDownIcon className="h-4 w-4 md:-rotate-90" />
+              <div className="flex items-center gap-2 md:flex-col">
+                <div className="bg-muted rounded-md border p-2">
+                  Server Action
+                </div>
+                <div className="bg-muted rounded-md border p-2">
+                  Route Handler
+                </div>
+              </div>
+              <ArrowDownIcon className="h-4 w-4 md:-rotate-90" />
+              <div className="rounded-md border border-blue-400 bg-blue-50 p-2 text-center font-medium text-blue-600 dark:border-blue-300 dark:bg-blue-900/20 dark:text-blue-300">
+                Cross-cutting Concern
+                <span className="text-muted-foreground mt-1 block text-xs font-normal">
+                  (Auth, Role, Validation 등)
+                </span>
+              </div>
+              <ArrowDownIcon className="h-4 w-4 md:-rotate-90" />
+              <div className="bg-muted rounded-md border p-2 text-center">
+                Business Logic
+              </div>
+            </div>
+            <span className="text-muted-foreground text-center text-sm">
+              <span className="font-medium text-blue-600 dark:text-blue-300">
+                Cross-cutting Concern
+              </span>{" "}
+              이 중복 작성된다
+            </span>
+          </div>
           <ul className="ml-8 space-y-2">
             <li className="list-disc">
-              <span className="text-accent">Cross cutting concerns</span> 문제를
-              해결하기 위해,{" "}
+              <span className="text-blue-600 dark:text-blue-300">
+                Cross cutting concerns
+              </span>{" "}
+              문제를 해결하기 위해,{" "}
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
@@ -165,7 +186,7 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">기타 연동 및 기여</h3>
           <ul className="ml-8 space-y-2">
             <li className="list-disc">
@@ -210,35 +231,84 @@ export function GobundalSection() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">기술스택</h3>
           <ul className="ml-8 space-y-2">
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="20232a" logo={{ slug: "nextdotjs" }}>
-                next.js
-              </Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://nextjs.org/">
+                    <SiNextdotjs />
+                    Next.js
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>
                 SSR과 API Route를 하나의 코드베이스에서 관리하기 위해 사용
               </span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="E78D1E">cheerio</Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://cheerio.js.org/">
+                    <SiCheerio />
+                    Cheerio
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>공식 API가 없는 어드민 페이지를 파싱하기 위해 사용</span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="54B0B7">recharts</Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://www.chartjs.org/">
+                    <SiChartdotjs />
+                    Chart.js
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>판매 · 배송 통계를 시각화하기 위해 사용</span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="0081F2">tanstack table</Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://tanstack.com/table/latest/docs/framework/react/overview">
+                    <SiTanstack />
+                    TanStack Table
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>
                 사용자 요구사항에 맞는 interactable한 표를 구현하기 위해 사용
               </span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="2496ED" logo={{ slug: "docker", color: "white" }}>
-                docker
-              </Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink
+                    className="border-underline"
+                    href="https://www.docker.com/"
+                  >
+                    <SiDocker />
+                    Docker
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>
                 Vercel 이 비싸서, On-Premise 환경에 배포하기 위해 사용
               </span>
@@ -249,90 +319,3 @@ export function GobundalSection() {
     </section>
   );
 }
-
-const BEFORE_MIDDLEWARE_SYSTEM = `import { requireRoleSafe } from "@/lib/auth-guard";
-import { db } from "@/lib/db";
-import { Fail, Ok, safeTryAsync } from "@/lib/result";
-import { orders } from "@/models";
-import { desc, eq } from "drizzle-orm";
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
-import z from "zod";
-
-const spSchema = z.object({
-  limit: z.coerce.number().int().min(1).max(100).default(10),
-});
-
-export async function GET(
-  req: NextRequest,
-  ctx: RouteContext<"/api/customers/[id]/orders">,
-) {
-  const permitted = await requireRoleSafe("admin", "user");
-  if (!permitted.success) {
-    return NextResponse.json(
-      Fail("UNAUTHORIZED", "User has no permission to get customers"),
-    );
-  }
-
-  const rawSP = Object.fromEntries(req.nextUrl.searchParams.entries());
-  const sp = spSchema.safeParse(rawSP);
-  if (!sp.success) {
-    return NextResponse.json(
-      Fail("INVALID_INPUT", "Invalid search parameters"),
-    );
-  }
-
-  const { id } = await ctx.params;
-
-  const result = await safeTryAsync(() =>
-    db.query.orders.findMany({
-      where: eq(orders.customerId, id),
-      with: {
-        orderItems: true,
-      },
-      columns: {
-        id: true,
-        orderedAt: true,
-        receiverAddress: true,
-        receiverAddressDetail: true,
-      },
-      limit: sp.data.limit,
-      orderBy: desc(orders.orderedAt),
-    }),
-  );
-  if (!result.success) {
-    return NextResponse.json(
-      Fail("INTERNAL_SERVER_ERROR", "Internal server error"),
-    );
-  }
-
-  return NextResponse.json(Ok(result.data));
-}`;
-
-const AFTER_MIDDLEWARE_SYSTEM = `import { orderService } from "@/features/orders/service";
-import { routeClient } from "@/shared/lib/net-call-client";
-import { Ok, safeTryAsync } from "@/shared/lib/result";
-import z from "zod";
-
-const base = routeClient.route("/api/customers/[id]/orders").params(
-  z.object({
-    id: z.string(),
-  }),
-);
-
-export const GET = base
-  .searchParams(
-    z.object({
-      limit: z.coerce.number().int().min(1).max(100).default(10),
-    }),
-  )
-  .handler(async (_, ctx) => {
-    const result = await safeTryAsync(() =>
-      orderService.getOrdersByCustomerId(ctx.params.id, ctx.searchParams),
-    );
-    if (!result.success) {
-      return result;
-    }
-
-    return Ok(result.data);
-  });`;

@@ -71,7 +71,7 @@ function Page() {
           {theme === "system" ? <SunMoonIcon className="size-5" /> : null}
         </Button>
       </div>
-      <main className="mx-auto max-w-5xl">
+      <main>
         <GobundalSection />
         <KoreaAuthFillerSection />
       </main>
