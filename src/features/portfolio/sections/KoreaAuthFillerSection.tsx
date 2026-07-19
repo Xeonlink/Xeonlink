@@ -1,25 +1,30 @@
 import captchaBreakImage from "@/assets/captcha-break.gif";
 import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
 import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
-import { Article, ArticleImage } from "@/features/resume/components/article";
-import { Badge } from "@/features/resume/components/badge";
-import { ExternalLink } from "@/features/resume/components/external-link";
+import {
+  ExternalLink,
+  LinkIcon,
+} from "@/features/resume/components/external-link";
 import { ImageSwap } from "@/features/resume/components/image-swap";
 import { Button } from "@/shared/components/ui/button";
 import {
   SiChromewebstore,
   SiFirefox,
   SiGithub,
+  SiGooglechrome,
+  SiOnnx,
+  SiReact,
+  SiWxt,
 } from "@icons-pack/react-simple-icons";
 import { ArrowRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function KoreaAuthFillerSection() {
   return (
-    <section className="space-y-8 border-dotted p-8 py-16 not-last:border-b-2">
-      <Article>
-        <ArticleImage
-          className="mb-2"
+    <section className="flex flex-col space-y-16 border-dotted p-8 py-16 not-last:border-b-2">
+      <div className="flex justify-center gap-8">
+        <img
+          className="mb-2 h-32"
           src={koreaAuthFillerImage}
           alt="원형 태극무늬 형상"
         />
@@ -70,9 +75,10 @@ export function KoreaAuthFillerSection() {
             </motion.li>
           </ul>
         </div>
-      </Article>
-      <div className="space-y-16">
-        <div className="space-y-4">
+      </div>
+
+      <div className="text-muted-foreground mx-auto grid grid-cols-1 gap-8 xl:grid-cols-2">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">
             캡챠 자동 인식 (Captcha Breaking)
           </h3>
@@ -128,7 +134,9 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-muted space-y-4 rounded-4xl p-8 max-xl:hidden"></div>
+
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">기타 구현 및 기여</h3>
           <ul className="ml-8 space-y-2">
             <li className="list-disc">
@@ -155,42 +163,81 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="bg-muted space-y-4 rounded-4xl p-8">
           <h3 className="text-2xl font-bold">기술스택</h3>
           <ul className="ml-8 space-y-2">
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
-                react
-              </Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://react.dev/">
+                    <SiReact />
+                    React
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>확장프로그램 팝업 UI를 구현하기 위해 사용</span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="00DC82" logo={{ slug: "wxt", color: "white" }}>
-                wxt
-              </Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://wxt.dev/">
+                    <SiWxt />
+                    WXT
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>크로스 브라우저 확장프로그램 빌드를 위해 사용</span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="005CED" logo={{ slug: "onnx", color: "white" }}>
-                onnx
-              </Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://onnxruntime.ai/">
+                    <SiOnnx />
+                    ONNX
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>
                 서버 없이 브라우저에서 캡챠 인식 모델을 추론하기 위해 사용
               </span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge color="2EAD33">playwright</Badge>
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://playwright.dev/">
+                    <LinkIcon className="size-4" />
+                    Playwright
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>
                 실제 인증 페이지에서 E2E 시나리오를 검증하기 위해 사용
               </span>
             </li>
             <li className="flex flex-wrap items-center gap-2">
-              <Badge
-                color="FF6B35"
-                logo={{ slug: "googlechrome", color: "white" }}
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
               >
-                browser extension api
-              </Badge>
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://developer.chrome.com/docs/extensions">
+                    <SiGooglechrome />
+                    Browser Extension API
+                  </ExternalLink>
+                </Button>
+              </motion.span>
               <span>content script 주입과 storage 접근을 위해 사용</span>
             </li>
           </ul>

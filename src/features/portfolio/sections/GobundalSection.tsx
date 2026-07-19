@@ -21,7 +21,7 @@ export function GobundalSection() {
     <section className="flex flex-col space-y-16 border-dotted p-8 py-16 not-last:border-b-2">
       <div className="flex justify-center gap-8">
         <img
-          className="mb-2 w-32"
+          className="mb-2 h-32"
           src={gobundalFaviconImage}
           alt="곱은달 농장 로고"
         />
