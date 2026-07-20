@@ -1,6 +1,8 @@
 import createApiSelectorImage from "@/assets/create_api_selector.png";
 import createApiSelectorImage2 from "@/assets/create_api_selector2.png";
+import refolderDamagedImage from "@/assets/refolder_damaged.png";
 import refolderImage from "@/assets/refolder_icon.png";
+import refolderSuggestImage from "@/assets/refolder_suggest.png";
 import { ExternalLink } from "@/features/resume/components/external-link";
 import { ImageSwap } from "@/features/resume/components/image-swap";
 import { Button } from "@/shared/components/ui/button";
@@ -12,7 +14,7 @@ import {
   SiReactquery,
   SiSqlite,
 } from "@icons-pack/react-simple-icons";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function ReFolderSection() {
@@ -50,6 +52,21 @@ export function ReFolderSection() {
                 </ExternalLink>
               </Button>
             </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring" }}
+            >
+              <Button
+                className="text-muted-foreground rounded-full"
+                variant="outline"
+                asChild
+              >
+                <ExternalLink href="https://github.com/Xeonlink/re-folder/releases/tag/v1.3.2">
+                  <DownloadIcon className="size-4" />
+                  <span>latest release</span>
+                </ExternalLink>
+              </Button>
+            </motion.li>
           </ul>
         </div>
       </div>
@@ -65,7 +82,7 @@ export function ReFolderSection() {
             가 종종 발생하고, <br />
             main process의 에러가 renderer process로 전달되지 않는 문제도 있었음
           </p>
-          <ImageSwap className="my-2 max-w-150">
+          <ImageSwap className="my-4 max-w-150">
             <img
               src={createApiSelectorImage}
               alt="ipc정의타입을 받아서, renderer에 노출할 ipc를 true/false로 선택"
@@ -94,8 +111,57 @@ export function ReFolderSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-2xl p-8 max-lg:hidden">
-          <h3 className="text-2xl font-bold">Trouble Shooting</h3>
+        <div className="bg-muted space-y-4 rounded-2xl p-8">
+          <h3 className="text-2xl font-bold">🙏 고마워요 누군가 </h3>
+          <p>
+            macOS 빌드를 Release에 올리지 못한 이유는, Apple 개발자 ID가 없어
+            앱에 서명을 못하고,{" "}
+            <span className="text-accent">서명되지 않은 앱</span>은 다른 Mac에서
+            실행할 수 없었기 때문에 Release 를 올리지 못했음 <br />
+          </p>
+          <ImageSwap className="justify-center">
+            <img
+              className="-mt-10 -mb-18"
+              src={refolderDamagedImage}
+              alt="quarantine 속성이 있는 앱을 실행하면 경고창이 뜨는 이미지"
+              loading="lazy"
+              width={360}
+            />
+            <img
+              className="h-48"
+              src={refolderSuggestImage}
+              alt="xattr -cr 로 quarantine 속성을 제거하면 실행할 수 있다고 알려주심"
+              loading="lazy"
+            />
+          </ImageSwap>
+          <ul className="ml-4 space-y-2">
+            <li className="list-disc">
+              Issue를 남겨주신 분이{" "}
+              <span className="text-accent">xattr -cr</span>로 quarantine 속성을
+              제거하면, 서명 없이도 macOS에서 앱을 실행할 수 있는{" "}
+              <span className="text-accent">우회 방법</span>을 알려주심
+            </li>
+            <li className="list-disc">
+              비록 사용자가 직접 명령어를 입력하여 우회해야하지만, 이런 방법도
+              있다는 것을 새롭게 알게되었음
+            </li>
+            <li className="list-disc">
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://github.com/Xeonlink/re-folder/issues/41">
+                    <SiGithub className="size-4" />
+                    <span>사용자의 제안</span>
+                  </ExternalLink>
+                </Button>
+              </motion.div>{" "}
+              덕분에 macOS 빌드를 <span className="text-accent">Release</span>{" "}
+              할 수 있게 됨
+            </li>
+          </ul>
         </div>
 
         <div className="bg-muted space-y-4 rounded-2xl p-8">

@@ -2,6 +2,7 @@ import homelabBackupImage from "@/assets/homelab_backup.png";
 import homelabCaseImage from "@/assets/homelab_case.jpeg";
 import homelabHubrackImage from "@/assets/homelab_hubrack.jpeg";
 import homelabTailscaleImage from "@/assets/homelab_tailscale.png";
+import netbirdImage from "@/assets/netbird.png";
 import {
   ExternalLink,
   LinkIcon,
@@ -172,7 +173,8 @@ export function HomeLabSection() {
           <h3 className="text-2xl font-bold">Trouble Shooting</h3>
           <p>
             이전에는 OPNsense에{" "}
-            <motion.span
+            <motion.div
+              className="inline-block"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
@@ -182,7 +184,7 @@ export function HomeLabSection() {
                   WireGuard
                 </ExternalLink>
               </Button>
-            </motion.span>{" "}
+            </motion.div>{" "}
             를 설정하여 사용했었으나, <br />
             ISP 에서 할당 받은 IP 주소가 변경되어 WireGuard Signal Server 에
             접근할 수 없어지는 문제가 발생
@@ -194,7 +196,8 @@ export function HomeLabSection() {
           />
           <p>
             어쩔 수 없이 Signal Server 만큼은{" "}
-            <motion.span
+            <motion.div
+              className="inline-block"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
@@ -204,8 +207,27 @@ export function HomeLabSection() {
                   Tailscale
                 </ExternalLink>
               </Button>
-            </motion.span>{" "}
+            </motion.div>{" "}
             에 의존하는 것으로 타협
+            <br />
+            추후에{" "}
+            <motion.div
+              className="inline-block"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring" }}
+            >
+              <Button className="rounded-full" variant="outline" asChild>
+                <ExternalLink href="https://tailscale.com/">
+                  <img
+                    className="-mx-0.5 size-4 grayscale"
+                    src={netbirdImage}
+                    alt="NetBird"
+                  />
+                  NetBird
+                </ExternalLink>
+              </Button>
+            </motion.div>{" "}
+            로 전환하여 Singal Server 까지 외부 의존을 배제하는 것이 목표
           </p>
         </div>
 

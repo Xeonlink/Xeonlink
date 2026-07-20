@@ -103,7 +103,8 @@ export function GobundalSection() {
           <h3 className="text-2xl font-bold">Middleware 시스템 · DAL 도입</h3>
           <p>
             <span className="text-accent">CVE</span>{" "}
-            <motion.span
+            <motion.div
+              className="inline-block"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring" }}
             >
@@ -113,7 +114,7 @@ export function GobundalSection() {
                   <LinkIcon className="size-4" />
                 </ExternalLink>
               </Button>
-            </motion.span>{" "}
+            </motion.div>{" "}
             이후에 시작한 프로젝트라 input · role 검증등 Server Action이
             비대해진 상태에서 <br />
             Draggable Modal (client component) 을 위해 Route Handler까지

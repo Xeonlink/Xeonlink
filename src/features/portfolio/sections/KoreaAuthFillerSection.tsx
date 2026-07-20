@@ -1,3 +1,5 @@
+import authFillerTroubleVideo from "@/assets/auth_filler_trouble.mp4";
+import authFillerTroubleShootVideo from "@/assets/auth_filler_troubleshoot.mp4";
 import captchaBreakImage from "@/assets/captcha-break.gif";
 import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
 import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
@@ -16,7 +18,7 @@ import {
   SiReact,
   SiWxt,
 } from "@icons-pack/react-simple-icons";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, InfoIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function KoreaAuthFillerSection() {
@@ -132,10 +134,7 @@ export function KoreaAuthFillerSection() {
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
-                  <ExternalLink
-                    className="border-underline"
-                    href="https://github.com/Xeonlink/kaptch"
-                  >
+                  <ExternalLink href="https://github.com/Xeonlink/kaptch">
                     <SiGithub className="size-4" />
                     <span>Kaptch</span>
                   </ExternalLink>
@@ -146,8 +145,55 @@ export function KoreaAuthFillerSection() {
           </ul>
         </div>
 
-        <div className="bg-muted space-y-4 rounded-2xl p-8 max-lg:hidden">
+        <div className="bg-muted space-y-4 rounded-2xl p-8">
           <h3 className="text-2xl font-bold">Trouble Shooting</h3>
+          <p>
+            인증 페이지가 <span className="text-accent">CSR</span> 형식인 경우,{" "}
+            <span className="text-accent">DOMContentLoaded</span> event 이후에도
+            몇몇 랜더링이 끝나지 않아 "자동입력" 순서가 꼬이는 문제 발생
+          </p>
+          <div className="flex w-full gap-4">
+            <div className="space-y-2 text-center">
+              <video
+                className="w-full rounded-md"
+                src={authFillerTroubleVideo}
+                controls
+              />
+              <span>Issue</span>
+            </div>
+            <div className="space-y-2 text-center">
+              <video
+                className="w-full rounded-md"
+                src={authFillerTroubleShootVideo}
+                controls
+              />
+              <span>Fix</span>
+            </div>
+          </div>
+          <ul className="ml-4 space-y-2">
+            <li className="list-disc">
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
+              >
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://developer.mozilla.org/ko/docs/Web/API/MutationObserver">
+                    <InfoIcon className="size-4" />
+                    <span>MutationObserver</span>
+                  </ExternalLink>
+                </Button>
+              </motion.div>{" "}
+              를 childList · subtree 옵션과 함께 사용하여, 짧은 시간안에 DOM
+              tree 에 변화가 생기면 아직 랜더링 중이라고 판단하여 "자동입력"을
+              미룸
+            </li>
+            <li className="list-disc">
+              <span className="text-accent">debounce</span> 함수와 함께
+              사용하여, 마지막 변화 이후 1초 뒤 "자동입력"을 진행하여 CSR page
+              가 완전히 랜더링 되었음을 보장
+            </li>
+          </ul>
         </div>
 
         <div className="bg-muted space-y-4 rounded-2xl p-8">
