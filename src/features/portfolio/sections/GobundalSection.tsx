@@ -6,7 +6,6 @@ import {
 } from "@/features/resume/components/external-link";
 import { Button } from "@/shared/components/ui/button";
 import {
-  SiChartdotjs,
   SiCheerio,
   SiDocker,
   SiNextdotjs,
@@ -195,25 +194,40 @@ export function GobundalSection() {
           <h3 className="text-2xl font-bold">기타 연동 및 기여</h3>
           <ul className="ml-4 space-y-2">
             <li className="list-disc">
-              Sever side에서 농장{" "}
-              <ExternalLink
-                className="border-underline"
-                href="https://www.ejejumoon.com/"
+              Sever side에서{" "}
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
               >
-                <span className="text-accent">홈페이지</span>
-              </ExternalLink>{" "}
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://www.ejejumoon.com/">
+                    <LinkIcon className="size-4" />
+                    농장 홈페이지
+                  </ExternalLink>
+                </Button>
+              </motion.div>{" "}
               Admin 페이지 <span className="text-accent">크롤링</span>{" "}
               <ArrowRightIcon className="inline size-4" /> Cheerio 라이브러리를
               사용하여 <span className="text-accent">데이터 추출</span>
             </li>
             <li className="list-disc">
-              <ExternalLink
-                className="border-underline"
-                href="https://www.okmunja.co.kr/main/main.php"
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring" }}
               >
-                <span className="text-accent">OK 문자</span>
-              </ExternalLink>
-              의 <span className="text-accent">API</span>를 연동{" "}
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://www.okmunja.co.kr/main/main.php">
+                    <img
+                      className="-mx-1 size-4"
+                      src="https://www.okmunja.co.kr/img/common/favicon.ico"
+                    />
+                    OK 문자
+                  </ExternalLink>
+                </Button>
+              </motion.div>{" "}
+              <span className="text-accent">API</span> 연동{" "}
               <ArrowRightIcon className="inline size-4" /> API 문서에 따라,
               form-url-encoded로 변형 후 전송
             </li>
@@ -268,20 +282,6 @@ export function GobundalSection() {
                 </Button>
               </motion.span>{" "}
               <span>공식 API가 없는 어드민 페이지를 파싱하기 위해 사용</span>
-            </li>
-            <li className="flex gap-2 max-sm:flex-col sm:items-center">
-              <motion.span
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring" }}
-              >
-                <Button className="rounded-full" variant="outline" asChild>
-                  <ExternalLink href="https://www.chartjs.org/">
-                    <SiChartdotjs />
-                    Chart.js
-                  </ExternalLink>
-                </Button>
-              </motion.span>{" "}
-              <span>판매 · 배송 통계를 시각화하기 위해 사용</span>
             </li>
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span

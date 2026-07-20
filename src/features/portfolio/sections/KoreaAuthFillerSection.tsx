@@ -14,6 +14,7 @@ import {
   SiFirefox,
   SiGithub,
   SiGooglechrome,
+  SiNpm,
   SiOnnx,
   SiReact,
   SiWxt,
@@ -118,8 +119,16 @@ export function KoreaAuthFillerSection() {
           <ul className="ml-4 space-y-2">
             <li className="list-disc">
               <span className="text-accent">CRNN</span> 구조의 인식 모델을 직접
-              학습하고, <span className="text-accent">ONNX Runtime</span>
-              으로 브라우저에서 실행
+              학습하고,{" "}
+              <motion.div className="inline-block">
+                <Button className="rounded-full" variant="outline" asChild>
+                  <ExternalLink href="https://www.npmjs.com/package/onnxruntime-web">
+                    <SiNpm className="size-4" />
+                    <span>ONNX Runtime</span>
+                  </ExternalLink>
+                </Button>
+              </motion.div>{" "}
+              을 사용하여 브라우저에서 실행
             </li>
             <li className="list-disc">
               인증벤더 별 <span className="text-accent">전용 모델</span>을
@@ -155,7 +164,7 @@ export function KoreaAuthFillerSection() {
           <div className="flex w-full gap-4">
             <div className="space-y-2 text-center">
               <video
-                className="w-full rounded-md"
+                className="w-full rounded-xl"
                 src={authFillerTroubleVideo}
                 controls
               />
@@ -163,7 +172,7 @@ export function KoreaAuthFillerSection() {
             </div>
             <div className="space-y-2 text-center">
               <video
-                className="w-full rounded-md"
+                className="w-full rounded-xl"
                 src={authFillerTroubleShootVideo}
                 controls
               />
