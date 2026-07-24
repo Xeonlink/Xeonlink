@@ -1,11 +1,9 @@
 import 정보처리기사자격증Image from "@/assets/engineer_information_processing_cert.jpeg";
 import SQLD자격증Image from "@/assets/sqld_cert.png";
 import { Article, ArticleImage } from "@/features/resume/components/article";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
+import { LinkIcon } from "lucide-react";
 
 export function CertificationSection() {
   return (
@@ -23,7 +21,7 @@ export function CertificationSection() {
               정보 처리 <span className="text-accent font-bold">기사</span>
             </h2>
             &nbsp;
-            <LinkIcon />
+            <LinkIcon className="inline size-5 align-baseline" />
           </ExternalLink>
           <span className="text-xl">한국산업인력공단</span>
         </div>
@@ -42,7 +40,7 @@ export function CertificationSection() {
               SQL <span className="text-accent font-bold">개발자</span> (SQLD)
             </h2>
             &nbsp;
-            <LinkIcon />
+            <LinkIcon className="inline size-5 align-baseline" />
           </ExternalLink>
           <span className="text-xl">한국데이터산업진흥원</span>
         </div>

@@ -4,10 +4,7 @@ import gobundalFaviconImage from "@/assets/gobundal_favicon.png";
 import gobundalModalDemoGif from "@/assets/gobundal_modal_demo.gif";
 import { Article, ArticleImage } from "@/features/resume/components/article";
 import { Badge } from "@/features/resume/components/badge";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -15,7 +12,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/shared/components/ui/collapsible";
-import { ArrowRight, ArrowRightIcon } from "lucide-react";
+import { ArrowRight, ArrowRightIcon, LinkIcon } from "lucide-react";
 
 export function ExperienceSection() {
   return (
@@ -30,7 +27,7 @@ export function ExperienceSection() {
             큐브릭 디지털
           </ExternalLink>
           &nbsp;
-          <LinkIcon />
+          <LinkIcon className="inline size-5 align-baseline" />
         </h2>
       </div>
       <Article>
@@ -46,7 +43,7 @@ export function ExperienceSection() {
                 큐브릭 <span className="text-accent">클라우드 사인</span> 고도화
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
@@ -149,7 +146,7 @@ export function ExperienceSection() {
                 큐브릭 <span className="text-accent">사인</span> DX 개선
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
@@ -245,7 +242,7 @@ export function ExperienceSection() {
             곱은달 농장
           </ExternalLink>
           &nbsp;
-          <LinkIcon />
+          <LinkIcon className="inline size-5 align-baseline" />
         </h2>
       </div>
       <Article>
@@ -263,7 +260,7 @@ export function ExperienceSection() {
                 <span className="text-accent">고객</span> 관리 시스템 구축
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="20232a" logo={{ slug: "nextdotjs" }}>

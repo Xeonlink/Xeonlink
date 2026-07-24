@@ -1,11 +1,9 @@
 import namjuFrontSymbolImage from "@/assets/namju_front_symbol.png";
 import ssuImage from "@/assets/ssu.jpg";
 import { Article, ArticleImage } from "@/features/resume/components/article";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
+import { LinkIcon } from "lucide-react";
 
 export function EducationSection() {
   return (
@@ -23,7 +21,7 @@ export function EducationSection() {
               SOONGSIL <span className="text-accent">UNIV</span>ERSITY
             </h2>
             &nbsp;
-            <LinkIcon />
+            <LinkIcon className="inline size-5 align-baseline" />
           </ExternalLink>
           <span className="text-2xl">
             <span className="text-accent">컴퓨터</span> 학부 학사
@@ -44,7 +42,7 @@ export function EducationSection() {
               NAMJU <span className="text-accent">HIGH</span> SCHOOL
             </h2>
             &nbsp;
-            <LinkIcon />
+            <LinkIcon className="inline size-5 align-baseline" />
           </ExternalLink>
           <span className="text-2xl">
             인문계열 <span className="text-accent">이과</span>

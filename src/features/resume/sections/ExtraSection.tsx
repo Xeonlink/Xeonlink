@@ -1,9 +1,7 @@
 import { Article } from "@/features/resume/components/article";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
+import { LinkIcon } from "lucide-react";
 
 export function ExtraSection() {
   return (
@@ -19,7 +17,7 @@ export function ExtraSection() {
                 Kaptch
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <p className="mt-1 max-w-140 break-keep">
               Kaptch는 한국 모바일인증 서비스의{" "}
@@ -45,7 +43,7 @@ export function ExtraSection() {
                 LoanService
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <p className="mt-1 max-w-140 break-keep">
               LoanService는 인터넷이 되지 않는 환경에서도 작동하는{" "}

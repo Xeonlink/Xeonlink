@@ -3,10 +3,7 @@ import homelabCaseImage from "@/assets/homelab_case.jpeg";
 import homelabHubrackImage from "@/assets/homelab_hubrack.jpeg";
 import homelabTailscaleImage from "@/assets/homelab_tailscale.png";
 import netbirdImage from "@/assets/netbird.png";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { ImageSwap } from "@/features/resume/components/image-swap";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -17,7 +14,12 @@ import {
   SiTraefikproxy,
   SiWireguard,
 } from "@icons-pack/react-simple-icons";
-import { ArrowDownIcon, ArrowRightIcon, WifiIcon } from "lucide-react";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  LinkIcon,
+  WifiIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 export function HomeLabSection() {
@@ -176,6 +178,7 @@ export function HomeLabSection() {
             <motion.div
               className="inline-block"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button className="rounded-full" variant="outline" asChild>
@@ -199,6 +202,7 @@ export function HomeLabSection() {
             <motion.div
               className="inline-block"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button className="rounded-full" variant="outline" asChild>
@@ -214,6 +218,7 @@ export function HomeLabSection() {
             <motion.div
               className="inline-block"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button className="rounded-full" variant="outline" asChild>
@@ -237,6 +242,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -251,6 +257,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -265,6 +272,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -279,6 +287,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -293,6 +302,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -307,6 +317,7 @@ export function HomeLabSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>

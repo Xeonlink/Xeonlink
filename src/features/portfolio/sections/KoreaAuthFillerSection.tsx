@@ -3,10 +3,7 @@ import authFillerTroubleShootVideo from "@/assets/auth_filler_troubleshoot.mp4";
 import captchaBreakImage from "@/assets/captcha-break.gif";
 import captchaSolveCodeImage from "@/assets/captcha_solve_code.png";
 import koreaAuthFillerImage from "@/assets/korea_auth_filler_image.png";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { ImageSwap } from "@/features/resume/components/image-swap";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -19,7 +16,7 @@ import {
   SiReact,
   SiWxt,
 } from "@icons-pack/react-simple-icons";
-import { ArrowRightIcon, InfoIcon } from "lucide-react";
+import { ArrowRightIcon, InfoIcon, LinkIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function KoreaAuthFillerSection() {
@@ -45,6 +42,7 @@ export function KoreaAuthFillerSection() {
           <ul className="mt-2 flex gap-2">
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
@@ -60,6 +58,7 @@ export function KoreaAuthFillerSection() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
@@ -75,6 +74,7 @@ export function KoreaAuthFillerSection() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
@@ -140,6 +140,7 @@ export function KoreaAuthFillerSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -184,6 +185,7 @@ export function KoreaAuthFillerSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -238,6 +240,7 @@ export function KoreaAuthFillerSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -252,6 +255,7 @@ export function KoreaAuthFillerSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -266,6 +270,7 @@ export function KoreaAuthFillerSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -282,6 +287,7 @@ export function KoreaAuthFillerSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -298,6 +304,7 @@ export function KoreaAuthFillerSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>

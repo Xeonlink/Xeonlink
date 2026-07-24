@@ -11,10 +11,7 @@ import syncronClockSkewCalculatorImage from "@/assets/syncron_clockskew_calculat
 import syncronFaviconImage from "@/assets/syncron_favicon.svg";
 import { Article, ArticleImage } from "@/features/resume/components/article";
 import { Badge } from "@/features/resume/components/badge";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
 import { ImageSwap } from "@/features/resume/components/image-swap";
 import { Section } from "@/features/resume/components/section";
 import { Button } from "@/shared/components/ui/button";
@@ -23,7 +20,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/shared/components/ui/collapsible";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, LinkIcon } from "lucide-react";
 
 export function ProjectsSection() {
   return (
@@ -45,7 +42,7 @@ export function ProjectsSection() {
                 ReFolder
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
@@ -170,7 +167,7 @@ export function ProjectsSection() {
                 한국인증채우기
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="20232a" logo={{ slug: "react", color: "61DAFB" }}>
@@ -297,7 +294,7 @@ export function ProjectsSection() {
                 prettier-plugin-organize-attributes
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <Badge color="1C2B34" logo={{ slug: "prettier" }}>
@@ -344,7 +341,7 @@ export function ProjectsSection() {
                 Syncron - Web Metronome
               </ExternalLink>
               &nbsp;
-              <LinkIcon />
+              <LinkIcon className="inline size-5 align-baseline" />
             </h3>
             <div className="mt-1 flex flex-wrap">
               <ExternalLink href="https://elysiajs.com/">
