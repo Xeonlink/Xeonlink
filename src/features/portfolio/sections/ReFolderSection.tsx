@@ -39,6 +39,7 @@ export function ReFolderSection() {
           <ul className="mt-2 flex gap-2">
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
@@ -54,6 +55,7 @@ export function ReFolderSection() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
@@ -150,6 +152,7 @@ export function ReFolderSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -192,6 +195,7 @@ export function ReFolderSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -206,6 +210,7 @@ export function ReFolderSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -222,6 +227,7 @@ export function ReFolderSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -236,6 +242,7 @@ export function ReFolderSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -250,6 +257,7 @@ export function ReFolderSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>

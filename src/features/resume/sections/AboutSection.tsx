@@ -45,14 +45,22 @@ export function AboutSection() {
         깊이있는 요구사항 분석을 통해 효용성 높은 접근방식을 사용합니다.
       </p>
       <ul className="flex flex-wrap gap-4">
-        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring" }}
+        >
           <Button className="size-14 rounded-full" variant="outline" asChild>
             <ExternalLink href="https://github.com/Xeonlink">
               <SiGithub className="size-full scale-125" />
             </ExternalLink>
           </Button>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring" }}
+        >
           <Button className="size-14 rounded-full" variant="outline" asChild>
             <ExternalLink href="tel:01067674151">
               <PhoneOutgoingIcon className="size-full -translate-x-0.5 translate-y-0.5" />
@@ -60,7 +68,11 @@ export function AboutSection() {
             </ExternalLink>
           </Button>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring" }}
+        >
           <Button className="size-14 rounded-full" variant="outline" asChild>
             <ExternalLink href="mailto:jimin7020@gmail.com">
               <MailIcon className="size-full" />
@@ -68,7 +80,11 @@ export function AboutSection() {
             </ExternalLink>
           </Button>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring" }}
+        >
           <Button className="size-14 rounded-full" variant="outline" asChild>
             <Link to="/posts">
               <SquarePenIcon className="size-full" />
@@ -76,7 +92,11 @@ export function AboutSection() {
             </Link>
           </Button>
         </motion.li>
-        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+        <motion.li
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring" }}
+        >
           <Button
             className="size-14 rounded-full"
             variant="outline"
@@ -96,6 +116,7 @@ export function AboutSection() {
               <div className="flex justify-center">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring" }}
                 >
                   <Button
