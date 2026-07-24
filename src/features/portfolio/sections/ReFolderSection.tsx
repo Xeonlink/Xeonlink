@@ -100,8 +100,9 @@ export function ReFolderSection() {
               <span className="text-accent">자동으로 생성</span>되도록 설계
             </li>
             <li className="list-disc">
-              <span className="text-accent">Error를 직렬화 / 역직렬화</span>
-              하여, main process 에러를 renderer까지 전파
+              Error 를 <span className="text-accent">직렬화</span> /{" "}
+              <span className="text-accent">역직렬화</span> 하여, main process
+              에러를 renderer까지 전파
             </li>
             <li className="list-disc">
               preload script에{" "}

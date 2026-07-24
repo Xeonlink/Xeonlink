@@ -115,10 +115,9 @@ export function GobundalSection() {
               </Button>
             </motion.div>{" "}
             이후에 시작한 프로젝트라 input · role 검증등 Server Action이
-            비대해진 상태에서 <br />
-            Draggable Modal (client component) 을 위해 Route Handler까지
-            추가되자 <span className="text-accent">중복된 로직</span> 이 급격히
-            증가
+            비대해진 상태에서 Draggable Modal (client component) 을 위해 Route
+            Handler까지 추가되자{" "}
+            <span className="text-accent">중복된 로직</span> 이 급격히 증가
           </p>
           <div className="flex flex-col items-center gap-4 py-6">
             <div className="flex items-center gap-2 max-md:flex-col">

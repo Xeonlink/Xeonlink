@@ -106,7 +106,7 @@ export function HomeLabSection() {
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <div className="bg-muted flex w-40 items-center justify-center rounded-md border p-2">
-                    LAN
+                    LAN (vmbr)
                   </div>
                   <ArrowDownIcon className="size-4" />
                   <div className="rounded-md border border-blue-400 bg-blue-50 p-2 font-medium text-blue-600 dark:border-blue-300 dark:bg-blue-900/20 dark:text-blue-300">
@@ -227,7 +227,7 @@ export function HomeLabSection() {
                 </ExternalLink>
               </Button>
             </motion.div>{" "}
-            로 전환하여 Singal Server 까지 외부 의존을 배제하는 것이 목표
+            로 전환하여 Signal Server 까지 외부 의존을 배제하는 것이 목표
           </p>
         </div>
 
