@@ -3,7 +3,7 @@ import type { ComponentProps, MouseEvent } from "react";
 import { Portal } from "./portal";
 
 const DialogVariants = cva(
-  "size-full max-h-full max-w-full bg-transparent backdrop:backdrop-blur-xs open:flex",
+  "size-full max-h-full max-w-full bg-transparent backdrop:backdrop-blur-xs open:flex backdrop:duration-500 starting:backdrop:backdrop-blur-none",
 );
 
 type DialogProps = ComponentProps<"dialog"> &
@@ -31,7 +31,7 @@ export function Dialog(props: DialogProps) {
 }
 
 const DialogContentVariants = cva(
-  "bg-background border-border m-auto rounded-xl border p-4",
+  "bg-background border-border m-auto rounded-xl border p-4 duration-500 ease-in-out starting:translate-y-10 starting:opacity-10 translate-0 space-y-4",
 );
 
 type DialogContentProps = ComponentProps<"div"> &

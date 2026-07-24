@@ -1,9 +1,7 @@
 import gobundalFaviconImage from "@/assets/gobundal_favicon.png";
 import gobundalModalDemoGif from "@/assets/gobundal_modal_demo.gif";
-import {
-  ExternalLink,
-  LinkIcon,
-} from "@/features/resume/components/external-link";
+import { ExternalLink } from "@/features/resume/components/external-link";
+import { Dialog, DialogContent } from "@/shared/components/dialog";
 import { Button } from "@/shared/components/ui/button";
 import {
   SiCheerio,
@@ -12,7 +10,12 @@ import {
   SiTanstack,
 } from "@icons-pack/react-simple-icons";
 import { Link } from "@tanstack/react-router";
-import { ArrowDownIcon, ArrowRightIcon } from "lucide-react";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  CopyIcon,
+  LinkIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 export function GobundalSection() {
@@ -38,17 +41,70 @@ export function GobundalSection() {
           <ul className="mt-2 flex">
             <motion.li
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button
                 className="text-muted-foreground rounded-full"
                 variant="outline"
-                asChild
+                command="show-modal"
+                commandfor="gobundal-demo-modal"
               >
-                <ExternalLink href="https://gobundal.ohjimin.com/">
-                  <LinkIcon className="size-4" />
-                </ExternalLink>
+                <LinkIcon className="size-4" />
+                데모 바로가기
               </Button>
+              <Dialog id="gobundal-demo-modal">
+                <DialogContent className="w-120">
+                  <div className="flex items-center justify-center gap-2">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring" }}
+                    >
+                      <Button
+                        className="rounded-full"
+                        variant="outline"
+                        onClick={() => {
+                          navigator.clipboard.writeText("demo@demo.com");
+                        }}
+                      >
+                        <CopyIcon className="size-4" /> ID
+                      </Button>
+                    </motion.div>
+                    demo@demo.com
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring" }}
+                    >
+                      <Button
+                        className="rounded-full"
+                        variant="outline"
+                        onClick={() => {
+                          navigator.clipboard.writeText("demo!@0101");
+                        }}
+                      >
+                        <CopyIcon className="size-4" /> PW
+                      </Button>
+                    </motion.div>
+                    demo!@0101
+                  </div>
+                  <div className="relative">
+                    <iframe
+                      className="block h-96 w-full rounded-xl"
+                      src="https://gobundal-demo.ohjimin.com/"
+                      loading="lazy"
+                    />
+                    <ExternalLink
+                      className="absolute inset-0"
+                      href="https://gobundal-demo.ohjimin.com/"
+                    ></ExternalLink>
+                  </div>
+                  <p className="dark:text-muted-foreground text-center">
+                    라이트 모드로 봐주시면 감사하겠습니다.
+                  </p>
+                </DialogContent>
+              </Dialog>
             </motion.li>
           </ul>
         </div>
@@ -81,6 +137,7 @@ export function GobundalSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -105,6 +162,7 @@ export function GobundalSection() {
             <motion.div
               className="inline-block"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ type: "spring" }}
             >
               <Button className="rounded-full" variant="outline" asChild>
@@ -166,6 +224,7 @@ export function GobundalSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -197,6 +256,7 @@ export function GobundalSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -214,6 +274,7 @@ export function GobundalSection() {
               <motion.div
                 className="inline-block"
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -255,6 +316,7 @@ export function GobundalSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -271,6 +333,7 @@ export function GobundalSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -285,6 +348,7 @@ export function GobundalSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
@@ -301,6 +365,7 @@ export function GobundalSection() {
             <li className="flex gap-2 max-sm:flex-col sm:items-center">
               <motion.span
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring" }}
               >
                 <Button className="rounded-full" variant="outline" asChild>
