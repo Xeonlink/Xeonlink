@@ -1,11 +1,18 @@
 import dockerAlignImage from "@/assets/docker-align.png";
+import kakaotalkOpenChatQR from "@/assets/kakaotalk_openchat_qr.png";
 import profileImage from "@/assets/selfie0_crop2.jpeg";
-import { GithubIcon } from "@/features/resume/components/GithubIcon";
 import { ExternalLink } from "@/features/resume/components/external-link";
 import { Section } from "@/features/resume/components/section";
+import { Dialog, DialogContent } from "@/shared/components/dialog";
 import { Button } from "@/shared/components/ui/button";
+import { SiGithub, SiKakaotalk } from "@icons-pack/react-simple-icons";
 import { Link } from "@tanstack/react-router";
-import { MailIcon, PhoneOutgoingIcon, SquarePenIcon } from "lucide-react";
+import {
+  LinkIcon,
+  MailIcon,
+  PhoneOutgoingIcon,
+  SquarePenIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 export function AboutSection() {
@@ -37,11 +44,11 @@ export function AboutSection() {
         만듭니다. <br />
         깊이있는 요구사항 분석을 통해 효용성 높은 접근방식을 사용합니다.
       </p>
-      <ul className="flex gap-4">
+      <ul className="flex flex-wrap gap-4">
         <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
           <Button className="size-14 rounded-full" variant="outline" asChild>
             <ExternalLink href="https://github.com/Xeonlink">
-              <GithubIcon className="size-full scale-125" />
+              <SiGithub className="size-full scale-125" />
             </ExternalLink>
           </Button>
         </motion.li>
@@ -68,6 +75,43 @@ export function AboutSection() {
               <span className="sr-only">go to tech blog</span>
             </Link>
           </Button>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.3 }} transition={{ type: "spring" }}>
+          <Button
+            className="size-14 rounded-full"
+            variant="outline"
+            command="show-modal"
+            commandfor="kakaotalk-open-chat-room"
+          >
+            <SiKakaotalk className="size-full" />
+            <span className="sr-only">go to kakaotalk open chat room</span>
+          </Button>
+          <Dialog id="kakaotalk-open-chat-room">
+            <DialogContent className="space-y-4 border-0 bg-transparent">
+              <img
+                className="light rounded-4xl"
+                src={kakaotalkOpenChatQR}
+                alt="kakaotalk open chat QR"
+              />
+              <div className="flex justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring" }}
+                >
+                  <Button
+                    className="text-muted-foreground rounded-full"
+                    variant="outline"
+                    asChild
+                  >
+                    <ExternalLink href="https://open.kakao.com/o/sU47DqFi">
+                      <LinkIcon className="size-4" />
+                      링크로 열기
+                    </ExternalLink>
+                  </Button>
+                </motion.div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </motion.li>
       </ul>
     </Section>

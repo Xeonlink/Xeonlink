@@ -94,6 +94,7 @@ function RootDocument() {
             <ModalContainer />
           </MotionConfig>
         </ThemeProvider>
+        <div id="portal-exit"></div>
         <Scripts />
       </body>
     </html>
