@@ -30,11 +30,6 @@ export const Route = createRootRoute({
       { rel: "icon", type: "image/png", href: favicon },
       { rel: "canonical", href: "https://portfolio.ohjimin.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
     ],
   }),
   component: RootDocument,
@@ -82,7 +77,7 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
