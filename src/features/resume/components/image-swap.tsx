@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { cloneElement, type ComponentProps } from "react";
+import { cloneElement, useState, type ComponentProps } from "react";
 
 type ImageSwapProps = ComponentProps<"div"> & {
   children: [
@@ -11,20 +11,26 @@ type ImageSwapProps = ComponentProps<"div"> & {
 export function ImageSwap(props: ImageSwapProps) {
   const { children, className, ...rest } = props;
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className={cn("group relative flex flex-wrap items-center", className)}
+      className={cn("relative flex flex-wrap items-center", className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       {...rest}
     >
       {cloneElement(children[0], {
         className: cn(
-          "rounded-xl motion-safe:duration-700 group-hover:opacity-0 group-hover:blur-md",
+          "rounded-xl motion-safe:duration-700",
+          isHovered && "opacity-0 blur-md",
           children[0].props.className,
         ),
       })}
       {cloneElement(children[1], {
         className: cn(
-          "absolute rounded-xl opacity-0 blur-md motion-safe:duration-700 group-hover:opacity-100 group-hover:blur-none",
+          "absolute rounded-xl motion-safe:duration-700",
+          !isHovered && "opacity-0 blur-md",
           children[1].props.className,
         ),
       })}
