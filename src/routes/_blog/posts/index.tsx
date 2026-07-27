@@ -16,6 +16,13 @@ type Post = {
 
 const posts: Post[] = [
   {
+    title: "왜 한글 변수를 사용하지 않는가?",
+    description:
+      "어순·합성어·한영전환 피로라는 3가지 장벽, 그리고 AI 시대에 한글 식별자를 쓰는 기준",
+    date: "2026년 4월",
+    slug: "/posts/why-not-korean-variables",
+  },
+  {
     title: "모노레포 짭 - Orphan Branch",
     description:
       "하나의 레포지토리 안에서 orphan branch와 clean-switch alias로 프로젝트를 격리하는 방법",

@@ -14,6 +14,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as BlogRouteRouteImport } from './routes/_blog/route'
 import { Route as BlogIndexRouteImport } from './routes/_blog/index'
 import { Route as BlogPostsIndexRouteImport } from './routes/_blog/posts/index'
+import { Route as BlogPostsWhyNotKoreanVariablesRouteImport } from './routes/_blog/posts/why-not-korean-variables'
 import { Route as BlogPostsPrettierFormatLinearRouteImport } from './routes/_blog/posts/prettier-format-linear'
 import { Route as BlogPostsPrettierArchitectureRouteImport } from './routes/_blog/posts/prettier-architecture'
 import { Route as BlogPostsOrphanBranchIsolationRouteImport } from './routes/_blog/posts/orphan-branch-isolation'
@@ -46,6 +47,12 @@ const BlogPostsIndexRoute = BlogPostsIndexRouteImport.update({
   path: '/posts/',
   getParentRoute: () => BlogRouteRoute,
 } as any)
+const BlogPostsWhyNotKoreanVariablesRoute =
+  BlogPostsWhyNotKoreanVariablesRouteImport.update({
+    id: '/posts/why-not-korean-variables',
+    path: '/posts/why-not-korean-variables',
+    getParentRoute: () => BlogRouteRoute,
+  } as any)
 const BlogPostsPrettierFormatLinearRoute =
   BlogPostsPrettierFormatLinearRouteImport.update({
     id: '/posts/prettier-format-linear',
@@ -98,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
   '/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/posts/why-not-korean-variables': typeof BlogPostsWhyNotKoreanVariablesRoute
   '/posts/': typeof BlogPostsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -111,6 +119,7 @@ export interface FileRoutesByTo {
   '/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
   '/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
   '/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/posts/why-not-korean-variables': typeof BlogPostsWhyNotKoreanVariablesRoute
   '/posts': typeof BlogPostsIndexRoute
 }
 export interface FileRoutesById {
@@ -126,6 +135,7 @@ export interface FileRoutesById {
   '/_blog/posts/orphan-branch-isolation': typeof BlogPostsOrphanBranchIsolationRoute
   '/_blog/posts/prettier-architecture': typeof BlogPostsPrettierArchitectureRoute
   '/_blog/posts/prettier-format-linear': typeof BlogPostsPrettierFormatLinearRoute
+  '/_blog/posts/why-not-korean-variables': typeof BlogPostsWhyNotKoreanVariablesRoute
   '/_blog/posts/': typeof BlogPostsIndexRoute
 }
 export interface FileRouteTypes {
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/posts/orphan-branch-isolation'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
+    | '/posts/why-not-korean-variables'
     | '/posts/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/posts/orphan-branch-isolation'
     | '/posts/prettier-architecture'
     | '/posts/prettier-format-linear'
+    | '/posts/why-not-korean-variables'
     | '/posts'
   id:
     | '__root__'
@@ -168,6 +180,7 @@ export interface FileRouteTypes {
     | '/_blog/posts/orphan-branch-isolation'
     | '/_blog/posts/prettier-architecture'
     | '/_blog/posts/prettier-format-linear'
+    | '/_blog/posts/why-not-korean-variables'
     | '/_blog/posts/'
   fileRoutesById: FileRoutesById
 }
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       path: '/posts'
       fullPath: '/posts/'
       preLoaderRoute: typeof BlogPostsIndexRouteImport
+      parentRoute: typeof BlogRouteRoute
+    }
+    '/_blog/posts/why-not-korean-variables': {
+      id: '/_blog/posts/why-not-korean-variables'
+      path: '/posts/why-not-korean-variables'
+      fullPath: '/posts/why-not-korean-variables'
+      preLoaderRoute: typeof BlogPostsWhyNotKoreanVariablesRouteImport
       parentRoute: typeof BlogRouteRoute
     }
     '/_blog/posts/prettier-format-linear': {
@@ -275,6 +295,7 @@ interface BlogRouteRouteChildren {
   BlogPostsOrphanBranchIsolationRoute: typeof BlogPostsOrphanBranchIsolationRoute
   BlogPostsPrettierArchitectureRoute: typeof BlogPostsPrettierArchitectureRoute
   BlogPostsPrettierFormatLinearRoute: typeof BlogPostsPrettierFormatLinearRoute
+  BlogPostsWhyNotKoreanVariablesRoute: typeof BlogPostsWhyNotKoreanVariablesRoute
   BlogPostsIndexRoute: typeof BlogPostsIndexRoute
 }
 
@@ -287,6 +308,7 @@ const BlogRouteRouteChildren: BlogRouteRouteChildren = {
   BlogPostsOrphanBranchIsolationRoute: BlogPostsOrphanBranchIsolationRoute,
   BlogPostsPrettierArchitectureRoute: BlogPostsPrettierArchitectureRoute,
   BlogPostsPrettierFormatLinearRoute: BlogPostsPrettierFormatLinearRoute,
+  BlogPostsWhyNotKoreanVariablesRoute: BlogPostsWhyNotKoreanVariablesRoute,
   BlogPostsIndexRoute: BlogPostsIndexRoute,
 }
 
