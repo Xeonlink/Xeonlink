@@ -1,5 +1,5 @@
 # Builder: glibc image — Bun+Vite build is unstable on alpine under buildx amd64 emulation.
-FROM oven/bun:1.3-slim AS builder
+FROM oven/bun:1.4.4-slim AS builder
 WORKDIR /app
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
@@ -7,7 +7,7 @@ COPY . .
 ENV NODE_ENV=production
 RUN bun --bun run build
 
-FROM oven/bun:1.3-alpine AS runner
+FROM oven/bun:1.4.4-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
